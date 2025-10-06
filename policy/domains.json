@@ -1,0 +1,7 @@
+{
+  "domains": [
+    { "name": "core", "paths": ["src/core/**"] },
+    { "name": "domain", "paths": ["src/domain/**"] },
+    { "name": "utils", "paths": ["src/utils/**"] }
+  ]
+}
