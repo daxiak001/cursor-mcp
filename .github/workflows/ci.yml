@@ -20,12 +20,4 @@ jobs:
         run: pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/hardcode_scan.ps1
       - name: Quality gate (coverage)
         run: pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/check_quality.ps1
-      - name: Upload reports
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: reports
-          path:
-            - reports/coverage-summary.txt
-            - coverage/coverage-summary.json
-            - reports/quality-summary.txt
+      - name: Security (Semgrep)\n        run: |\n          pip install semgrep || true\n          semgrep scan --config auto --error .\n\n      - name: Secrets (Gitleaks)\n        run: |\n          curl -sSL https://github.com/gitleaks/gitleaks/releases/latest/download/gitleaks-windows-amd64.exe -o gitleaks.exe\n          ./gitleaks.exe detect --no-banner --redact --exit-code 1\n\n      - name: Upload reports\n        if: always()\n        uses: actions/upload-artifact@v4\n        with:\n          name: reports\n          path:\n            - reports/coverage-summary.txt\n            - coverage/coverage-summary.json\n            - reports/quality-summary.txt\n
