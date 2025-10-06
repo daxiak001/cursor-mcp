@@ -31,3 +31,5 @@ if (-not $updated) {
 ($json | ConvertTo-Json -Depth 5) | Out-File -FilePath $File -Encoding UTF8
 Write-Host "例外已更新: $Path -> rules=[$($Rules -join ',')] expires=$Expires"
 
+
+

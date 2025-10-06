@@ -23,8 +23,9 @@
 - 通过标准：以上步骤均通过才允许合并
 
 ## 例外与灰度
-- exceptions.json：记录临时豁免（带到期时间），避免永久豁免
+- exceptions.json：记录临时豁免（带到期时间），避免永久豁免；使用 scripts/set_exception.ps1 维护
 - 新规则灰度：先仅CI告警，不阻断；稳定后再启用阻断
+- 动态覆盖率：依据 reports/changed-files.txt 中变更路径，按 policy/routing.json 选取匹配规则的最高阈值
 
 ## 与文档联动
 - 所有CI/Hooks结果路径需在“开发跟进记录.md”登记为[#TEST]证据
