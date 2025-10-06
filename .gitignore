@@ -1,0 +1,7 @@
+node_modules/
+coverage/
+reports/*.html
+reports/*.xml
+deliverable_*.zip
+tests/fixtures/tmp_*
+
