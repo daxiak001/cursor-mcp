@@ -3,7 +3,7 @@ on:
   pull_request:
     branches: [ main ]
   push:
-    branches: [ demo/first-pr ]
+    branches: [ chore/ci-hardening ]
 jobs:
   build:
     runs-on: windows-latest
@@ -22,3 +22,4 @@ jobs:
         with:
           name: coverage-summary
           path: reports/coverage-summary.txt
+
