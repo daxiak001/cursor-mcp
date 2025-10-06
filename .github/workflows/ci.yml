@@ -12,12 +12,19 @@ jobs:
           node-version: '20'
       - name: Install deps
         run: npm ci || npm i
-      - name: Diff test pattern
-        run: node scripts/diff_test.cjs origin/main
-      - name: Unit tests (diff)
+      - name: Advanced diff (tests-to-run)
+        run: node scripts/diff_advanced.cjs origin/main
+      - name: Policy report
+        run: pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/policy_report.ps1
+      - name: Unit tests (advanced diff)
         run: |
-          $pattern = Get-Content reports/diff-test-pattern.txt -Raw -ErrorAction SilentlyContinue
-          if ([string]::IsNullOrWhiteSpace($pattern)) { npm test --silent } else { npx vitest run --reporter=dot --coverage --include $pattern }
+          $tests = Get-Content reports/tests-to-run.txt -Raw -ErrorAction SilentlyContinue
+          if (-not [string]::IsNullOrWhiteSpace($tests)) {
+            npx vitest run --reporter=dot --coverage --include $tests
+          } else {
+            $pattern = Get-Content reports/diff-test-pattern.txt -Raw -ErrorAction SilentlyContinue
+            if ([string]::IsNullOrWhiteSpace($pattern)) { npm test --silent } else { npx vitest run --reporter=dot --coverage --include $pattern }
+          }
       - name: Hardcode scan
         run: pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/hardcode_scan.ps1
       - name: Coverage gate
@@ -41,5 +48,7 @@ jobs:
             reports/quality-summary.txt
             reports/diff-test-pattern.txt
             reports/changed-files.txt
-            reports/changed-files.txt
+            reports/tests-to-run.txt
+            reports/policy-report.json
+            reports/policy-report.md
 
