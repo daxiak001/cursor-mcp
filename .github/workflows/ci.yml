@@ -16,6 +16,8 @@ jobs:
         run: node scripts/diff_advanced.cjs origin/main
       - name: Affected domains
         run: node scripts/affected_domains.cjs
+      - name: Generate domain smoke tests (if missing)
+        run: node scripts/generate_domain_smoke_tests.cjs
       - name: Augment tests by domains
         run: node scripts/augment_tests.cjs
       - name: Policy report
