@@ -8,8 +8,10 @@
     "format:check": "echo format check placeholder"
   },
   "devDependencies": {
-    "vitest": "^1.6.0"
-  , "typescript": "^5.5.4"}
+    "vitest": "^1.6.0",
+    "typescript": "^5.5.4",
+    "@types/node": "^20.14.10"
+  }
 }
 
 
