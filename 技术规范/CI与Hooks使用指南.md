@@ -29,3 +29,13 @@
 ## 与文档联动
 - 所有CI/Hooks结果路径需在“开发跟进记录.md”登记为[#TEST]证据
 - 阶段完成在“阶段登记表.md”记录[#STAGE]并附CI通过链接
+
+## 安全工作流（security.yml）
+- 触发：pull_request、push(main)
+- 步骤：Semgrep（SAST）+ Gitleaks（Secrets）
+- 策略：发现高危则阻断；可通过 exceptions.json 临时豁免（需到期）
+- 位置：.github/workflows/security.yml
+
+## PR模板
+- 位置：.github/PULL_REQUEST_TEMPLATE.md
+- 清单：单测/覆盖率/semgrep/gitleaks/契约/文档更新 均需勾选
