@@ -39,6 +39,8 @@ jobs:
         run: |
           curl -sSL https://github.com/gitleaks/gitleaks/releases/latest/download/gitleaks-windows-amd64.exe -o gitleaks.exe
           ./gitleaks.exe detect --no-banner --redact --exit-code 1
+      - name: Interface diff
+        run: node scripts/interface_diff.cjs
       - name: Upload reports
         if: always()
         uses: actions/upload-artifact@v4
@@ -53,5 +55,7 @@ jobs:
             reports/tests-to-run.txt
             reports/policy-report.json
             reports/policy-report.md
+            reports/interface-diff.json
+            reports/interface-diff.md
             reports/ci-dashboard.md
 
