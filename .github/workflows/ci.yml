@@ -29,6 +29,8 @@ jobs:
         run: pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/hardcode_scan.ps1
       - name: Coverage gate
         run: pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/check_quality.ps1
+      - name: Generate CI dashboard
+        run: pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/run_reports.ps1
       - name: Security (Semgrep)
         run: |
           pip install semgrep || true
@@ -51,4 +53,5 @@ jobs:
             reports/tests-to-run.txt
             reports/policy-report.json
             reports/policy-report.md
+            reports/ci-dashboard.md
 
