@@ -65,3 +65,5 @@
 - v0.8：受影响域（affected-domains.{txt,json}）已接入CI
 
 - v0.8.0 已合并：受影响域工件(affected-domains.{txt,json})
+
+- v0.9：域阈值(domain-thresholds)与增强选测(tests-to-run-augmented)已接入
