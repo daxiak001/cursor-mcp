@@ -40,6 +40,12 @@
 3) run_tests → 生成测试证据
 4) respond_to_user → 确认“非询问式”输出
 
+## 自动确认（无询问）模式
+- 当存在环境变量 `XIAOLIU_AUTO_CONFIRM=1`（或 `AUTO_CONFIRM=1`）时：
+  - write_code/modify_file：默认走“直接执行”分支，仍保留规则阻断；
+  - respond_to_user：自动移除询问式用语，要求直接结论与动作；
+  - run_tests：若声明“已完成”，需在输出中附上测试证据路径或自动触发本地脚本。
+
 ## 违规级别
 - critical：阻断写入或回复
 - high：强烈建议修复，否则降级为警告（S2起可策略化）
