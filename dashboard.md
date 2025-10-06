@@ -35,3 +35,5 @@
 - v0.2 安全门禁配置已提交（PR模板、Semgrep、Gitleaks）
 
 - 安全工作流已就绪（独立security.yml），PR模板已加入
+
+- AST补丁工具增强：add_function/update_call_argument 已提交
