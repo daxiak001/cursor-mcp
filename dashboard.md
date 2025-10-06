@@ -49,3 +49,5 @@
 - v0.4.0 合并完成（AST: insert_param/add_guard_clause）
  
  - v0.5：高级差异选测（tests-to-run）与策略报告（policy-report.{json,md}）已提交到分支
+
+- v0.5.0 已合并：高级选测与策略报告
