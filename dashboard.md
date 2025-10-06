@@ -27,3 +27,5 @@
 - 最新发布: v0.1.0 (https://github.com/daxiak001/cursor-mcp/releases/tag/v0.1.0)
 
 - 最近合并: PR#9, PR#10
+
+- v0.2 启动项已合并（分层路由+AST insert_import）
