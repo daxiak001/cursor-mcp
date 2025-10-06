@@ -17,3 +17,6 @@
 输出：
 - 通过：{ success: true }
 - 未过：{ success: false, violations: [{rule_id, severity, description, suggestion}], action_required: "按建议修改回复或先测试" }
+
+自动确认（无询问模式）：
+- 若检测到环境变量 `XIAOLIU_AUTO_CONFIRM=1` 或 `AUTO_CONFIRM=1`，工具应在可能的前提下自动删除询问式措辞并直接给出执行项；若仍存在阻断项（critical），直接返回未过并给出改写建议。
