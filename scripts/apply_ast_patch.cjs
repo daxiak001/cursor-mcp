@@ -48,6 +48,112 @@ function applyOperationsToText(text, ops) {
       current = insertOrMergeImport(current, op.module, op.named);
       continue;
     }
+    // add_function: insert a top-level function if not exists
+    if (op.type === 'add_function') {
+      const sf = ts.createSourceFile('file.ts', current, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS);
+      const has = sf.statements.some(
+        (st) => ts.isFunctionDeclaration(st) && st.name && st.name.text === op.name
+      );
+      if (!has) {
+        const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
+        const newFn = ts.factory.createFunctionDeclaration(
+          /*modifiers*/ [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword)],
+          /*asteriskToken*/ undefined,
+          /*name*/ op.name,
+          /*typeParameters*/ undefined,
+          /*parameters*/ (Array.isArray(op.params) ? op.params : []).map((p) =>
+            ts.factory.createParameterDeclaration(
+              undefined,
+              undefined,
+              undefined,
+              p,
+              undefined,
+              undefined,
+              undefined
+            )
+          ),
+          /*type*/ undefined,
+          /*body*/ ts.factory.createBlock(
+            [
+              ts.factory.createReturnStatement(
+                op.returnLiteral !== undefined
+                  ? (typeof op.returnLiteral === 'string'
+                      ? ts.factory.createStringLiteral(op.returnLiteral)
+                      : ts.factory.createIdentifier(String(op.returnLiteral)))
+                  : undefined
+              ),
+            ],
+            true
+          )
+        );
+        const sf2 = ts.factory.updateSourceFile(sf, [...sf.statements, newFn]);
+        current = printer.printFile(sf2);
+      }
+      continue;
+    }
+
+    // update_call_argument: update first matching CallExpression callee name and argument index
+    if (op.type === 'update_call_argument') {
+      const sourceFile = ts.createSourceFile('file.ts', current, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS);
+      const transformer = (context) => {
+        let updated = false;
+        const visit = (node) => {
+          if (
+            ts.isCallExpression(node) &&
+            ts.isIdentifier(node.expression) &&
+            node.expression.text === op.callee &&
+            Array.isArray(node.arguments) &&
+            typeof op.argIndex === 'number' &&
+            op.argIndex >= 0 &&
+            op.argIndex < node.arguments.length &&
+            !updated
+          ) {
+            const args = node.arguments.slice();
+            let newArg = undefined;
+            if (typeof op.newArg === 'string') {
+              // try to parse as literal string like "'text'" or numeric
+              if (/^['"].*['"]$/.test(op.newArg)) {
+                newArg = ts.factory.createStringLiteral(op.newArg.slice(1, -1));
+              } else if (/^\d+(?:\.\d+)?$/.test(op.newArg)) {
+                newArg = ts.factory.createNumericLiteral(op.newArg);
+              } else if (op.newArg === 'true' || op.newArg === 'false') {
+                newArg = op.newArg === 'true' ? ts.factory.createTrue() : ts.factory.createFalse();
+              } else {
+                newArg = ts.factory.createIdentifier(op.newArg);
+              }
+            }
+            if (!newArg && op.newArgObject && typeof op.newArgObject === 'object') {
+              const props = Object.entries(op.newArgObject).map(([k, v]) =>
+                ts.factory.createPropertyAssignment(
+                  ts.factory.createIdentifier(k),
+                  typeof v === 'string'
+                    ? ts.factory.createStringLiteral(v)
+                    : typeof v === 'number'
+                    ? ts.factory.createNumericLiteral(String(v))
+                    : typeof v === 'boolean'
+                    ? v
+                      ? ts.factory.createTrue()
+                      : ts.factory.createFalse()
+                    : ts.factory.createNull()
+                )
+              );
+              newArg = ts.factory.createObjectLiteralExpression(props, true);
+            }
+            if (!newArg) return node;
+            args[op.argIndex] = newArg;
+            updated = true;
+            return ts.factory.updateCallExpression(node, node.expression, node.typeArguments, args);
+          }
+          return ts.visitEachChild(node, visit, context);
+        };
+        return (node) => ts.visitNode(node, visit);
+      };
+      const result = ts.transform(sourceFile, [transformer]);
+      const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
+      current = printer.printFile(result.transformed[0]);
+      if (result.dispose) result.dispose();
+      continue;
+    }
     const sourceFile = ts.createSourceFile('file.ts', current, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS);
     const transformer = (context) => {
       const visit = (node) => {
