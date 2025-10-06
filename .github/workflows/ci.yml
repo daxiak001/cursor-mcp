@@ -16,10 +16,4 @@ jobs:
         run: npm ci || npm i
       - name: Test
         run: npm test --silent || echo "vitest missing"
-      - name: Upload coverage summary
-        if: exists('reports/coverage-summary.txt')
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage-summary
-          path: reports/coverage-summary.txt
-
+      - name: Upload coverage summary\n        if: always()\n        uses: actions/upload-artifact@v4\n        with:\n          name: coverage-artifacts\n          path:\n            - reports/coverage-summary.txt\n            - coverage/coverage-summary.json\n
