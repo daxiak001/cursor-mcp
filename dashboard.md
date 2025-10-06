@@ -31,3 +31,5 @@
 - v0.2 启动项已合并（分层路由+AST insert_import）
 
 - 差异选测已接入（CI）
+
+- v0.2 安全门禁配置已提交（PR模板、Semgrep、Gitleaks）
