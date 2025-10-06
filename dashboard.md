@@ -16,3 +16,4 @@
 \n- 最近合并: PR#2 (https://github.com/daxiak001/cursor-mcp/pull/2)
 \n- 打开的PR: https://github.com/daxiak001/cursor-mcp/pull/3
 \n- 最近合并: PR#3 (https://github.com/daxiak001/cursor-mcp/pull/3)
+\n- 最近合并: PR#4 (https://github.com/daxiak001/cursor-mcp/pull/4)
