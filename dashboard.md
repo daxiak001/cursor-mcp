@@ -13,3 +13,4 @@
 - 远端：按“分支与PR指南.md”发起演示PR，使用“PR说明模板.md”
 \n- 最新PR: https://github.com/daxiak001/cursor-mcp/pull/1
 \n- 最近合并: PR#1 (https://github.com/daxiak001/cursor-mcp/pull/1)
+\n- 最近合并: PR#2 (https://github.com/daxiak001/cursor-mcp/pull/2)
