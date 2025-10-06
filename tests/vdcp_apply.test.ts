@@ -10,9 +10,10 @@ describe("vdcp apply_ast_patch", () => {
     const file = path.join(dir, "tmp_sample.ts");
     fs.writeFileSync(file, "const a = \"x\";\n", "utf8");
     const patch = path.resolve("vdcp/demos/patch.replace_string.json");
-    execSync(`node scripts/apply_ast_patch.cjs --patch ${patch}`, { stdio: "inherit" });
+    execSync(`node scripts/apply_ast_patch.cjs --patch "${patch}"`, { stdio: "inherit" });
     const after = fs.readFileSync(file, "utf8");
     expect(after).toContain('"y"');
   });
 });
+
 

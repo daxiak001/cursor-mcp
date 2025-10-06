@@ -20,3 +20,4 @@
 \n- 最近合并: PR#5 (https://github.com/daxiak001/cursor-mcp/pull/5)
 \n- 改表即用演示PR: https://github.com/daxiak001/cursor-mcp/pull/6
 \n- 最近合并: PR#6 (https://github.com/daxiak001/cursor-mcp/pull/6)
+\n- 打开的PR: https://github.com/daxiak001/cursor-mcp/pull/7
