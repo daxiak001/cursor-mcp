@@ -1,0 +1,24 @@
+# 硬编码检测模式（示例）
+# 说明：用于在 write_code 检查 IR-003 时参考。
+
+# 绝对路径（Windows/Unix）
+^[A-Za-z]:\\\\
+^/root/
+^/etc/
+
+# 网络/服务端点硬写
+http://
+https://
+:[0-9]{2,5}/
+
+# 敏感字段
+password
+passwd
+secret
+api_key
+access_token
+PRIVATE_KEY
+
+# 临时指纹（需要结合上下文判定）
+C:\\Users\\.*\\AppData\\
+/token=[A-Za-z0-9\-_]{8,}

@@ -1,0 +1,24 @@
+# MODULE_MAP
+
+- mcp/
+  - README.md：工具脚手架说明
+  - tools/*.md：search_codebase/write_code/respond_to_user/run_tests 规范
+- policy/
+  - core-l1.yaml/quality-l2.yaml/security-l3.yaml：策略即代码
+  - routing.json/exceptions.json：规则路由与例外
+- hooks/
+  - pre-commit.ps1/pre-push.ps1：本地门禁
+- ci/
+  - pipeline.yml：PR合并门禁
+- vdcp/
+  - apply_ast_patch.md/ast_patch.schema.json：AST受控变更
+  - 差异选测.md/核心域清单.md：选测与核心域
+- 接口/
+  - 工具契约.schemas.json：MCP参数契约
+  - 模块接口清单.md：内部模块/函数接口
+- 测试/
+  - 模块测试清单.md/预检报告_S1-2.md/VDCP演示报告_S3-4.md/全链路自检清单.md/全链路自检报告.md/覆盖率报告_示例.md
+- scripts/
+  - setup.ps1/add_log.ps1/add_stage.ps1/archive_remaining.ps1/export_coverage.ps1
+- 其他
+  - 快速索引.md、项目计划表.md、三阶段升级总计划.md、运行指南.md、ARCHITECTURE.md、交付摘要.md、PR检查清单.md、质量门禁阈值.json

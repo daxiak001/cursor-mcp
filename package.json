@@ -1,0 +1,13 @@
+{
+  "name": "xiaoliu-project",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run --reporter=dot",
+    "lint": "echo lint placeholder",
+    "format:check": "echo format check placeholder"
+  },
+  "devDependencies": {
+    "vitest": "^1.6.0"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Xiaoliu MCP Tools Contract",
+  "type": "object",
+  "properties": {
+    "xiaoliu_search_codebase": {
+      "type": "object",
+      "properties": {
+        "query": { "type": "string", "minLength": 2 },
+        "scope": { "type": "string" }
+      },
+      "required": ["query"]
+    },
+    "xiaoliu_write_code": {
+      "type": "object",
+      "properties": {
+        "code": { "type": "string", "minLength": 10 },
+        "file_path": { "type": "string", "minLength": 1 },
+        "purpose": { "type": "string", "minLength": 5 },
+        "explanation": { "type": "string", "minLength": 50 }
+      },
+      "required": ["code", "file_path", "purpose", "explanation"]
+    },
+    "xiaoliu_respond_to_user": {
+      "type": "object",
+      "properties": {
+        "response": { "type": "string", "minLength": 5 },
+        "response_type": { "type": "string", "enum": ["info", "action", "completion"] }
+      },
+      "required": ["response", "response_type"]
+    },
+    "xiaoliu_run_tests": {
+      "type": "object",
+      "properties": {
+        "scope": { "type": "string", "enum": ["lint", "unit", "integration", "all"] },
+        "coverage_threshold": { "type": "number", "minimum": 0, "maximum": 100 }
+      },
+      "required": ["scope"]
+    }
+  },
+  "additionalProperties": false
+}

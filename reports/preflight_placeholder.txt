@@ -1,0 +1,5 @@
+[2025-10-07 00:19:37] 预检（占位）：
+- Node/npm: 未检测（需本机安装）
+- Python/pytest: 未检测（可选）
+- semgrep/gitleaks: 未检测（可选）
+- hooks绑定: 可执行 scripts/setup.ps1

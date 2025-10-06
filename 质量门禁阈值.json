@@ -1,0 +1,12 @@
+{
+  "coverage": {
+    "core": 80,
+    "general": 60
+  },
+  "semgrep": {
+    "error": true
+  },
+  "gitleaks": {
+    "exitOnFinding": true
+  }
+}

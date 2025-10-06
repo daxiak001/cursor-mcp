@@ -1,0 +1,4 @@
+未检测到 vitest，请先执行：
+1) 安装 Node.js LTS
+2) 在项目根执行：npm ci
+3) 运行测试：npm test 或 scripts/run_tests_locally.ps1

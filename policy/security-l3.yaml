@@ -1,0 +1,4 @@
+# 安全规则（L3）
+- semgrep 模式
+- gitleaks 模式
+- 依赖与 License 检查范围

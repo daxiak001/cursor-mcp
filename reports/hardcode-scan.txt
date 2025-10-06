@@ -1,0 +1,4 @@
+[2025-10-07 00:27:12] 硬编码扫描报告
+模式文件: mcp\tools\_patterns.hardcode.txt
+扫描目录: src, config
+未发现疑似硬编码
