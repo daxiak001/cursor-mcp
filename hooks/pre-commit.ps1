@@ -35,5 +35,13 @@ try {
   exit 1
 }
 
+Write-Host '[pre-commit] Hardcode scan (IR-003)'
+try {
+  pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/hardcode_scan.ps1
+} catch {
+  Write-Error 'Hardcode scan 未通过'
+  exit 1
+}
+
 Write-Host '[pre-commit] 全部通过 ✅'
 exit 0

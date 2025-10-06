@@ -2,7 +2,8 @@
 param(
   [string[]]$Paths = @('src','config'),
   [string]$PatternFile = 'mcp\tools\_patterns.hardcode.txt',
-  [string]$OutFile = 'reports\hardcode-scan.txt'
+  [string]$OutFile = 'reports\hardcode-scan.txt',
+  [string]$ExceptionsJson = 'policy\exceptions.json'
 )
 
 $ErrorActionPreference = 'Continue'
@@ -32,27 +33,53 @@ if ($files.Count -eq 0) {
   exit 0
 }
 
-$matches = @()
+$rawMatches = @()
 foreach ($pat in $patterns) {
   try {
     $results = Select-String -Path ($files | ForEach-Object { $_.FullName }) -Pattern $pat -AllMatches -CaseSensitive:$false -ErrorAction SilentlyContinue
     foreach ($r in $results) {
       $line = $r.Line
-      $line = if ($line.Length -gt 200) { $line.Substring(0,200) } else { $line }
-      $matches += "${($r.Path)}:${($r.LineNumber)} | pattern: $pat | line: $line"
+      if ($line.Length -gt 200) { $line = $line.Substring(0,200) }
+      $rawMatches += [PSCustomObject]@{ Path=$r.Path; Line=$r.LineNumber; Pattern=$pat; Snippet=$line }
     }
-  } catch {
-    # 忽略模式错误
+  } catch { }
+}
+
+# 读取例外
+$exceptMap = @{}
+if (Test-Path $ExceptionsJson) {
+  try {
+    $json = Get-Content $ExceptionsJson -Raw | ConvertFrom-Json
+    foreach ($e in ($json.exceptions | ForEach-Object { $_ })) {
+      if ($null -ne $e -and $e.path -and $e.rules) {
+        foreach ($rule in $e.rules) { $key = "$($e.path)|$rule"; $exceptMap[$key] = 1 }
+      }
+    }
+  } catch { }
+}
+
+# 过滤例外（仅IR-003）
+$matches = @()
+foreach ($m in $rawMatches) {
+  $allow = $false
+  foreach ($k in $exceptMap.Keys) {
+    $parts = $k -split '\|'
+    if ($parts.Count -ge 2) {
+      $p = $parts[0]; $rule = $parts[1]
+      if ($rule -eq 'IR-003' -and $m.Path -like $p) { $allow = $true; break }
+    }
   }
+  if (-not $allow) { $matches += $m }
 }
 
 if ($matches.Count -gt 0) {
   $report += "发现疑似硬编码：$($matches.Count) 处"
   $report += "---"
-  $report += $matches
+  $report += ($matches | ForEach-Object { "${($_.Path)}:${($_.Line)} | pattern: ${($_.Pattern)} | line: ${($_.Snippet)}" })
 } else {
   $report += "未发现疑似硬编码"
 }
 
 $report -join "`n" | Out-File -FilePath $OutFile -Encoding UTF8
-Write-Host "报告已生成: $OutFile"
+
+if ($matches.Count -gt 0) { Write-Error '硬编码门禁未通过'; exit 2 } else { Write-Host '硬编码门禁通过'; exit 0 }
