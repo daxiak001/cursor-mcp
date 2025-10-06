@@ -65,7 +65,10 @@
 - v0.8：受影响域（affected-domains.{txt,json}）已接入CI
 
 - v0.8.0 已合并：受影响域工件(affected-domains.{txt,json})
+- v0.9.0 已交付：域阈值+增强选测（tests-to-run-augmented），新增交付文档（Delivery Summary、Completion Checklist、Three-Stage Master Plan）
 
 - v0.9：域阈值(domain-thresholds)与增强选测(tests-to-run-augmented)已接入
 
 - v0.9.0 已合并：域阈值与增强选测工件(tests-to-run-augmented)
+
+- v0.9.1 已合并：自动确认模式（enable/disable脚本+环境变量）
