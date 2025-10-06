@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "vitest run --reporter=dot",
+    "test": "vitest run --reporter=dot --coverage",
     "lint": "echo lint placeholder",
     "format:check": "echo format check placeholder"
   },
@@ -11,3 +11,4 @@
     "vitest": "^1.6.0"
   }
 }
+
