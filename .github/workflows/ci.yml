@@ -12,8 +12,12 @@ jobs:
           node-version: '20'
       - name: Install deps
         run: npm ci || npm i
-      - name: Unit tests
-        run: npm test --silent || echo "vitest missing"
+      - name: Diff test pattern
+        run: node scripts/diff_test.cjs origin/main
+      - name: Unit tests (diff)
+        run: |
+          $pattern = Get-Content reports/diff-test-pattern.txt -Raw -ErrorAction SilentlyContinue
+          if ([string]::IsNullOrWhiteSpace($pattern)) { npm test --silent } else { npx vitest run --reporter=dot --coverage --include $pattern }
       - name: Hardcode scan
         run: pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/hardcode_scan.ps1
       - name: Coverage gate
@@ -35,3 +39,4 @@ jobs:
             reports/coverage-summary.txt
             coverage/coverage-summary.json
             reports/quality-summary.txt
+            reports/diff-test-pattern.txt
