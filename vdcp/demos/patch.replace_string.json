@@ -1,0 +1,10 @@
+{
+  "operations": [
+    {
+      "type": "replace_string_literal",
+      "file": "tests/fixtures/tmp_sample.ts",
+      "old": "x",
+      "new": "y"
+    }
+  ]
+}
