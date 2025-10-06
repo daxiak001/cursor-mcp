@@ -43,3 +43,5 @@
 - v0.3 动态阈值与例外脚本提交，CI工件含changed-files
 
 - v0.3.0 阶段合并完成（未打tag）
+
+- v0.4 AST操作新增：insert_param/add_guard_clause（含demo+tests）

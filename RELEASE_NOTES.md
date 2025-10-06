@@ -14,3 +14,10 @@
 - PR模板：.github/PULL_REQUEST_TEMPLATE.md 自检清单
 - VDCP增强：AST补丁新增 add_function / update_call_argument（含测试）
 - 文档更新：索引、CI指南、交付摘要同步
+
+---
+
+# Release v0.4.0
+
+- VDCP：新增 AST 操作 insert_param / add_guard_clause（含演示补丁与单测）
+- 文档：更新 apply_ast_patch 规范与索引条目

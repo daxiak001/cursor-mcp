@@ -52,5 +52,40 @@ describe("vdcp ast patch ops", () => {
     const after = fs.readFileSync(file, "utf8");
     expect(/log\('b', 3\)/.test(after)).toBe(true);
   });
+
+  it("insert_param inserts missing parameter with default", () => {
+    const dir = path.resolve("tests/fixtures");
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    const file = path.join(dir, "tmp_insert_param.ts");
+    fs.writeFileSync(file, "export function sum(a){ return a }\n", "utf8");
+    const patchFile = path.resolve("vdcp/demos/patch.insert_param.json");
+    const patch = {
+      operations: [
+        { type: "insert_param", file: file, functionName: "sum", param: "b", default: "1", index: 1 }
+      ]
+    };
+    fs.writeFileSync(patchFile, JSON.stringify(patch, null, 2), "utf8");
+    execSync(`node scripts/apply_ast_patch.cjs --patch "${patchFile}"`, { stdio: "inherit" });
+    const after = fs.readFileSync(file, "utf8");
+    expect(/function sum\(a, b\)/.test(after)).toBe(true);
+  });
+
+  it("add_guard_clause prepends guard return", () => {
+    const dir = path.resolve("tests/fixtures");
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    const file = path.join(dir, "tmp_guard_clause.ts");
+    fs.writeFileSync(file, "export function greet(name){ return 'ok' }\n", "utf8");
+    const patchFile = path.resolve("vdcp/demos/patch.add_guard_clause.json");
+    const patch = {
+      operations: [
+        { type: "add_guard_clause", file: file, functionName: "greet", param: "name", kind: "falsy", returnLiteral: "'bad'" }
+      ]
+    };
+    fs.writeFileSync(patchFile, JSON.stringify(patch, null, 2), "utf8");
+    execSync(`node scripts/apply_ast_patch.cjs --patch "${patchFile}"`, { stdio: "inherit" });
+    const after = fs.readFileSync(file, "utf8");
+    expect(/if\s*\(!name\)/.test(after)).toBe(true);
+    expect(/return\s+'bad'/.test(after)).toBe(true);
+  });
 });
 
