@@ -14,6 +14,7 @@ if (Test-Path 'reports/quality-summary.txt') { $dashboard += "- quality-summary.
 if (Test-Path 'reports/diff-test-pattern.txt') { $dashboard += "- diff-test-pattern.txt" }
 if (Test-Path 'reports/changed-files.txt') { $dashboard += "- changed-files.txt" }
 if (Test-Path 'reports/tests-to-run.txt') { $dashboard += "- tests-to-run.txt" }
+if (Test-Path 'reports/affected-domains.txt') { $dashboard += "- affected-domains.txt" }
 if (Test-Path 'reports/policy-report.md') { $dashboard += "- policy-report.md" }
 if (Test-Path 'reports/interface-diff.md') { $dashboard += "- interface-diff.md" }
 if (Test-Path 'reports/contract-check.md') { $dashboard += "- contract-check.md" }
