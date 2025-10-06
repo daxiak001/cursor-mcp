@@ -1,0 +1,10 @@
+{
+  "thresholds": {
+    "core": 85,
+    "domain": 80,
+    "utils": 75,
+    "default": 60
+  }
+}
+
+
