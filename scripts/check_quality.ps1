@@ -3,7 +3,8 @@ param(
   [string]$RoutingJson = 'policy\routing.json',
   [string]$Txt = 'reports\coverage-summary.txt',
   [string]$Json = 'coverage\coverage-summary.json',
-  [int]$DefaultThreshold = 60
+  [int]$DefaultThreshold = 60,
+  [string]$ChangedFiles = 'reports\changed-files.txt'
 )
 
 $ts = Get-Date -Format 'yyyy-MM-dd HH:mm:ss'
@@ -11,19 +12,37 @@ $summary = @()
 $summary += "[$ts] 质量检查"
 
 function Read-Threshold {
-  param([string]$routingPath)
+  param([string]$routingPath, [string[]]$changed)
   if (!(Test-Path $routingPath)) { return $DefaultThreshold }
   try {
     $r = Get-Content $routingPath -Raw | ConvertFrom-Json
     $max = $DefaultThreshold
-    foreach ($rule in $r.routing) {
-      if ($rule.coverage -and [int]$rule.coverage -gt $max) { $max = [int]$rule.coverage }
+    $routes = @($r.routing)
+    if ($changed -and $changed.Count -gt 0) {
+      foreach ($f in $changed) {
+        foreach ($rule in $routes) {
+          if ($rule.path -and $rule.coverage) {
+            $glob = $rule.path.Replace('**','')
+            if ($f -like $glob -or $f -like $rule.path) {
+              if ([int]$rule.coverage -gt $max) { $max = [int]$rule.coverage }
+            }
+          }
+        }
+      }
+    } else {
+      foreach ($rule in $routes) {
+        if ($rule.coverage -and [int]$rule.coverage -gt $max) { $max = [int]$rule.coverage }
+      }
     }
     return $max
   } catch { return $DefaultThreshold }
 }
 
-$threshold = Read-Threshold -routingPath $RoutingJson
+$changed = @()
+if (Test-Path $ChangedFiles) {
+  try { $changed = Get-Content $ChangedFiles | Where-Object { $_ } } catch {}
+}
+$threshold = Read-Threshold -routingPath $RoutingJson -changed $changed
 $summary += "覆盖率阈值：$threshold%"
 
 function Parse-Coverage {

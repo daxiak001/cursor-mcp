@@ -22,7 +22,9 @@ function main() {
   const pattern = buildPattern(files);
   if (!fs.existsSync('reports')) fs.mkdirSync('reports', { recursive: true });
   fs.writeFileSync('reports/diff-test-pattern.txt', pattern, 'utf8');
+  fs.writeFileSync('reports/changed-files.txt', files.join('\n'), 'utf8');
   console.log(pattern || '');
 }
 
 if (require.main === module) main();
+
