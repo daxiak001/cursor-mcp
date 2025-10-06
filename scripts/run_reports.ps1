@@ -17,3 +17,27 @@ if (Test-Path 'reports/tests-to-run.txt') { $dashboard += "- tests-to-run.txt" }
 if (Test-Path 'reports/policy-report.md') { $dashboard += "- policy-report.md" }
 if (!(Test-Path 'reports')) { New-Item -ItemType Directory -Path 'reports' | Out-Null }
 $dashboard -join "`n" | Out-File -FilePath 'reports/ci-dashboard.md' -Encoding UTF8
+
+# Interface Diff Summary
+$iface = @()
+if (Test-Path 'reports/interface-diff.json') {
+  try { $iface = Get-Content 'reports/interface-diff.json' -Raw | ConvertFrom-Json } catch {}
+}
+
+$missingTotal = 0
+$extraTotal = 0
+foreach ($d in $iface) {
+  if ($null -ne $d.missing) { $missingTotal += $d.missing.Count }
+  if ($null -ne $d.extra) { $extraTotal += $d.extra.Count }
+}
+
+$summary = @()
+$summary += ""
+$summary += "## Interface Diff Summary"
+$summary += ("- modules with diffs: {0}" -f $iface.Count)
+$summary += ("- missing symbols: {0}" -f $missingTotal)
+$summary += ("- extra symbols: {0}" -f $extraTotal)
+foreach ($d in ($iface | Select-Object -First 5)) {
+  $summary += ("  - {0} | missing: {1} | extra: {2}" -f $d.module, (($d.missing -join ', ')), (($d.extra -join ', ')))
+}
+(Get-Content 'reports/ci-dashboard.md' -Raw) + "`n" + ($summary -join "`n") | Out-File -FilePath 'reports/ci-dashboard.md' -Encoding UTF8
