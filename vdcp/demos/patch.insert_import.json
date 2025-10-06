@@ -1,0 +1,5 @@
+{
+  "operations": [
+    { "type": "insert_import", "file": "tests/fixtures/tmp_import.ts", "module": "vitest", "named": ["describe"] }
+  ]
+}
