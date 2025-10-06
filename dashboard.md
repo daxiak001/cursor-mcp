@@ -55,3 +55,5 @@
 - CI Dashboard（reports/ci-dashboard.md）已生成并纳入工件
 
 - v0.6：接口差异报告已接入（interface-diff.{json,md}）
+
+- CI汇总接口差异（非阻断），见 reports/ci-dashboard.md
