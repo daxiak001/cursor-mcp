@@ -40,3 +40,4 @@ jobs:
             coverage/coverage-summary.json
             reports/quality-summary.txt
             reports/diff-test-pattern.txt
+
