@@ -1,0 +1,7 @@
+{
+  "operations": [
+    { "type": "add_guard_clause", "file": "tests/fixtures/tmp_guard_clause.ts", "functionName": "greet", "param": "name", "kind": "falsy", "returnLiteral": "'bad'" }
+  ]
+}
+
+

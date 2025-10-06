@@ -1,0 +1,7 @@
+{
+  "operations": [
+    { "type": "insert_param", "file": "tests/fixtures/tmp_insert_param.ts", "functionName": "sum", "param": "b", "default": "1", "index": 1 }
+  ]
+}
+
+
