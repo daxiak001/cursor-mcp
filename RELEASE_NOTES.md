@@ -21,3 +21,14 @@
 
 - VDCP：新增 AST 操作 insert_param / add_guard_clause（含演示补丁与单测）
 - 文档：更新 apply_ast_patch 规范与索引条目
+
+---
+
+# Release v1.0.0
+
+- MCP→ZPCP→VDCP 三阶段骨架与闭环示范完成
+- 受影响域与域阈值：reports/affected-domains.{txt,json} + policy/domain-thresholds.json
+- 增强选测：reports/tests-to-run-augmented.txt（按域补充smoke模式）
+- 自动确认模式：enable/disable 脚本与 settings 接入（XIAOLIU_AUTO_CONFIRM）
+- 协作增强：PR/Issue 模板与 PR 草稿脚本（scripts/create_pr_draft.ps1）
+- 交付与仪表板：Delivery Summary、Completion Checklist、reports/ci-dashboard.md

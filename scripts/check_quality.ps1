@@ -45,7 +45,7 @@ if (Test-Path $ChangedFiles) {
   try { $changed = Get-Content $ChangedFiles | Where-Object { $_ } } catch {}
 }
 $domainMax = -1
-if (Test-Path $AffectedDomains -and Test-Path $DomainThresholds) {
+if ((Test-Path $AffectedDomains) -and (Test-Path $DomainThresholds)) {
   try {
     $domains = (Get-Content $AffectedDomains -Raw).Split(',') | Where-Object { $_ }
     $conf = Get-Content $DomainThresholds -Raw | ConvertFrom-Json
