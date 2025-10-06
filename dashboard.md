@@ -51,3 +51,5 @@
  - v0.5：高级差异选测（tests-to-run）与策略报告（policy-report.{json,md}）已提交到分支
 
 - v0.5.0 已合并：高级选测与策略报告
+
+- CI Dashboard（reports/ci-dashboard.md）已生成并纳入工件
