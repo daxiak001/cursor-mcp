@@ -33,3 +33,5 @@
 - 差异选测已接入（CI）
 
 - v0.2 安全门禁配置已提交（PR模板、Semgrep、Gitleaks）
+
+- 安全工作流已就绪（独立security.yml），PR模板已加入
