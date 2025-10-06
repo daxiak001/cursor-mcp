@@ -15,6 +15,9 @@ if (Test-Path 'reports/diff-test-pattern.txt') { $dashboard += "- diff-test-patt
 if (Test-Path 'reports/changed-files.txt') { $dashboard += "- changed-files.txt" }
 if (Test-Path 'reports/tests-to-run.txt') { $dashboard += "- tests-to-run.txt" }
 if (Test-Path 'reports/policy-report.md') { $dashboard += "- policy-report.md" }
+if (Test-Path 'reports/interface-diff.md') { $dashboard += "- interface-diff.md" }
+if (Test-Path 'reports/contract-check.md') { $dashboard += "- contract-check.md" }
+if (Test-Path 'reports/expiry-report.md') { $dashboard += "- expiry-report.md" }
 if (!(Test-Path 'reports')) { New-Item -ItemType Directory -Path 'reports' | Out-Null }
 $dashboard -join "`n" | Out-File -FilePath 'reports/ci-dashboard.md' -Encoding UTF8
 
