@@ -41,6 +41,10 @@ jobs:
           ./gitleaks.exe detect --no-banner --redact --exit-code 1
       - name: Interface diff
         run: node scripts/interface_diff.cjs
+      - name: Contract check (non-blocking)
+        run: node scripts/contract_check.cjs || echo "contract check completed"
+      - name: Exceptions expiry report
+        run: pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/expiry_check.ps1
       - name: Upload reports
         if: always()
         uses: actions/upload-artifact@v4
@@ -58,4 +62,7 @@ jobs:
             reports/interface-diff.json
             reports/interface-diff.md
             reports/ci-dashboard.md
+            reports/contract-check.json
+            reports/contract-check.md
+            reports/expiry-report.md
 
