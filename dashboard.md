@@ -37,3 +37,7 @@
 - 安全工作流已就绪（独立security.yml），PR模板已加入
 
 - AST补丁工具增强：add_function/update_call_argument 已提交
+
+- v0.3：例外管理与动态阈值开发中（已提交部分）
+
+- v0.3 动态阈值与例外脚本提交，CI工件含changed-files
