@@ -45,3 +45,5 @@
 - v0.3.0 阶段合并完成（未打tag）
 
 - v0.4 AST操作新增：insert_param/add_guard_clause（含demo+tests）
+
+- v0.4.0 合并完成（AST: insert_param/add_guard_clause）
