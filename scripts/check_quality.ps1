@@ -1,10 +1,12 @@
 # check_quality.ps1
 param(
   [string]$RoutingJson = 'policy\routing.json',
+  [string]$DomainThresholds = 'policy\domain-thresholds.json',
   [string]$Txt = 'reports\coverage-summary.txt',
   [string]$Json = 'coverage\coverage-summary.json',
   [int]$DefaultThreshold = 60,
-  [string]$ChangedFiles = 'reports\changed-files.txt'
+  [string]$ChangedFiles = 'reports\changed-files.txt',
+  [string]$AffectedDomains = 'reports\affected-domains.txt'
 )
 
 $ts = Get-Date -Format 'yyyy-MM-dd HH:mm:ss'
@@ -42,7 +44,21 @@ $changed = @()
 if (Test-Path $ChangedFiles) {
   try { $changed = Get-Content $ChangedFiles | Where-Object { $_ } } catch {}
 }
-$threshold = Read-Threshold -routingPath $RoutingJson -changed $changed
+$domainMax = -1
+if (Test-Path $AffectedDomains -and Test-Path $DomainThresholds) {
+  try {
+    $domains = (Get-Content $AffectedDomains -Raw).Split(',') | Where-Object { $_ }
+    $conf = Get-Content $DomainThresholds -Raw | ConvertFrom-Json
+    foreach ($d in $domains) {
+      $v = $conf.thresholds.$d
+      if ($v -and [int]$v -gt $domainMax) { $domainMax = [int]$v }
+    }
+    if ($domainMax -lt 0 -and $conf.thresholds.default) { $domainMax = [int]$conf.thresholds.default }
+  } catch {}
+}
+
+$routeMax = Read-Threshold -routingPath $RoutingJson -changed $changed
+$threshold = if ($domainMax -gt $routeMax) { $domainMax } else { $routeMax }
 $summary += "覆盖率阈值：$threshold%"
 
 function Parse-Coverage {

@@ -16,11 +16,13 @@ jobs:
         run: node scripts/diff_advanced.cjs origin/main
       - name: Affected domains
         run: node scripts/affected_domains.cjs
+      - name: Augment tests by domains
+        run: node scripts/augment_tests.cjs
       - name: Policy report
         run: pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/policy_report.ps1
-      - name: Unit tests (advanced diff)
+      - name: Unit tests (advanced diff + augmented)
         run: |
-          $tests = Get-Content reports/tests-to-run.txt -Raw -ErrorAction SilentlyContinue
+          $tests = Get-Content reports/tests-to-run-augmented.txt -Raw -ErrorAction SilentlyContinue
           if (-not [string]::IsNullOrWhiteSpace($tests)) {
             npx vitest run --reporter=dot --coverage --include $tests
           } else {
@@ -61,6 +63,7 @@ jobs:
             reports/tests-to-run.txt
             reports/affected-domains.txt
             reports/affected-domains.json
+            reports/tests-to-run-augmented.txt
             reports/policy-report.json
             reports/policy-report.md
             reports/interface-diff.json
