@@ -63,3 +63,5 @@
 - v0.7.0 已合并：契约校验（非阻断）与例外到期报告
 
 - v0.8：受影响域（affected-domains.{txt,json}）已接入CI
+
+- v0.8.0 已合并：受影响域工件(affected-domains.{txt,json})
