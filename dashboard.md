@@ -11,3 +11,4 @@
 下一步建议：
 - 本地：scripts/setup.ps1 → npm ci → npm test → scripts/check_quality.ps1
 - 远端：按“分支与PR指南.md”发起演示PR，使用“PR说明模板.md”
+\n- 最新PR: https://github.com/daxiak001/cursor-mcp/pull/1

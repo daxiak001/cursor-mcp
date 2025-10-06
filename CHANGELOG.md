@@ -5,3 +5,4 @@
 - 完成 S1 预检、S2 改表即用演示、S3 VDCP 演示
 - 新增 脚本、运行指南、PR检查清单、质量阈值配置
 - 新增 问题处理体系（流程/模板/升级记录）与P0演练
+- Demo PR: minor tweak to enable PR
