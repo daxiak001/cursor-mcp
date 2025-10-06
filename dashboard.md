@@ -25,3 +25,5 @@
 \n- 最近合并: PR#8 (https://github.com/daxiak001/cursor-mcp/pull/8)
 
 - 最新发布: v0.1.0 (https://github.com/daxiak001/cursor-mcp/releases/tag/v0.1.0)
+
+- 最近合并: PR#9, PR#10
