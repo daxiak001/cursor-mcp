@@ -23,3 +23,11 @@ PR说明模板：
 2) 本地通过 hooks（pre-commit/pre-push）
 3) 提交PR，CI通过后再评审合并
 4) 合并后在 CHANGELOG.md 增加条目
+
+辅助脚本：
+- 生成PR说明：`scripts/generate_pr_body.ps1` → 输出 `reports/pr_body.md`
+- 打开PR草稿链接：
+  ```powershell
+  pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/create_pr_draft.ps1 -Base main -Head <your-branch>
+  ```
+  生成文件：`reports/pr_link.txt`
