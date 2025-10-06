@@ -2,13 +2,16 @@
   "name": "xiaoliu-project",
   "private": true,
   "type": "module",
-  "scripts": {
+  "scripts": { "vdcp:apply": "node scripts/apply_ast_patch.cjs --patch vdcp/demos/patch.replace_string.json",
     "test": "vitest run --reporter=dot --coverage",
     "lint": "echo lint placeholder",
     "format:check": "echo format check placeholder"
   },
   "devDependencies": {
     "vitest": "^1.6.0"
-  }
+  , "typescript": "^5.5.4"}
 }
+
+
+
 
