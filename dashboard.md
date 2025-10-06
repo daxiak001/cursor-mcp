@@ -72,3 +72,5 @@
 - v0.9.0 已合并：域阈值与增强选测工件(tests-to-run-augmented)
 
 - v0.9.1 已合并：自动确认模式（enable/disable脚本+环境变量）
+
+- v0.9.2 已合并：PR模板/Issue模板/PR草稿脚本
