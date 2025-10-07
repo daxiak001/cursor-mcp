@@ -26,6 +26,12 @@
 
 # Release v1.0.0
 
+# Release v1.2.0
+
+- Domains 权重：policy/domains.json 增加 weight 字段
+- 域冒烟最小真实断言：校验域目录存在
+- 增强选测排序：按域权重优先加入 smoke 用例
+
 - MCP→ZPCP→VDCP 三阶段骨架与闭环示范完成
 - 受影响域与域阈值：reports/affected-domains.{txt,json} + policy/domain-thresholds.json
 - 增强选测：reports/tests-to-run-augmented.txt（按域补充smoke模式）
