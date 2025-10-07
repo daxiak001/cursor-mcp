@@ -16,6 +16,7 @@ if (Test-Path 'reports/changed-files.txt') { $dashboard += "- changed-files.txt"
 if (Test-Path 'reports/tests-to-run.txt') { $dashboard += "- tests-to-run.txt" }
 if (Test-Path 'reports/affected-domains.txt') { $dashboard += "- affected-domains.txt" }
 if (Test-Path 'reports/tests-to-run-augmented.txt') { $dashboard += "- tests-to-run-augmented.txt" }
+if (Test-Path 'reports/domain-smoke-created.txt') { $dashboard += "- domain-smoke-created.txt" }
 if (Test-Path 'reports/policy-report.md') { $dashboard += "- policy-report.md" }
 if (Test-Path 'reports/interface-diff.md') { $dashboard += "- interface-diff.md" }
 if (Test-Path 'reports/contract-check.md') { $dashboard += "- contract-check.md" }
@@ -46,3 +47,14 @@ foreach ($d in ($iface | Select-Object -First 5)) {
   $summary += ("  - {0} | missing: {1} | extra: {2}" -f $d.module, (($d.missing -join ', ')), (($d.extra -join ', ')))
 }
 (Get-Content 'reports/ci-dashboard.md' -Raw) + "`n" + ($summary -join "`n") | Out-File -FilePath 'reports/ci-dashboard.md' -Encoding UTF8
+
+# Domain Smoke Summary
+$smokeCount = 0
+if (Test-Path 'reports/domain-smoke-created.txt') {
+  try { $smokeCount = [int](Get-Content 'reports/domain-smoke-created.txt' -Raw) } catch {}
+}
+$smoke = @()
+$smoke += ""
+$smoke += "## Domain Smoke Summary"
+$smoke += ("- newly created smoke tests: {0}" -f $smokeCount)
+(Get-Content 'reports/ci-dashboard.md' -Raw) + "`n" + ($smoke -join "`n") | Out-File -FilePath 'reports/ci-dashboard.md' -Encoding UTF8
