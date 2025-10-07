@@ -50,9 +50,10 @@ function main() {
   const totalWeight = entries.reduce((s, e) => s + (e.weight || 0), 0) || 1;
   const passedWeight = entries.filter(e => e.status === 'pass').reduce((s, e) => s + (e.weight || 0), 0);
   const weightedPassPercent = Math.round((passedWeight / totalWeight) * 100);
+  const topFailed = entries.filter(e => e.status === 'fail').sort((a,b)=> (b.weight||0)-(a.weight||0)).slice(0,5);
 
   ensureDir('reports');
-  fs.writeFileSync(outJson, JSON.stringify({ entries, weightedPassPercent, totalWeight, passedWeight }, null, 2), 'utf8');
+  fs.writeFileSync(outJson, JSON.stringify({ entries, weightedPassPercent, totalWeight, passedWeight, topFailed }, null, 2), 'utf8');
 
   const lines = [];
   lines.push('# Smoke Analysis (Weighted by Domain)');
@@ -61,6 +62,13 @@ function main() {
   lines.push('- details:');
   for (const e of entries.sort((a, b) => (b.weight || 0) - (a.weight || 0))) {
     lines.push(`  - ${e.name} (w=${e.weight}): ${e.status}${e.testFile ? ` [${e.testFile}]` : ''}`);
+  }
+  if (topFailed.length) {
+    lines.push('');
+    lines.push('## Top Failed Domains (by weight)');
+    for (const e of topFailed) {
+      lines.push(`- ${e.name} (w=${e.weight})`);
+    }
   }
   fs.writeFileSync(outMd, lines.join('\n'), 'utf8');
   console.log('SMOKE_WEIGHTED_PASS', weightedPassPercent);

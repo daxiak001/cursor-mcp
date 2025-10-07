@@ -18,12 +18,13 @@ function main() {
     const content = `// auto-generated smoke test for domain: ${name}
 import { describe, it, expect } from 'vitest';
 import fs from 'fs';
+import { assertDirExists } from './_templates';
 
 describe('[smoke] domain:${name}', () => {
   it('domain directory exists (minimal real assertion)', () => {
     const p = '${dirGuess}'.replace(/^\.\/?/, '');
-    const exists = fs.existsSync(p);
-    expect(exists).toBe(true);
+    assertDirExists(fs, p);
+    expect(true).toBe(true);
   });
 });
 `;
