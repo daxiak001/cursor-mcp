@@ -57,4 +57,12 @@ $smoke = @()
 $smoke += ""
 $smoke += "## Domain Smoke Summary"
 $smoke += ("- newly created smoke tests: {0}" -f $smokeCount)
+(try {
+  $domConf = Get-Content 'policy/domains.json' -Raw | ConvertFrom-Json
+  $arr = @()
+  foreach ($d in $domConf.domains) { $arr += [PSCustomObject]@{ name=$d.name; weight=([int]($d.weight ? $d.weight : 0)) } }
+  $arr = $arr | Sort-Object -Property weight -Descending
+  $smoke += "- smoke priority (by weight):"
+  foreach ($i in $arr) { $smoke += ("  - {0} (w={1})" -f $i.name, $i.weight) }
+} catch { $smoke += "- smoke priority: (domains.json missing)" })
 (Get-Content 'reports/ci-dashboard.md' -Raw) + "`n" + ($smoke -join "`n") | Out-File -FilePath 'reports/ci-dashboard.md' -Encoding UTF8
