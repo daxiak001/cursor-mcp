@@ -22,6 +22,11 @@
   5) 契约校验：OpenAPI/Schema 与代码一致性
 - 通过标准：以上步骤均通过才允许合并
 
+### CI 扩展：域冒烟与增强选测
+- 生成域冒烟占位：`node scripts/generate_domain_smoke_tests.cjs`（按 policy/domains.json 生成 tests/smoke/*.smoke.test.ts）
+- 受影响域映射：`node scripts/affected_domains.cjs` → reports/affected-domains.{txt,json}
+- 增强选测：`node scripts/augment_tests.cjs` → reports/tests-to-run-augmented.txt（包含域冒烟）
+
 ## 例外与灰度
 - exceptions.json：记录临时豁免（带到期时间），避免永久豁免；使用 scripts/set_exception.ps1 维护
 - 新规则灰度：先仅CI告警，不阻断；稳定后再启用阻断
