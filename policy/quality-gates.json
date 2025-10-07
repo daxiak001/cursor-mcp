@@ -1,0 +1,8 @@
+{
+  "smoke": {
+    "weighted_pass_threshold": 70,
+    "mode": "warn"  
+  }
+}
+
+

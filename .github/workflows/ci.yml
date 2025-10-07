@@ -33,6 +33,10 @@ jobs:
           }
       - name: Smoke analyze (weighted)
         run: node scripts/smoke_analyze.cjs
+      - name: Smoke gate
+        run: pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/check_smoke.ps1
+      - name: Record top failed domains
+        run: pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/record_top_failed_domains.ps1
       - name: Hardcode scan
         run: pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/hardcode_scan.ps1
       - name: Coverage gate
@@ -70,6 +74,8 @@ jobs:
             reports/tests-to-run-augmented.txt
             reports/smoke-analysis.json
             reports/smoke-analysis.md
+            reports/smoke-gate.txt
+            reports/smoke-top-failed.md
             reports/policy-report.json
             reports/policy-report.md
             reports/interface-diff.json
