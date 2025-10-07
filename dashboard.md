@@ -88,3 +88,5 @@
 - v1.5：域冒烟模板与Top失败分析已合并
 
 - v1.6：加权冒烟门禁与Top失败域记录已合并（见 reports/smoke-gate.txt）
+
+- v1.7：Cursor设置增强与MCP启停脚本已合并（enable_mcp/disable_mcp）
