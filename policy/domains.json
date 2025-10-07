@@ -1,7 +1,7 @@
 {
   "domains": [
-    { "name": "core", "paths": ["src/core/**"] },
-    { "name": "domain", "paths": ["src/domain/**"] },
-    { "name": "utils", "paths": ["src/utils/**"] }
+    { "name": "core", "paths": ["src/core/**"], "weight": 100 },
+    { "name": "domain", "paths": ["src/domain/**"], "weight": 80 },
+    { "name": "utils", "paths": ["src/utils/**"], "weight": 60 }
   ]
 }

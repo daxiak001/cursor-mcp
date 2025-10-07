@@ -14,12 +14,16 @@ function main() {
     const name = d.name;
     const file = path.join(outDir, `${name}.smoke.test.ts`);
     if (fs.existsSync(file)) continue;
+    const dirGuess = (d.paths && d.paths[0]) ? String(d.paths[0]).replace('/**','') : '';
     const content = `// auto-generated smoke test for domain: ${name}
 import { describe, it, expect } from 'vitest';
+import fs from 'fs';
 
 describe('[smoke] domain:${name}', () => {
-  it('loads module map placeholder', () => {
-    expect(true).toBe(true);
+  it('domain directory exists (minimal real assertion)', () => {
+    const p = '${dirGuess}'.replace(/^\.\/?/, '');
+    const exists = fs.existsSync(p);
+    expect(exists).toBe(true);
   });
 });
 `;
