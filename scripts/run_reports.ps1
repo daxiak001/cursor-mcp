@@ -82,3 +82,9 @@ try {
     (Get-Content 'reports/ci-dashboard.md' -Raw) + "`n" + ($lines -join "`n") | Out-File -FilePath 'reports/ci-dashboard.md' -Encoding UTF8
   }
 } catch {}
+
+# Smoke Gate Summary
+if (Test-Path 'reports/smoke-gate.txt') {
+  $gate = Get-Content 'reports/smoke-gate.txt' -Raw
+  (Get-Content 'reports/ci-dashboard.md' -Raw) + "`n## Smoke Gate`n- $gate" | Out-File -FilePath 'reports/ci-dashboard.md' -Encoding UTF8
+}
