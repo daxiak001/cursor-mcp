@@ -21,6 +21,7 @@ if (Test-Path 'reports/policy-report.md') { $dashboard += "- policy-report.md" }
 if (Test-Path 'reports/interface-diff.md') { $dashboard += "- interface-diff.md" }
 if (Test-Path 'reports/contract-check.md') { $dashboard += "- contract-check.md" }
 if (Test-Path 'reports/expiry-report.md') { $dashboard += "- expiry-report.md" }
+if (Test-Path 'reports/smoke-analysis.md') { $dashboard += "- smoke-analysis.md" }
 if (!(Test-Path 'reports')) { New-Item -ItemType Directory -Path 'reports' | Out-Null }
 $dashboard -join "`n" | Out-File -FilePath 'reports/ci-dashboard.md' -Encoding UTF8
 
@@ -66,3 +67,18 @@ $smoke += ("- newly created smoke tests: {0}" -f $smokeCount)
   foreach ($i in $arr) { $smoke += ("  - {0} (w={1})" -f $i.name, $i.weight) }
 } catch { $smoke += "- smoke priority: (domains.json missing)" })
 (Get-Content 'reports/ci-dashboard.md' -Raw) + "`n" + ($smoke -join "`n") | Out-File -FilePath 'reports/ci-dashboard.md' -Encoding UTF8
+
+# Smoke Weighted Summary
+try {
+  if (Test-Path 'reports/smoke-analysis.json') {
+    $obj = Get-Content 'reports/smoke-analysis.json' -Raw | ConvertFrom-Json
+    $lines = @()
+    $lines += ""
+    $lines += "## Smoke Weighted Summary"
+    $lines += ("- weighted pass: {0}% ({1}/{2})" -f $obj.weightedPassPercent, $obj.passedWeight, $obj.totalWeight)
+    foreach ($e in ($obj.entries | Sort-Object -Property weight -Descending | Select-Object -First 5)) {
+      $lines += ("  - {0} (w={1}): {2}" -f $e.name, $e.weight, $e.status)
+    }
+    (Get-Content 'reports/ci-dashboard.md' -Raw) + "`n" + ($lines -join "`n") | Out-File -FilePath 'reports/ci-dashboard.md' -Encoding UTF8
+  }
+} catch {}
