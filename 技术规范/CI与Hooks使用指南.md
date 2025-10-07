@@ -27,6 +27,7 @@
 - 受影响域映射：`node scripts/affected_domains.cjs` → reports/affected-domains.{txt,json}
 - 增强选测：`node scripts/augment_tests.cjs` → reports/tests-to-run-augmented.txt（按域权重优先、包含域冒烟）
 - 仪表板：`scripts/run_reports.ps1` 在 Domain Smoke Summary 中按 `policy/domains.json` 的 `weight` 降序展示优先级
+ - 加权冒烟：`node scripts/smoke_analyze.cjs` 计算 `reports/smoke-analysis.{json,md}`（含 Top Failed Domains）
 
 ## 例外与灰度
 - exceptions.json：记录临时豁免（带到期时间），避免永久豁免；使用 scripts/set_exception.ps1 维护
