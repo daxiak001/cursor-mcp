@@ -21,6 +21,7 @@
     "guard:start": "node scripts/tools/live_guard.cjs",
     "guard:pre": "node scripts/tools/pre_dev_guard.cjs --path=src/",
     "rule-engine:start": "node scripts/core/rule-engine-server.cjs",
+    "rule-engine:start:cloud": "node scripts/core/rule-engine-server-cloud.cjs",
     "rule-engine:test": "node scripts/tests/test-rule-engine.cjs",
     "validate:execution-rate": "node scripts/tests/validate-execution-rate.js",
     "monitor:report": "node scripts/core/analyze-monitor.cjs",
@@ -35,6 +36,7 @@
     "skills:search": "node scripts/core/skill-library.cjs search",
     "skills:stats": "node scripts/core/skill-library.cjs stats",
     "meeting:start": "node scripts/core/meeting-engine.cjs",
+    "start": "node scripts/core/rule-engine-server-cloud.cjs",
     "ci:all": "npm run -s ci:preflight && npm run -s ci:diff && npm run -s ci:diff:pattern && npm run -s ci:domains && npm run -s ci:smoke:generate && npm run -s test && npm run -s ci:smoke:analyze && npm run -s ci:smoke:gate && npm run -s ci:interfaces && npm run -s ci:contract && npm run -s ci:reports && npm run -s guard:experience"
   },
   "devDependencies": {
@@ -44,12 +46,18 @@
   },
   "dependencies": {
     "@playwright/test": "^1.56.0",
+    "cors": "^2.8.5",
     "express": "^5.1.0",
+    "express-rate-limit": "^7.1.5",
+    "helmet": "^7.1.0",
     "js-yaml": "^4.1.0",
     "node-fetch": "^2.7.0",
     "playwright": "^1.56.0",
     "puppeteer": "^24.23.0",
     "sharp": "^0.33.5",
     "sql.js": "^1.13.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
