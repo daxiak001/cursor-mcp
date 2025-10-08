@@ -1,0 +1,15 @@
+rules:
+  - id: IR-032
+    level: error
+    description: 代码质量阈值检测（修改3次或复杂度>10→强制重构）
+    patterns:
+      type: quality_threshold
+      changeThreshold: 3
+      complexityThreshold: 10
+      action: block
+      message: 文件质量下降，必须重构后才能提交
+    implementation:
+      changeTracker: scripts/tools/file-change-tracker.cjs
+      complexityChecker: scripts/tools/complexity-checker.cjs
+      hook: pre-commit
+

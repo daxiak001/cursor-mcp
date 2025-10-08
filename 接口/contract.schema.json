@@ -1,0 +1,9 @@
+{
+  "modules": [
+    { "name": "utils-export", "file": "src/utils/export.ts", "exports": ["exportData", "ExportFormat"] },
+    { "name": "utils-export-file", "file": "src/utils/export_file.ts", "exports": ["exportDataToFile"] },
+    { "name": "utils-math", "file": "src/utils/math.ts", "exports": ["clamp", "average"] }
+  ]
+}
+
+

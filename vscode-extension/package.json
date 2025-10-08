@@ -1,0 +1,74 @@
+{
+  "name": "xiaoliu-quality-guard",
+  "displayName": "小柳质量守卫",
+  "description": "AI开发质量守卫 - 拦截违规代码和对话",
+  "version": "1.0.0",
+  "publisher": "xiaoliu",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Linters",
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "xiaoliu.checkCode",
+        "title": "小柳：检查代码质量"
+      },
+      {
+        "command": "xiaoliu.checkDialogue",
+        "title": "小柳：检查对话行为"
+      },
+      {
+        "command": "xiaoliu.reloadRules",
+        "title": "小柳：重新加载规则"
+      }
+    ],
+    "configuration": {
+      "title": "小柳质量守卫",
+      "properties": {
+        "xiaoliu.ruleEngineUrl": {
+          "type": "string",
+          "default": "http://localhost:3000",
+          "description": "规则引擎服务地址"
+        },
+        "xiaoliu.enableCodeCheck": {
+          "type": "boolean",
+          "default": true,
+          "description": "启用代码质量检查"
+        },
+        "xiaoliu.enableDialogueCheck": {
+          "type": "boolean",
+          "default": true,
+          "description": "启用对话行为检查"
+        },
+        "xiaoliu.blockOnError": {
+          "type": "boolean",
+          "default": true,
+          "description": "发现错误时阻止保存"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.x",
+    "@types/node-fetch": "^2.6.13",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "node-fetch": "^2.7.0"
+  }
+}

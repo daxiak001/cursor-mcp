@@ -1,0 +1,27 @@
+{
+  "timestamp": 1759850945189,
+  "timestampISO": "2025-10-07T15:29:05.189Z",
+  "queries": [
+    "如何实现规则引擎",
+    "代码质量检查"
+  ],
+  "durationMs": 800,
+  "planned": {
+    "action": "创建规则引擎服务",
+    "files": [
+      "scripts/rule-engine-server.cjs",
+      "policy/core-l1.yaml"
+    ]
+  },
+  "candidates": [
+    {
+      "filePath": "package.json",
+      "fileSha256": "c79abda58d08362d9207637b1bd1b06b8fbd01d252f43d66214f68515eae756a"
+    },
+    {
+      "filePath": "vscode-extension\\package.json",
+      "fileSha256": "a5dece27231d6a59501280e809c500d5ff7bdf5df6417060e6ae36637384a832"
+    }
+  ],
+  "reason": "实现代码质量检查功能"
+}

@@ -53,6 +53,38 @@ jobs:
           chmod +x gitleaks
           ./gitleaks detect --no-banner --redact --exit-code 1
 
-      - name: Contract Check (placeholder)
+      - name: Domain Diff (changed tests)
         run: |
-          echo 'TODO: schema contract check'
+          node scripts/diff_advanced.cjs origin/main || node scripts/diff_advanced.cjs
+
+      - name: Diff Test Pattern
+        run: |
+          node scripts/diff_test.cjs origin/main || node scripts/diff_test.cjs
+
+      - name: Affected Domains
+        run: |
+          node scripts/affected_domains.cjs
+
+      - name: Generate Domain Smoke Tests
+        run: |
+          node scripts/generate_domain_smoke_tests.cjs
+
+      - name: Interface Diff
+        run: |
+          node scripts/interface_diff.cjs
+
+      - name: Contract Check
+        run: |
+          node scripts/contract_check.cjs
+
+      - name: Smoke Analyze
+        run: |
+          node scripts/smoke_analyze.cjs
+
+      - name: Smoke Gate
+        run: |
+          pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/check_smoke.ps1
+
+      - name: Aggregate Reports
+        run: |
+          pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/run_reports.ps1

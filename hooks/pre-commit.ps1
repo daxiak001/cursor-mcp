@@ -4,6 +4,16 @@
 
 $ErrorActionPreference = 'Stop'
 
+Write-Host '[pre-commit] 受影响测试提示'
+try {
+  if (Test-Path 'reports/diff-test-pattern.txt') {
+    $p = Get-Content 'reports/diff-test-pattern.txt' -Raw
+    if ($p -and $p.Trim().Length -gt 0) {
+      Write-Host ('建议先本地运行受影响测试: ' + $p)
+    }
+  }
+} catch {}
+
 Write-Host '[pre-commit] Lint/Format 检查'
 try {
   if (Test-Path package.json) {
@@ -40,6 +50,13 @@ try {
   pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/hardcode_scan.ps1
 } catch {
   Write-Error 'Hardcode scan 未通过'
+  try {
+    if (Test-Path 'reports/hardcode-scan.txt') {
+      $lines = Get-Content 'reports/hardcode-scan.txt' | Select-Object -Skip 0 -First 20
+      Write-Host 'Top suspicion (前20行):'
+      foreach ($l in $lines) { Write-Host ('  ' + $l) }
+    }
+  } catch {}
   exit 1
 }
 

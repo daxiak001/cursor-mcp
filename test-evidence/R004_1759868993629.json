@@ -1,0 +1,19 @@
+{
+  "testId": "R004",
+  "endpoint": "/api/version",
+  "method": "GET",
+  "timestamp": "2025-10-07T20:29:53.629Z",
+  "duration": 24,
+  "statusCode": 200,
+  "headers": {
+    "x-powered-by": "Express",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "323",
+    "etag": "W/\"143-PHNQjNUMVU3oQnLcMbnSmTBV4j0\"",
+    "date": "Tue, 07 Oct 2025 20:29:53 GMT",
+    "connection": "keep-alive",
+    "keep-alive": "timeout=5"
+  },
+  "body": "{\"version\":\"v6.1.1\",\"release_date\":\"2025-10-08T17:00:00+08:00\",\"update_summary\":\"新增自我介绍功能、团队配置系统\",\"previous_version\":\"v6.1.0\",\"is_latest\":true,\"uptime\":\"0h 29m\",\"statistics\":{\"total_rules\":148,\"new_rules\":15,\"total_tools\":30,\"new_tools\":4,\"total_docs\":12,\"new_docs\":2,\"code_lines_added\":2100}}",
+  "success": true
+}

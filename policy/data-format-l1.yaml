@@ -1,0 +1,274 @@
+rules:
+  - id: IR-040
+    level: error
+    description: 数据文件格式规范（系统内部数据禁用MD，文档类可用MD）
+    category: 数据管理
+    priority: critical
+    
+    # 核心原则
+    core_rule:
+      principle: "系统内部数据文件禁止使用MD，必须使用JSON"
+      exception: "文档类文件（报告、说明、计划等）可以使用MD"
+      key_question: "这个文件是给程序读还是给人读？"
+    
+    # 核心要求
+    requirements:
+      禁止使用:
+        - 格式: .md (Markdown)
+          原因: 包含大量特殊符号和无用字符
+          问题: 不利于AI阅读和信息获取
+          示例错误: |
+            # 用户数据.md
+            - 用户1: 张三
+            - 用户2: 李四
+        
+        - 格式: .txt (纯文本)
+          原因: 缺乏结构化
+          问题: 难以解析和查询
+        
+        - 格式: .doc/.docx
+          原因: 二进制格式
+          问题: 需要额外工具解析
+      
+      必须使用:
+        - 格式: .json
+          优势: 结构化、易解析、AI友好
+          适用: 所有数据存储
+          示例正确: |
+            // 用户数据.json
+            {
+              "users": [
+                {"id": 1, "name": "张三"},
+                {"id": 2, "name": "李四"}
+              ]
+            }
+        
+        - 格式: .yaml (可选)
+          优势: 人类可读、支持注释
+          适用: 配置文件、规则定义
+          示例: |
+            # config.yaml
+            users:
+              - id: 1
+                name: 张三
+              - id: 2
+                name: 李四
+    
+    # 具体场景规范
+    scenarios:
+      - 场景: 保存测试数据
+        错误做法:
+          file: test_data.md
+          content: |
+            # 测试数据
+            - case1: xxx
+            - case2: yyy
+        
+        正确做法:
+          file: test_data.json
+          content: |
+            {
+              "test_cases": [
+                {"id": "case1", "data": "xxx"},
+                {"id": "case2", "data": "yyy"}
+              ]
+            }
+      
+      - 场景: 保存日志记录
+        错误做法:
+          file: logs.md
+          content: |
+            ## 2025-10-08
+            - 错误1: xxx
+            - 错误2: yyy
+        
+        正确做法:
+          file: logs.json
+          content: |
+            {
+              "date": "2025-10-08",
+              "logs": [
+                {"level": "error", "message": "xxx"},
+                {"level": "error", "message": "yyy"}
+              ]
+            }
+      
+      - 场景: 保存统计数据
+        错误做法:
+          file: stats.md
+          content: |
+            总数: 100
+            成功: 80
+            失败: 20
+        
+        正确做法:
+          file: stats.json
+          content: |
+            {
+              "total": 100,
+              "success": 80,
+              "failed": 20,
+              "success_rate": 0.8
+            }
+      
+      - 场景: 保存用户输入
+        错误做法:
+          file: user_input.txt
+          content: "用户说的话..."
+        
+        正确做法:
+          file: user_input.json
+          content: |
+            {
+              "timestamp": "2025-10-08T10:30:00",
+              "user": "张三",
+              "input": "用户说的话...",
+              "context": {"session_id": "123"}
+            }
+    
+    # 文件命名规范
+    naming_convention:
+      数据文件:
+        pattern: "^[a-z0-9_-]+\\.json$"
+        examples:
+          - ✅ user_data.json
+          - ✅ test-results.json
+          - ✅ config_v2.json
+          - ❌ UserData.json (大写)
+          - ❌ 用户数据.json (中文)
+          - ❌ user data.json (空格)
+      
+      配置文件:
+        pattern: "^[a-z0-9_-]+\\.(json|yaml)$"
+        examples:
+          - ✅ config.json
+          - ✅ rules.yaml
+          - ✅ settings.json
+      
+      日志文件:
+        pattern: "^[a-z0-9_-]+\\.json$"
+        examples:
+          - ✅ app.log.json
+          - ✅ error-2025-10-08.json
+          - ❌ error.log.md
+    
+    # 例外情况（重要更新）
+    exceptions:
+      允许使用MD的场景:
+        - 用途: 文档说明
+          文件: README.md, CHANGELOG.md, docs/*.md
+          原因: 文档性质，不是数据存储
+          示例: ✅ README.md, 安装指南.md, API文档.md
+        
+        - 用途: 报告文档
+          文件: *-report.md, *-报告.md, reports/*.md
+          原因: 供人阅读的报告文档，不是系统数据
+          示例: ✅ 测试报告.md, 诊断报告.md, 分析报告.md
+        
+        - 用途: 计划文档
+          文件: *-plan.md, *-计划.md, plans/*.md
+          原因: 计划是文档，不是数据
+          示例: ✅ 开发计划.md, 实施计划.md, 升级计划.md
+        
+        - 用途: 说明文档
+          文件: *-guide.md, *-说明.md, guides/*.md
+          原因: 说明文档供人阅读
+          示例: ✅ 使用说明.md, 升级指南.md, 操作说明.md
+        
+        - 用途: 会议/记录文档
+          文件: *-notes.md, *-记录.md, meetings/*.md
+          原因: 会议记录是文档，不是系统数据
+          示例: ✅ 会议记录.md, 讨论记录.md, 决策记录.md
+        
+        - 用途: 项目文档
+          文件: 架构.md, 设计.md, 规范.md
+          原因: 技术文档供人阅读
+          示例: ✅ 架构说明.md, 设计文档.md, 技术规范.md
+      
+      完全禁止MD的场景:
+        - 系统内部数据文件:
+          - ❌ 测试结果.md → 必须用 test-result.json
+          - ❌ 执行数据.md → 必须用 execution-data.json
+          - ❌ 配置数据.md → 必须用 config.json
+          - ❌ 统计数据.md → 必须用 statistics.json
+          - ❌ 日志记录.md → 必须用 logs.json
+          原因: 系统数据需要程序解析，MD格式不适合
+        
+        - 结构化数据:
+          - ❌ 用户列表.md → 必须用 users.json
+          - ❌ 任务列表.md → 必须用 tasks.json
+          - ❌ 错误记录.md → 必须用 errors.json
+          原因: 结构化数据需要查询和处理
+        
+        - 监控/统计:
+          - ❌ 性能指标.md → 必须用 metrics.json
+          - ❌ 执行率.md → 必须用 execution-rate.json
+          原因: 监控数据需要实时分析
+      
+      判断标准:
+        关键问题: "这个文件是给程序读还是给人读？"
+        - 给程序读 → 必须用 .json（系统内部数据）
+        - 给人读 → 可以用 .md（文档、报告、计划、说明）
+        
+        文件类型判断:
+          - 包含"报告/报表/report" → 可用 .md
+          - 包含"计划/plan" → 可用 .md
+          - 包含"说明/指南/guide" → 可用 .md
+          - 包含"结果/数据/data/result" → 必须用 .json
+          - 包含"配置/config" → 必须用 .json
+          - 包含"日志/log" → 必须用 .json
+    
+    # AI创建文件前的检查
+    pre_creation_checklist:
+      - question: 这个文件是用来保存数据的吗？
+        answer_yes: 必须使用 .json 格式
+        answer_no: 如果是文档，可以使用 .md
+      
+      - question: 文件内容是否需要被程序解析？
+        answer_yes: 必须使用 .json 或 .yaml
+        answer_no: 如果只是人类阅读，可以用 .md
+      
+      - question: 文件是否包含结构化数据（对象、数组）？
+        answer_yes: 必须使用 .json
+        answer_no: 检查是否真的需要存储
+      
+      - question: 文件是否会被AI读取和处理？
+        answer_yes: 强烈建议 .json（AI友好）
+        answer_no: 重新考虑文件用途
+    
+    # 强制执行机制
+    enforcement:
+      创建文件时:
+        - 检查文件扩展名
+        - 如果是 .md 且包含数据，立即提示错误
+        - 提供正确的 .json 模板
+      
+      代码审查时:
+        - 扫描新增的 .md 文件
+        - 检查内容是否为数据
+        - 违规则阻止提交
+      
+      AI工作流:
+        - 创建文件前必读此规则
+        - 自动选择正确格式
+        - 记录决策原因
+    
+    # 迁移指南
+    migration:
+      现有MD数据文件:
+        - 识别所有 .md 数据文件
+        - 转换为 .json 格式
+        - 更新引用路径
+        - 删除旧 .md 文件
+      
+      转换工具:
+        script: scripts/tools/md-to-json-converter.cjs
+        usage: "node md-to-json-converter.cjs <input.md> <output.json>"
+    
+    # 违规统计
+    violation_stats:
+      历史问题: MD格式数据文件是违规概率最高的问题
+      影响: 严重影响AI信息获取和数据处理
+      修复成本: 中等（需要转换格式）
+      预防成本: 极低（创建时选对格式）
+

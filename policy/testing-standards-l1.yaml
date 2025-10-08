@@ -1,0 +1,264 @@
+rules:
+  - id: IR-041
+    level: error
+    description: 真实测试强制规范（禁止模拟测试，必须真实执行）
+    category: 测试规范
+    priority: supreme
+    
+    # 核心铁律
+    core_rule:
+      principle: "所有测试必须是真实测试，禁止模拟测试"
+      enforcement: "强制执行，违反者阻止提交"
+      
+    # 真实测试定义
+    real_testing_definition:
+      what_is_real:
+        - 实际执行代码/脚本/命令
+        - 真实的文件操作
+        - 真实的API调用
+        - 真实的数据库操作
+        - 真实的用户交互（GUI测试）
+        - 实际的系统响应
+        - 真实的错误捕获
+        
+      what_is_mock:
+        - 假装执行但不真正运行
+        - 伪造的测试结果
+        - 硬编码的返回值
+        - 模拟的成功/失败状态
+        - 预设的测试数据（不经过实际处理）
+        - 跳过实际验证步骤
+    
+    # 禁止行为
+    forbidden_practices:
+      - practice: 模拟测试结果
+        example_wrong: |
+          // ❌ 禁止
+          function testAPI() {
+            console.log("✅ API测试通过");  // 没有真正调用API
+            return { success: true };
+          }
+        
+        example_correct: |
+          // ✅ 正确
+          async function testAPI() {
+            const response = await fetch('http://localhost:3000/api/version');
+            const data = await response.json();
+            console.log("✅ API测试通过:", data.version);
+            return data;
+          }
+      
+      - practice: 假装文件检查
+        example_wrong: |
+          // ❌ 禁止
+          function checkFile(filename) {
+            console.log(`✅ 文件存在: ${filename}`);
+            return true;  // 没有真正检查
+          }
+        
+        example_correct: |
+          // ✅ 正确
+          function checkFile(filename) {
+            const exists = fs.existsSync(filename);
+            console.log(`${exists ? '✅' : '❌'} 文件${exists ? '存在' : '不存在'}: ${filename}`);
+            return exists;
+          }
+      
+      - practice: 跳过实际执行
+        example_wrong: |
+          // ❌ 禁止
+          function testCommand(cmd) {
+            // return { success: true, output: "模拟输出" };
+          }
+        
+        example_correct: |
+          // ✅ 正确
+          function testCommand(cmd) {
+            const result = execSync(cmd, { encoding: 'utf8' });
+            return { success: true, output: result };
+          }
+    
+    # 真实测试要求
+    real_testing_requirements:
+      code_execution:
+        - 必须真实执行代码
+        - 必须捕获实际输出
+        - 必须验证真实结果
+        - 必须记录实际错误
+        
+      file_operations:
+        - 必须真实读写文件
+        - 必须验证文件存在性
+        - 必须检查文件内容
+        - 必须处理文件错误
+        
+      api_testing:
+        - 必须真实调用API
+        - 必须验证响应状态码
+        - 必须检查响应内容
+        - 必须处理网络错误
+        
+      gui_testing:
+        - 必须真实启动应用
+        - 必须真实操作UI元素
+        - 必须截图验证（IR-020）
+        - 必须5轮完整测试（IR-021）
+        
+      database_testing:
+        - 必须连接真实数据库
+        - 必须执行真实查询
+        - 必须验证数据变更
+        - 必须清理测试数据
+    
+    # 验证标准
+    verification_standards:
+      evidence_required:
+        - 实际执行日志
+        - 真实输出截图
+        - 实际错误信息
+        - 真实性能数据
+        - 时间戳证明
+        
+      proof_of_execution:
+        - 命令执行输出
+        - API响应数据
+        - 文件系统变化
+        - 数据库记录
+        - 系统日志
+    
+    # 测试环境要求
+    test_environment:
+      development:
+        - 使用真实开发环境
+        - 真实的依赖服务
+        - 真实的数据库（测试库）
+        - 真实的文件系统
+        
+      staging:
+        - 模拟生产环境
+        - 真实的服务配置
+        - 真实的数据流
+        - 真实的错误处理
+        
+      production_like:
+        - 生产级别的真实测试
+        - 真实的负载测试
+        - 真实的性能测试
+        - 真实的安全测试
+    
+    # 强制执行机制
+    enforcement:
+      pre_commit:
+        - 检测测试代码中的模拟行为
+        - 扫描假的success返回
+        - 检查跳过的测试
+        - 验证测试覆盖率
+        
+      code_review:
+        - 审查测试真实性
+        - 检查测试证据
+        - 验证测试结果
+        - 确认实际执行
+        
+      ci_cd:
+        - 强制运行真实测试
+        - 验证测试输出
+        - 检查测试时长（太快=假测试）
+        - 保存测试证据
+    
+    # 测试真实性检查清单
+    reality_checklist:
+      - question: 这个测试是否真实执行了代码？
+        answer_yes: 继续
+        answer_no: 修改为真实执行
+        
+      - question: 这个测试是否验证了实际输出？
+        answer_yes: 继续
+        answer_no: 添加实际输出验证
+        
+      - question: 这个测试是否捕获了真实错误？
+        answer_yes: 继续
+        answer_no: 添加错误捕获
+        
+      - question: 这个测试是否有执行证据？
+        answer_yes: 通过
+        answer_no: 保存执行证据
+    
+    # 违规示例与修正
+    violation_examples:
+      example_1:
+        violation: "假装API调用成功"
+        wrong_code: |
+          function testAPI() {
+            return { success: true, message: "API正常" };
+          }
+        
+        correct_code: |
+          async function testAPI() {
+            try {
+              const res = await fetch('http://localhost:3000/api/version');
+              const data = await res.json();
+              return { success: res.ok, data };
+            } catch (error) {
+              return { success: false, error: error.message };
+            }
+          }
+      
+      example_2:
+        violation: "模拟文件存在性检查"
+        wrong_code: |
+          function checkFiles() {
+            console.log("✅ 所有文件存在");
+            return true;
+          }
+        
+        correct_code: |
+          function checkFiles() {
+            const files = ['file1.js', 'file2.js'];
+            const results = files.map(f => ({
+              file: f,
+              exists: fs.existsSync(f)
+            }));
+            return results.every(r => r.exists);
+          }
+      
+      example_3:
+        violation: "跳过实际命令执行"
+        wrong_code: |
+          function runTests() {
+            // 假装运行测试
+            return { passed: 10, failed: 0 };
+          }
+        
+        correct_code: |
+          function runTests() {
+            const output = execSync('npm test', { encoding: 'utf8' });
+            const passed = (output.match(/✓/g) || []).length;
+            const failed = (output.match(/✗/g) || []).length;
+            return { passed, failed, output };
+          }
+    
+    # 最佳实践
+    best_practices:
+      - practice: 每个测试都要有实际执行
+        reason: 确保测试的真实性和可靠性
+        
+      - practice: 保存所有测试证据
+        reason: 可追溯、可审计
+        
+      - practice: 测试失败时保留现场
+        reason: 便于问题诊断
+        
+      - practice: 使用真实数据进行测试
+        reason: 发现真实场景的问题
+        
+      - practice: 定期review测试质量
+        reason: 防止测试退化为形式主义
+    
+    # 相关规则
+    related_rules:
+      - IR-020: 三重验证测试标准（日志+截图+实际执行）
+      - IR-021: 5轮完整测试
+      - TEST-001: GUI测试验证标准（不相信日志，要相信截图）
+      - TEST-002: 屏幕分辨率检测（先检测再操作）
+

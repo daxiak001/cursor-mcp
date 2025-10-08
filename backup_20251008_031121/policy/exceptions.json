@@ -1,0 +1,5 @@
+{
+  "exceptions": [
+    { "path": "tests/fixtures/**", "rules": ["IR-003"], "expires": "2025-11-01" }
+  ]
+}

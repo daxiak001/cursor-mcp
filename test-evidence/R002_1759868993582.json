@@ -1,0 +1,8 @@
+{
+  "testId": "R002",
+  "command": "node scripts/tools/bump-version.cjs validate",
+  "timestamp": "2025-10-07T20:29:53.582Z",
+  "duration": 144,
+  "output": "\n📋 验证版本文件...\n\n✅ 版本文件验证通过\n\n  版本: v6.1.1\n  日期: 2025/10/8 17:00:00\n  摘要: 新增自我介绍功能、团队配置系统\n\n",
+  "success": true
+}

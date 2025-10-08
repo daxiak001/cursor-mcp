@@ -1,0 +1,8 @@
+{
+  "testId": "R001",
+  "command": "node scripts/tools/version.cjs short",
+  "timestamp": "2025-10-07T20:29:53.434Z",
+  "duration": 146,
+  "output": "v6.1.1 (2025/10/8)\n",
+  "success": true
+}

@@ -1,0 +1,20 @@
+{
+  "testId": "R008",
+  "endpoint": "/api/intro?type=short",
+  "method": "GET",
+  "timestamp": "2025-10-07T20:29:53.912Z",
+  "duration": 3,
+  "statusCode": 404,
+  "headers": {
+    "x-powered-by": "Express",
+    "content-security-policy": "default-src 'none'",
+    "x-content-type-options": "nosniff",
+    "content-type": "text/html; charset=utf-8",
+    "content-length": "148",
+    "date": "Tue, 07 Oct 2025 20:29:53 GMT",
+    "connection": "keep-alive",
+    "keep-alive": "timeout=5"
+  },
+  "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /api/intro</pre>\n</body>\n</html>\n",
+  "success": false
+}

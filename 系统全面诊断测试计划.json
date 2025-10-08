@@ -1,0 +1,332 @@
+{
+  "plan_title": "小柳智能开发助手 - 系统全面诊断测试计划",
+  "created_date": "2025-10-08T17:30:00+08:00",
+  "created_by": "四角色团队",
+  "version": "v6.1.1",
+  
+  "executive_summary": {
+    "目标": "对系统进行全面诊断和测试，确保所有功能正常运行",
+    "测试范围": "规则引擎、工具套件、API接口、团队协作、版本管理、GUI测试",
+    "预期执行率": "95%+",
+    "测试时长": "约30-45分钟",
+    "输出": "诊断报告、测试报告、问题清单、优化建议"
+  },
+  
+  "test_phases": {
+    "phase_1": {
+      "name": "环境与基础检查",
+      "owner": "技术开发·小柳",
+      "duration": "5分钟",
+      "tests": [
+        {
+          "id": "T001",
+          "name": "版本信息验证",
+          "command": "node scripts/tools/version.cjs",
+          "expected": "显示v6.1.1版本信息",
+          "critical": true
+        },
+        {
+          "id": "T002",
+          "name": "自我介绍功能",
+          "command": "node scripts/tools/self-intro.cjs short",
+          "expected": "输出：我是小柳智能开发助手 v6.1.1（2025/10/8）",
+          "critical": true
+        },
+        {
+          "id": "T003",
+          "name": "团队配置验证",
+          "command": "node scripts/tools/self-intro.cjs team",
+          "expected": "显示四角色团队信息（小户、小品、小柳、小观）",
+          "critical": true
+        },
+        {
+          "id": "T004",
+          "name": "文件完整性检查",
+          "command": "node scripts/tools/file-integrity-check.cjs check",
+          "expected": "无文件丢失",
+          "critical": true
+        }
+      ]
+    },
+    
+    "phase_2": {
+      "name": "规则引擎诊断",
+      "owner": "监督管理·小观",
+      "duration": "10分钟",
+      "tests": [
+        {
+          "id": "T101",
+          "name": "规则加载状态",
+          "method": "检查规则引擎日志",
+          "expected": "148条规则成功加载",
+          "critical": true
+        },
+        {
+          "id": "T102",
+          "name": "代码质量规则",
+          "test_file": "test-code-with-hardcode.js",
+          "expected": "检测到IR-003违规（硬编码）",
+          "critical": true
+        },
+        {
+          "id": "T103",
+          "name": "数据格式规则（IR-040）",
+          "test_file": "test-create-md-data.js",
+          "expected": "阻止创建.md数据文件",
+          "critical": true
+        },
+        {
+          "id": "T104",
+          "name": "GUI测试规则（TEST-001）",
+          "test_code": "GUI测试代码（无截图）",
+          "expected": "提示必须包含截图验证",
+          "critical": false
+        }
+      ]
+    },
+    
+    "phase_3": {
+      "name": "工具套件测试",
+      "owner": "技术开发·小柳",
+      "duration": "10分钟",
+      "tests": [
+        {
+          "id": "T201",
+          "name": "版本管理工具",
+          "commands": [
+            "node scripts/tools/version.cjs",
+            "node scripts/tools/bump-version.cjs validate"
+          ],
+          "expected": "版本查询正常，版本文件验证通过",
+          "critical": true
+        },
+        {
+          "id": "T202",
+          "name": "MD转JSON转换工具",
+          "command": "node scripts/tools/md-to-json-converter.cjs check test.md",
+          "expected": "正确识别文件类型",
+          "critical": false
+        },
+        {
+          "id": "T203",
+          "name": "升级检查清单",
+          "command": "node scripts/tools/upgrade-checklist.cjs show",
+          "expected": "显示5项检查清单",
+          "critical": false
+        },
+        {
+          "id": "T204",
+          "name": "文件完整性检查",
+          "command": "node scripts/tools/file-integrity-check.cjs check",
+          "expected": "无文件丢失",
+          "critical": true
+        }
+      ]
+    },
+    
+    "phase_4": {
+      "name": "API接口测试",
+      "owner": "用户经理·小户",
+      "duration": "10分钟",
+      "tests": [
+        {
+          "id": "T301",
+          "name": "版本查询API",
+          "endpoint": "GET /api/version",
+          "expected": "返回v6.1.1版本信息",
+          "critical": true
+        },
+        {
+          "id": "T302",
+          "name": "自我介绍API",
+          "endpoint": "GET /api/intro?type=short",
+          "expected": "返回简短介绍",
+          "critical": true
+        },
+        {
+          "id": "T303",
+          "name": "团队配置API",
+          "endpoint": "GET /api/team/config",
+          "expected": "返回team-config.json内容",
+          "critical": true
+        },
+        {
+          "id": "T304",
+          "name": "连续执行模式API",
+          "endpoint": "GET /api/continuous-mode/status",
+          "expected": "返回状态信息",
+          "critical": false
+        },
+        {
+          "id": "T305",
+          "name": "经验记录API",
+          "endpoint": "GET /api/experience/stats",
+          "expected": "返回统计信息",
+          "critical": false
+        }
+      ]
+    },
+    
+    "phase_5": {
+      "name": "GUI测试系统验证",
+      "owner": "用户经理·小户",
+      "duration": "5分钟",
+      "tests": [
+        {
+          "id": "T401",
+          "name": "GUI测试规则加载",
+          "method": "检查gui-testing-best-practices.yaml",
+          "expected": "TEST-001~011规则存在",
+          "critical": false
+        },
+        {
+          "id": "T402",
+          "name": "GUI测试指南",
+          "file": "docs/gui-testing-guide.json",
+          "expected": "JSON格式，包含核心原则和检查清单",
+          "critical": false
+        },
+        {
+          "id": "T403",
+          "name": "截图验证原则",
+          "check": "TEST-001规则",
+          "expected": "不相信日志，要相信截图",
+          "critical": true
+        }
+      ]
+    },
+    
+    "phase_6": {
+      "name": "系统性能与稳定性",
+      "owner": "监督管理·小观",
+      "duration": "5分钟",
+      "tests": [
+        {
+          "id": "T501",
+          "name": "规则引擎响应时间",
+          "method": "API响应时间测试",
+          "expected": "<100ms",
+          "critical": false
+        },
+        {
+          "id": "T502",
+          "name": "内存使用",
+          "method": "进程监控",
+          "expected": "<500MB",
+          "critical": false
+        },
+        {
+          "id": "T503",
+          "name": "错误日志检查",
+          "method": "查看pm2日志",
+          "expected": "无严重错误",
+          "critical": true
+        }
+      ]
+    }
+  },
+  
+  "test_execution_checklist": [
+    {
+      "phase": "准备阶段",
+      "tasks": [
+        "确保规则引擎服务运行（pm2 status）",
+        "准备测试环境",
+        "创建测试数据文件夹",
+        "准备测试结果记录表"
+      ]
+    },
+    {
+      "phase": "执行阶段",
+      "tasks": [
+        "按phase_1到phase_6顺序执行",
+        "记录每个测试的结果（通过/失败/跳过）",
+        "截图保存关键测试结果",
+        "记录所有错误信息和堆栈"
+      ]
+    },
+    {
+      "phase": "报告阶段",
+      "tasks": [
+        "汇总测试结果",
+        "生成诊断报告",
+        "列出发现的问题",
+        "提供优化建议"
+      ]
+    }
+  ],
+  
+  "automated_test_script": {
+    "name": "comprehensive-test.cjs",
+    "description": "自动化执行所有测试",
+    "features": [
+      "自动执行所有测试用例",
+      "实时显示进度",
+      "生成HTML测试报告",
+      "保存测试结果JSON",
+      "截图记录关键步骤"
+    ]
+  },
+  
+  "success_criteria": {
+    "overall_pass_rate": ">=90%",
+    "critical_tests_pass_rate": "100%",
+    "api_availability": ">=95%",
+    "rule_execution_rate": ">=95%",
+    "response_time": "<100ms",
+    "zero_critical_errors": true
+  },
+  
+  "expected_outputs": [
+    {
+      "file": "系统诊断报告.json",
+      "description": "完整的诊断结果，包含所有测试数据"
+    },
+    {
+      "file": "测试结果汇总.html",
+      "description": "可视化的测试报告"
+    },
+    {
+      "file": "问题清单.json",
+      "description": "发现的问题列表和优先级"
+    },
+    {
+      "file": "优化建议.json",
+      "description": "系统优化建议"
+    },
+    {
+      "file": "screenshots/",
+      "description": "关键测试的截图证据"
+    }
+  ],
+  
+  "team_responsibilities": {
+    "用户经理·小户": {
+      "主导": ["Phase 4: API接口测试", "Phase 5: GUI测试验证"],
+      "参与": "最终验收和用户体验评估"
+    },
+    "产品经理·小品": {
+      "主导": "整体计划制定和协调",
+      "参与": "测试结果分析和优化建议"
+    },
+    "技术开发·小柳": {
+      "主导": ["Phase 1: 环境基础检查", "Phase 3: 工具套件测试"],
+      "参与": "自动化测试脚本开发和执行"
+    },
+    "监督管理·小观": {
+      "主导": ["Phase 2: 规则引擎诊断", "Phase 6: 性能稳定性"],
+      "参与": "全程质量监督和风险控制"
+    }
+  },
+  
+  "next_steps": [
+    "1. 小柳开发自动化测试脚本（comprehensive-test.cjs）",
+    "2. 小户准备API测试用例",
+    "3. 小观配置监控和日志收集",
+    "4. 小品协调测试时间和资源",
+    "5. 团队集体执行测试",
+    "6. 生成诊断报告",
+    "7. 召开总结会议，讨论优化方案"
+  ]
+}
+

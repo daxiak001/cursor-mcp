@@ -9,7 +9,7 @@
 - 周期：reports/dev_cycle.txt
 
 下一步建议：
-- 本地：scripts/setup.ps1 → npm ci → npm test → scripts/check_quality.ps1
+- 本地：scripts/setup.ps1 → npm ci → npm run ci:all（或按步执行 test/接口/契约/冒烟/汇总）
 - 远端：按“分支与PR指南.md”发起演示PR，使用“PR说明模板.md”
 \n- 最新PR: https://github.com/daxiak001/cursor-mcp/pull/1
 \n- 最近合并: PR#1 (https://github.com/daxiak001/cursor-mcp/pull/1)

@@ -1,0 +1,118 @@
+openapi: 3.0.3
+info:
+  title: Xiaoliu v6.1 API
+  version: 0.1.0
+servers:
+  - url: https://api.example.com
+paths:
+  /get_rules_for_task:
+    post:
+      summary: Get rules for a task
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                taskId: { type: string }
+                context: { type: object }
+      responses:
+        '200':
+          description: Ruleset
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  version: { type: string }
+                  rules: { type: array, items: { type: object } }
+  /submit_generation:
+    post:
+      summary: Submit generated artifacts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                taskId: { type: string }
+                artifacts: { type: array, items: { type: object } }
+      responses:
+        '200': { description: Accepted }
+  /validate_output:
+    post:
+      summary: Validate output
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                taskId: { type: string }
+                artifacts: { type: array, items: { type: object } }
+      responses:
+        '200':
+          description: Validation result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok: { type: boolean }
+                  issues: { type: array, items: { type: object } }
+  /start_ui_test:
+    post:
+      summary: Start UI test job
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                taskId: { type: string }
+                plan: { type: object }
+      responses:
+        '200':
+          description: Job started
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jobId: { type: string }
+  /job_status/{jobId}:
+    get:
+      summary: Get job status
+      parameters:
+        - in: path
+          name: jobId
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status: { type: string }
+                  progress: { type: number }
+  /start_meeting:
+    post:
+      summary: Start meeting engine session
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                taskId: { type: string }
+                agenda: { type: array, items: { type: string } }
+      responses:
+        '200': { description: Started }

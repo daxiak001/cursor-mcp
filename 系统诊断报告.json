@@ -1,0 +1,191 @@
+{
+  "timestamp": "2025-10-07T20:15:52.325Z",
+  "version": "v6.1.1",
+  "test_summary": {
+    "total_tests": 17,
+    "passed": 17,
+    "failed": 0,
+    "skipped": 0,
+    "pass_rate": "100.00%",
+    "duration_ms": 856,
+    "duration_readable": "0秒"
+  },
+  "critical_tests": {
+    "total": 13,
+    "failed": 0,
+    "pass_rate": "100.00%"
+  },
+  "test_results": [
+    {
+      "id": "T001",
+      "name": "版本信息验证",
+      "status": "passed",
+      "startTime": 1759868151471,
+      "output": "v6.1.1 (2025/10/8)\n",
+      "error": null,
+      "critical": true,
+      "duration": 134
+    },
+    {
+      "id": "T002",
+      "name": "自我介绍功能",
+      "status": "passed",
+      "startTime": 1759868151606,
+      "output": "我是小柳智能开发助手 v6.1.1（2025/10/8）\n",
+      "error": null,
+      "critical": true,
+      "duration": 122
+    },
+    {
+      "id": "T003",
+      "name": "团队配置验证",
+      "status": "passed",
+      "startTime": 1759868151728,
+      "output": "\n╔════════════════════════════════════════════════════════════════╗\n║                   👥 小柳团队 - 四角色协作                      ║\n╚════════════════════════════════════════════════════════════════╝\n\n🔹 用户",
+      "error": null,
+      "critical": true,
+      "duration": 115
+    },
+    {
+      "id": "T004",
+      "name": "版本文件验证",
+      "status": "passed",
+      "startTime": 1759868151844,
+      "output": "\n📋 验证版本文件...\n\n✅ 版本文件验证通过\n\n  版本: v6.1.1\n  日期: 2025/10/8 17:00:00\n  摘要: 新增自我介绍功能、团队配置系统\n\n",
+      "error": null,
+      "critical": true,
+      "duration": 122
+    },
+    {
+      "id": "T101",
+      "name": "规则文件存在性检查",
+      "status": "passed",
+      "startTime": 1759868151966,
+      "output": "文件存在: policy/core-l1.yaml",
+      "error": null,
+      "critical": true,
+      "duration": 0
+    },
+    {
+      "id": "T102",
+      "name": "对话规则文件",
+      "status": "passed",
+      "startTime": 1759868151966,
+      "output": "文件存在: policy/dialogue-l1.yaml",
+      "error": null,
+      "critical": true,
+      "duration": 0
+    },
+    {
+      "id": "T103",
+      "name": "GUI测试规则文件",
+      "status": "passed",
+      "startTime": 1759868151966,
+      "output": "文件存在: policy/gui-testing-best-practices.yaml",
+      "error": null,
+      "critical": true,
+      "duration": 0
+    },
+    {
+      "id": "T104",
+      "name": "数据格式规则文件（IR-040）",
+      "status": "passed",
+      "startTime": 1759868151966,
+      "output": "文件存在: policy/data-format-l1.yaml",
+      "error": null,
+      "critical": true,
+      "duration": 1
+    },
+    {
+      "id": "T105",
+      "name": "版本管理规则文件（SYS-012）",
+      "status": "passed",
+      "startTime": 1759868151967,
+      "output": "文件存在: policy/version-management-l1.yaml",
+      "error": null,
+      "critical": true,
+      "duration": 0
+    },
+    {
+      "id": "T201",
+      "name": "版本查询工具",
+      "status": "passed",
+      "startTime": 1759868151967,
+      "output": "\n======================================================================\n                        系统版本信息\n======================================================================\n\n📦 当前版本: v6.1.1\n📅 发布日期: ",
+      "error": null,
+      "critical": true,
+      "duration": 123
+    },
+    {
+      "id": "T202",
+      "name": "自我介绍工具",
+      "status": "passed",
+      "startTime": 1759868152090,
+      "output": "\n╔════════════════════════════════════════════════════════════════╗\n║                                                                ║\n║               🤖 小柳智能开发助手                    ║\n║            Xia",
+      "error": null,
+      "critical": true,
+      "duration": 126
+    },
+    {
+      "id": "T203",
+      "name": "升级检查清单工具",
+      "status": "passed",
+      "startTime": 1759868152216,
+      "output": "\n📋 升级前检查清单:\n\n1. 完整备份当前系统\n   创建备份分支，保存当前所有更改\n   关键: 是\n   命令: git branch backup-$(date +%Y%m%d_%H%M%S)\n\n2. 记录文件清单\n   记录升级前的所有文件\n   关键: 是\n   命令: git ls-files > .upgrade/file-list-before.txt\n\n3. 记录依赖版本\n ",
+      "error": null,
+      "critical": false,
+      "duration": 106
+    },
+    {
+      "id": "T204",
+      "name": "MD转JSON工具",
+      "status": "passed",
+      "startTime": 1759868152322,
+      "output": "文件存在: scripts/tools/md-to-json-converter.cjs",
+      "error": null,
+      "critical": false,
+      "duration": 1
+    },
+    {
+      "id": "T301",
+      "name": "规则引擎服务",
+      "status": "passed",
+      "startTime": 1759868152324,
+      "output": "文件存在: scripts/core/rule-engine-server.cjs",
+      "error": null,
+      "critical": true,
+      "duration": 0
+    },
+    {
+      "id": "T302",
+      "name": "团队配置文件",
+      "status": "passed",
+      "startTime": 1759868152324,
+      "output": "文件存在: team-config.json",
+      "error": null,
+      "critical": true,
+      "duration": 0
+    },
+    {
+      "id": "T303",
+      "name": "GUI测试指南",
+      "status": "passed",
+      "startTime": 1759868152324,
+      "output": "文件存在: docs/gui-testing-guide.json",
+      "error": null,
+      "critical": false,
+      "duration": 0
+    },
+    {
+      "id": "T304",
+      "name": "系统升级指南",
+      "status": "passed",
+      "startTime": 1759868152324,
+      "output": "文件存在: docs/upgrade-guide.md",
+      "error": null,
+      "critical": false,
+      "duration": 0
+    }
+  ],
+  "status": "✅ 通过"
+}

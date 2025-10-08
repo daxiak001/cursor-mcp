@@ -1,0 +1,2018 @@
+[
+  {
+    "path": ".editorconfig",
+    "name": ".editorconfig",
+    "ext": "",
+    "category": "other",
+    "size": 180,
+    "modified": "2025-10-06T17:55:38.605Z"
+  },
+  {
+    "path": ".gitattributes",
+    "name": ".gitattributes",
+    "ext": "",
+    "category": "other",
+    "size": 115,
+    "modified": "2025-10-06T17:55:38.605Z"
+  },
+  {
+    "path": ".github\\ISSUE_TEMPLATE\\bug_report.md",
+    "name": "bug_report.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 678,
+    "modified": "2025-10-06T22:05:20.303Z"
+  },
+  {
+    "path": ".github\\ISSUE_TEMPLATE\\feature_request.md",
+    "name": "feature_request.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 240,
+    "modified": "2025-10-06T22:05:20.303Z"
+  },
+  {
+    "path": ".github\\PULL_REQUEST_TEMPLATE.md",
+    "name": "PULL_REQUEST_TEMPLATE.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 962,
+    "modified": "2025-10-06T22:05:20.303Z"
+  },
+  {
+    "path": ".github\\workflows\\ci.yml",
+    "name": "ci.yml",
+    "ext": ".yml",
+    "category": "config",
+    "size": 3681,
+    "modified": "2025-10-07T03:58:55.191Z"
+  },
+  {
+    "path": ".github\\workflows\\quality-gate.yml",
+    "name": "quality-gate.yml",
+    "ext": ".yml",
+    "category": "config",
+    "size": 7068,
+    "modified": "2025-10-07T12:49:42.409Z"
+  },
+  {
+    "path": ".github\\workflows\\security.yml",
+    "name": "security.yml",
+    "ext": ".yml",
+    "category": "config",
+    "size": 490,
+    "modified": "2025-10-06T20:07:43.274Z"
+  },
+  {
+    "path": ".gitignore",
+    "name": ".gitignore",
+    "ext": "",
+    "category": "other",
+    "size": 94,
+    "modified": "2025-10-06T19:42:09.503Z"
+  },
+  {
+    "path": ".gitmessage.txt",
+    "name": ".gitmessage.txt",
+    "ext": ".txt",
+    "category": "docs",
+    "size": 164,
+    "modified": "2025-10-06T15:57:44.029Z"
+  },
+  {
+    "path": "ARCHITECTURE.md",
+    "name": "ARCHITECTURE.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 759,
+    "modified": "2025-10-06T14:30:00.359Z"
+  },
+  {
+    "path": "CHANGELOG.md",
+    "name": "CHANGELOG.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 599,
+    "modified": "2025-10-06T20:24:56.198Z"
+  },
+  {
+    "path": "ci\\pipeline.yml",
+    "name": "pipeline.yml",
+    "ext": ".yml",
+    "category": "config",
+    "size": 2500,
+    "modified": "2025-10-07T08:15:01.496Z"
+  },
+  {
+    "path": "Completion Checklist.md",
+    "name": "Completion Checklist.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 933,
+    "modified": "2025-10-07T08:15:12.356Z"
+  },
+  {
+    "path": "config\\params.json",
+    "name": "params.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 44,
+    "modified": "2025-10-06T14:15:04.704Z"
+  },
+  {
+    "path": "config\\team_mode.json",
+    "name": "team_mode.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 68,
+    "modified": "2025-10-07T11:53:04.556Z"
+  },
+  {
+    "path": "dashboard.md",
+    "name": "dashboard.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 3832,
+    "modified": "2025-10-07T08:14:57.501Z"
+  },
+  {
+    "path": "deliverable_2025-10-07_001711.zip",
+    "name": "deliverable_2025-10-07_001711.zip",
+    "ext": ".zip",
+    "category": "other",
+    "size": 51503,
+    "modified": "2025-10-06T16:17:11.817Z"
+  },
+  {
+    "path": "deliverable_2025-10-07_031152.zip",
+    "name": "deliverable_2025-10-07_031152.zip",
+    "ext": ".zip",
+    "category": "other",
+    "size": 108666,
+    "modified": "2025-10-06T19:42:09.398Z"
+  },
+  {
+    "path": "deliverable_2025-10-07_040634.zip",
+    "name": "deliverable_2025-10-07_040634.zip",
+    "ext": ".zip",
+    "category": "other",
+    "size": 217280,
+    "modified": "2025-10-06T20:06:35.656Z"
+  },
+  {
+    "path": "deliverable_2025-10-07_060238.zip",
+    "name": "deliverable_2025-10-07_060238.zip",
+    "ext": ".zip",
+    "category": "other",
+    "size": 446242,
+    "modified": "2025-10-06T22:02:39.478Z"
+  },
+  {
+    "path": "deliverable_2025-10-07_060357.zip",
+    "name": "deliverable_2025-10-07_060357.zip",
+    "ext": ".zip",
+    "category": "other",
+    "size": 883805,
+    "modified": "2025-10-06T22:03:57.653Z"
+  },
+  {
+    "path": "Delivery Summary.md",
+    "name": "Delivery Summary.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 2054,
+    "modified": "2025-10-06T21:26:08.543Z"
+  },
+  {
+    "path": "docs\\api\\async_jobs.md",
+    "name": "async_jobs.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 510,
+    "modified": "2025-10-07T14:22:17.258Z"
+  },
+  {
+    "path": "docs\\api\\db_migration.md",
+    "name": "db_migration.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 315,
+    "modified": "2025-10-07T14:22:17.258Z"
+  },
+  {
+    "path": "docs\\api\\flask_impl.md",
+    "name": "flask_impl.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 504,
+    "modified": "2025-10-07T14:22:17.258Z"
+  },
+  {
+    "path": "docs\\api\\openapi.yml",
+    "name": "openapi.yml",
+    "ext": ".yml",
+    "category": "config",
+    "size": 3275,
+    "modified": "2025-10-07T14:48:44.949Z"
+  },
+  {
+    "path": "docs\\api\\validation_spec.md",
+    "name": "validation_spec.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 979,
+    "modified": "2025-10-07T14:16:49.406Z"
+  },
+  {
+    "path": "docs\\FAQ.md",
+    "name": "FAQ.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 354,
+    "modified": "2025-10-07T14:25:20.601Z"
+  },
+  {
+    "path": "docs\\integration\\cursor_plugin_spec.md",
+    "name": "cursor_plugin_spec.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 1140,
+    "modified": "2025-10-07T14:21:48.234Z"
+  },
+  {
+    "path": "docs\\knowledge\\lessons_schema.md",
+    "name": "lessons_schema.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 246,
+    "modified": "2025-10-07T14:22:17.329Z"
+  },
+  {
+    "path": "docs\\knowledge\\upgrade_candidates.md",
+    "name": "upgrade_candidates.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 287,
+    "modified": "2025-10-07T14:22:17.329Z"
+  },
+  {
+    "path": "docs\\meeting\\engine_spec.md",
+    "name": "engine_spec.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 452,
+    "modified": "2025-10-07T14:22:17.329Z"
+  },
+  {
+    "path": "docs\\meeting\\role_scripts.md",
+    "name": "role_scripts.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 378,
+    "modified": "2025-10-07T14:22:17.329Z"
+  },
+  {
+    "path": "docs\\ops\\deployment.md",
+    "name": "deployment.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 473,
+    "modified": "2025-10-07T14:48:45.027Z"
+  },
+  {
+    "path": "docs\\ops\\dr_plan.md",
+    "name": "dr_plan.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 293,
+    "modified": "2025-10-07T14:48:44.950Z"
+  },
+  {
+    "path": "docs\\ops\\logging_audit.md",
+    "name": "logging_audit.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 227,
+    "modified": "2025-10-07T14:48:44.950Z"
+  },
+  {
+    "path": "docs\\ops\\monitoring.md",
+    "name": "monitoring.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 258,
+    "modified": "2025-10-07T14:48:44.950Z"
+  },
+  {
+    "path": "docs\\ops\\security.md",
+    "name": "security.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 249,
+    "modified": "2025-10-07T14:48:44.997Z"
+  },
+  {
+    "path": "docs\\ops\\troubleshooting.md",
+    "name": "troubleshooting.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 359,
+    "modified": "2025-10-07T14:48:45.027Z"
+  },
+  {
+    "path": "docs\\overview\\architecture.md",
+    "name": "architecture.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 2411,
+    "modified": "2025-10-07T14:16:49.321Z"
+  },
+  {
+    "path": "docs\\overview\\raci.md",
+    "name": "raci.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 1096,
+    "modified": "2025-10-07T14:22:17.171Z"
+  },
+  {
+    "path": "docs\\overview\\sequence_diagrams.md",
+    "name": "sequence_diagrams.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 1419,
+    "modified": "2025-10-07T14:22:17.171Z"
+  },
+  {
+    "path": "docs\\process\\sop_developer.md",
+    "name": "sop_developer.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 486,
+    "modified": "2025-10-07T14:22:17.229Z"
+  },
+  {
+    "path": "docs\\process\\sop_product_manager.md",
+    "name": "sop_product_manager.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 421,
+    "modified": "2025-10-07T14:22:17.229Z"
+  },
+  {
+    "path": "docs\\process\\sop_user_manager.md",
+    "name": "sop_user_manager.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 530,
+    "modified": "2025-10-07T14:48:44.950Z"
+  },
+  {
+    "path": "docs\\process\\task_lifecycle.md",
+    "name": "task_lifecycle.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 1025,
+    "modified": "2025-10-07T14:16:49.325Z"
+  },
+  {
+    "path": "docs\\README.md",
+    "name": "README.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 895,
+    "modified": "2025-10-07T14:16:49.406Z"
+  },
+  {
+    "path": "docs\\roles\\role_definitions.md",
+    "name": "role_definitions.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 962,
+    "modified": "2025-10-07T14:16:49.386Z"
+  },
+  {
+    "path": "docs\\rules\\authoring_guide.md",
+    "name": "authoring_guide.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 1144,
+    "modified": "2025-10-07T14:16:49.325Z"
+  },
+  {
+    "path": "docs\\rules\\schema.rules.json",
+    "name": "schema.rules.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 2735,
+    "modified": "2025-10-07T14:16:49.325Z"
+  },
+  {
+    "path": "docs\\templates\\README.md",
+    "name": "README.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 113,
+    "modified": "2025-10-07T14:48:45.027Z"
+  },
+  {
+    "path": "docs\\troubleshooting.md",
+    "name": "troubleshooting.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 8851,
+    "modified": "2025-10-07T13:23:37.103Z"
+  },
+  {
+    "path": "docs\\ui_testing\\environment.md",
+    "name": "environment.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 347,
+    "modified": "2025-10-07T14:22:17.329Z"
+  },
+  {
+    "path": "docs\\ui_testing\\framework.md",
+    "name": "framework.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 674,
+    "modified": "2025-10-07T14:48:44.950Z"
+  },
+  {
+    "path": "docs\\ui_testing\\playwright_samples\\README.md",
+    "name": "README.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 111,
+    "modified": "2025-10-07T14:22:17.329Z"
+  },
+  {
+    "path": "docs\\ui_testing\\test_case_template.md",
+    "name": "test_case_template.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 301,
+    "modified": "2025-10-07T14:22:17.329Z"
+  },
+  {
+    "path": "docs\\ui_testing\\visual_diff.md",
+    "name": "visual_diff.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 364,
+    "modified": "2025-10-07T14:22:17.329Z"
+  },
+  {
+    "path": "docs\\vdcp\\ast_patch.schema.json",
+    "name": "ast_patch.schema.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 955,
+    "modified": "2025-10-07T14:16:49.406Z"
+  },
+  {
+    "path": "docs\\vdcp\\auto_fix.md",
+    "name": "auto_fix.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 385,
+    "modified": "2025-10-07T14:22:17.329Z"
+  },
+  {
+    "path": "docs\\vdcp\\linting.md",
+    "name": "linting.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 288,
+    "modified": "2025-10-07T14:22:17.258Z"
+  },
+  {
+    "path": "hooks\\pre-commit-enhanced.ps1",
+    "name": "pre-commit-enhanced.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 11008,
+    "modified": "2025-10-07T14:27:32.979Z"
+  },
+  {
+    "path": "hooks\\pre-commit.md",
+    "name": "pre-commit.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 88,
+    "modified": "2025-10-06T13:22:18.903Z"
+  },
+  {
+    "path": "hooks\\pre-commit.ps1",
+    "name": "pre-commit.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 1533,
+    "modified": "2025-10-07T08:15:13.849Z"
+  },
+  {
+    "path": "hooks\\pre-push.md",
+    "name": "pre-push.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 99,
+    "modified": "2025-10-06T13:22:18.904Z"
+  },
+  {
+    "path": "hooks\\pre-push.ps1",
+    "name": "pre-push.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 1642,
+    "modified": "2025-10-07T08:15:15.477Z"
+  },
+  {
+    "path": "logs\\monitor.log",
+    "name": "monitor.log",
+    "ext": ".log",
+    "category": "other",
+    "size": 5928,
+    "modified": "2025-10-07T15:21:40.308Z"
+  },
+  {
+    "path": "mcp\\README.md",
+    "name": "README.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 216,
+    "modified": "2025-10-06T13:07:38.001Z"
+  },
+  {
+    "path": "mcp\\tools\\xiaoliu_respond_to_user.md",
+    "name": "xiaoliu_respond_to_user.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 1676,
+    "modified": "2025-10-07T11:53:04.641Z"
+  },
+  {
+    "path": "mcp\\tools\\xiaoliu_run_tests.md",
+    "name": "xiaoliu_run_tests.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 179,
+    "modified": "2025-10-06T13:07:38.006Z"
+  },
+  {
+    "path": "mcp\\tools\\xiaoliu_search_codebase.md",
+    "name": "xiaoliu_search_codebase.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 185,
+    "modified": "2025-10-06T13:07:38.003Z"
+  },
+  {
+    "path": "mcp\\tools\\xiaoliu_write_code.md",
+    "name": "xiaoliu_write_code.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 2169,
+    "modified": "2025-10-06T14:30:00.163Z"
+  },
+  {
+    "path": "mcp\\tools\\_patterns.hardcode.txt",
+    "name": "_patterns.hardcode.txt",
+    "ext": ".txt",
+    "category": "docs",
+    "size": 1001,
+    "modified": "2025-10-07T08:14:47.754Z"
+  },
+  {
+    "path": "MODULE_MAP.md",
+    "name": "MODULE_MAP.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 1065,
+    "modified": "2025-10-06T14:30:00.359Z"
+  },
+  {
+    "path": "package-lock.json",
+    "name": "package-lock.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 89775,
+    "modified": "2025-10-07T12:29:09.878Z"
+  },
+  {
+    "path": "package.json",
+    "name": "package.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 2290,
+    "modified": "2025-10-07T15:28:51.287Z"
+  },
+  {
+    "path": "policy\\core-l1.yaml",
+    "name": "core-l1.yaml",
+    "ext": ".yaml",
+    "category": "config",
+    "size": 1057,
+    "modified": "2025-10-07T11:53:04.641Z"
+  },
+  {
+    "path": "policy\\dialogue-l1.yaml",
+    "name": "dialogue-l1.yaml",
+    "ext": ".yaml",
+    "category": "config",
+    "size": 909,
+    "modified": "2025-10-07T12:37:37.988Z"
+  },
+  {
+    "path": "policy\\domain-thresholds.json",
+    "name": "domain-thresholds.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 119,
+    "modified": "2025-10-06T21:43:45.435Z"
+  },
+  {
+    "path": "policy\\domains.json",
+    "name": "domains.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 221,
+    "modified": "2025-10-07T03:36:41.699Z"
+  },
+  {
+    "path": "policy\\exceptions.json",
+    "name": "exceptions.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 108,
+    "modified": "2025-10-06T20:22:08.962Z"
+  },
+  {
+    "path": "policy\\experience-guard.json",
+    "name": "experience-guard.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 125,
+    "modified": "2025-10-07T09:05:30.924Z"
+  },
+  {
+    "path": "policy\\quality-gates.json",
+    "name": "quality-gates.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 189,
+    "modified": "2025-10-07T09:05:32.990Z"
+  },
+  {
+    "path": "policy\\quality-l2.yaml",
+    "name": "quality-l2.yaml",
+    "ext": ".yaml",
+    "category": "config",
+    "size": 125,
+    "modified": "2025-10-06T13:22:09.498Z"
+  },
+  {
+    "path": "policy\\routing.json",
+    "name": "routing.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 518,
+    "modified": "2025-10-06T19:51:28.784Z"
+  },
+  {
+    "path": "policy\\security-l3.yaml",
+    "name": "security-l3.yaml",
+    "ext": ".yaml",
+    "category": "config",
+    "size": 92,
+    "modified": "2025-10-06T13:22:09.499Z"
+  },
+  {
+    "path": "PR检查清单.md",
+    "name": "PR检查清单.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 508,
+    "modified": "2025-10-06T14:30:00.110Z"
+  },
+  {
+    "path": "PR说明模板.md",
+    "name": "PR说明模板.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 322,
+    "modified": "2025-10-06T15:16:49.376Z"
+  },
+  {
+    "path": "README.md",
+    "name": "README.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 8225,
+    "modified": "2025-10-07T13:23:37.103Z"
+  },
+  {
+    "path": "RELEASE_NOTES.md",
+    "name": "RELEASE_NOTES.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 1582,
+    "modified": "2025-10-07T03:36:41.700Z"
+  },
+  {
+    "path": "reports\\ci-dashboard.md",
+    "name": "ci-dashboard.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 187,
+    "modified": "2025-10-06T22:03:56.641Z"
+  },
+  {
+    "path": "reports\\ci-quality-report.md",
+    "name": "ci-quality-report.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 518,
+    "modified": "2025-10-07T13:13:38.109Z"
+  },
+  {
+    "path": "reports\\coverage-summary.txt",
+    "name": "coverage-summary.txt",
+    "ext": ".txt",
+    "category": "docs",
+    "size": 82,
+    "modified": "2025-10-06T22:03:55.926Z"
+  },
+  {
+    "path": "reports\\execution-rate-validation.json",
+    "name": "execution-rate-validation.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 1070,
+    "modified": "2025-10-07T13:44:40.378Z"
+  },
+  {
+    "path": "reports\\hardcode-scan.txt",
+    "name": "hardcode-scan.txt",
+    "ext": ".txt",
+    "category": "docs",
+    "size": 143,
+    "modified": "2025-10-06T16:27:12.344Z"
+  },
+  {
+    "path": "reports\\monitor-report-2025-10-07.md",
+    "name": "monitor-report-2025-10-07.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 1486,
+    "modified": "2025-10-07T14:25:53.012Z"
+  },
+  {
+    "path": "reports\\npm-install.txt",
+    "name": "npm-install.txt",
+    "ext": ".txt",
+    "category": "docs",
+    "size": 0,
+    "modified": "2025-10-06T15:02:07.347Z"
+  },
+  {
+    "path": "reports\\policy-report.json",
+    "name": "policy-report.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 0,
+    "modified": "2025-10-06T22:03:56.473Z"
+  },
+  {
+    "path": "reports\\policy-report.md",
+    "name": "policy-report.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 18,
+    "modified": "2025-10-06T22:03:56.475Z"
+  },
+  {
+    "path": "reports\\preflight_placeholder.txt",
+    "name": "preflight_placeholder.txt",
+    "ext": ".txt",
+    "category": "docs",
+    "size": 212,
+    "modified": "2025-10-06T22:03:54.677Z"
+  },
+  {
+    "path": "reports\\pr_body.md",
+    "name": "pr_body.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 321,
+    "modified": "2025-10-06T17:55:38.636Z"
+  },
+  {
+    "path": "reports\\pr_link.txt",
+    "name": "pr_link.txt",
+    "ext": ".txt",
+    "category": "docs",
+    "size": 987,
+    "modified": "2025-10-06T22:00:48.099Z"
+  },
+  {
+    "path": "reports\\quality-summary.txt",
+    "name": "quality-summary.txt",
+    "ext": ".txt",
+    "category": "docs",
+    "size": 81,
+    "modified": "2025-10-06T22:03:55.342Z"
+  },
+  {
+    "path": "reports\\vitest-missing.txt",
+    "name": "vitest-missing.txt",
+    "ext": ".txt",
+    "category": "docs",
+    "size": 156,
+    "modified": "2025-10-06T15:03:29.419Z"
+  },
+  {
+    "path": "reports\\vitest-output.txt",
+    "name": "vitest-output.txt",
+    "ext": ".txt",
+    "category": "docs",
+    "size": 91,
+    "modified": "2025-10-06T15:02:08.833Z"
+  },
+  {
+    "path": "reports\\vitest-status.txt",
+    "name": "vitest-status.txt",
+    "ext": ".txt",
+    "category": "docs",
+    "size": 6,
+    "modified": "2025-10-06T15:02:08.846Z"
+  },
+  {
+    "path": "S1_任务清单.md",
+    "name": "S1_任务清单.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 1484,
+    "modified": "2025-10-06T12:48:43.806Z"
+  },
+  {
+    "path": "S2_任务清单.md",
+    "name": "S2_任务清单.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 1087,
+    "modified": "2025-10-06T12:48:43.806Z"
+  },
+  {
+    "path": "S3_任务清单.md",
+    "name": "S3_任务清单.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 1013,
+    "modified": "2025-10-06T12:48:43.806Z"
+  },
+  {
+    "path": "scripts\\add_log.ps1",
+    "name": "add_log.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 368,
+    "modified": "2025-10-06T13:43:31.180Z"
+  },
+  {
+    "path": "scripts\\add_stage.ps1",
+    "name": "add_stage.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 336,
+    "modified": "2025-10-06T13:43:31.181Z"
+  },
+  {
+    "path": "scripts\\affected_domains.cjs",
+    "name": "affected_domains.cjs",
+    "ext": ".cjs",
+    "category": "code",
+    "size": 838,
+    "modified": "2025-10-06T21:13:42.989Z"
+  },
+  {
+    "path": "scripts\\analyze-monitor.cjs",
+    "name": "analyze-monitor.cjs",
+    "ext": ".cjs",
+    "category": "code",
+    "size": 17109,
+    "modified": "2025-10-07T14:27:32.988Z"
+  },
+  {
+    "path": "scripts\\apply_ast_patch.cjs",
+    "name": "apply_ast_patch.cjs",
+    "ext": ".cjs",
+    "category": "code",
+    "size": 13306,
+    "modified": "2025-10-06T21:43:45.960Z"
+  },
+  {
+    "path": "scripts\\apply_ast_patch.js",
+    "name": "apply_ast_patch.js",
+    "ext": ".js",
+    "category": "code",
+    "size": 2170,
+    "modified": "2025-10-06T18:41:50.715Z"
+  },
+  {
+    "path": "scripts\\archive_remaining.ps1",
+    "name": "archive_remaining.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 733,
+    "modified": "2025-10-06T13:49:01.104Z"
+  },
+  {
+    "path": "scripts\\augment_tests.cjs",
+    "name": "augment_tests.cjs",
+    "ext": ".cjs",
+    "category": "code",
+    "size": 1221,
+    "modified": "2025-10-07T03:36:41.699Z"
+  },
+  {
+    "path": "scripts\\check_quality.ps1",
+    "name": "check_quality.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 3041,
+    "modified": "2025-10-07T08:15:09.063Z"
+  },
+  {
+    "path": "scripts\\check_smoke.ps1",
+    "name": "check_smoke.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 914,
+    "modified": "2025-10-07T03:58:55.193Z"
+  },
+  {
+    "path": "scripts\\continuous-mode.cjs",
+    "name": "continuous-mode.cjs",
+    "ext": ".cjs",
+    "category": "code",
+    "size": 11518,
+    "modified": "2025-10-07T15:15:33.080Z"
+  },
+  {
+    "path": "scripts\\contract_check.cjs",
+    "name": "contract_check.cjs",
+    "ext": ".cjs",
+    "category": "code",
+    "size": 2404,
+    "modified": "2025-10-06T21:43:46.715Z"
+  },
+  {
+    "path": "scripts\\create_pr_draft.ps1",
+    "name": "create_pr_draft.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 610,
+    "modified": "2025-10-06T22:05:20.395Z"
+  },
+  {
+    "path": "scripts\\dashboard.cjs",
+    "name": "dashboard.cjs",
+    "ext": ".cjs",
+    "category": "code",
+    "size": 9792,
+    "modified": "2025-10-07T14:27:32.988Z"
+  },
+  {
+    "path": "scripts\\deploy.ps1",
+    "name": "deploy.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 4615,
+    "modified": "2025-10-07T13:04:28.198Z"
+  },
+  {
+    "path": "scripts\\dev_cycle.ps1",
+    "name": "dev_cycle.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 256,
+    "modified": "2025-10-06T16:12:13.532Z"
+  },
+  {
+    "path": "scripts\\diff_advanced.cjs",
+    "name": "diff_advanced.cjs",
+    "ext": ".cjs",
+    "category": "code",
+    "size": 1113,
+    "modified": "2025-10-06T21:43:46.404Z"
+  },
+  {
+    "path": "scripts\\diff_test.cjs",
+    "name": "diff_test.cjs",
+    "ext": ".cjs",
+    "category": "code",
+    "size": 1071,
+    "modified": "2025-10-06T20:24:56.889Z"
+  },
+  {
+    "path": "scripts\\disable_auto_confirm.ps1",
+    "name": "disable_auto_confirm.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 360,
+    "modified": "2025-10-06T21:56:41.291Z"
+  },
+  {
+    "path": "scripts\\disable_mcp.ps1",
+    "name": "disable_mcp.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 186,
+    "modified": "2025-10-07T04:15:04.617Z"
+  },
+  {
+    "path": "scripts\\enable_auto_confirm.ps1",
+    "name": "enable_auto_confirm.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 361,
+    "modified": "2025-10-06T21:56:41.293Z"
+  },
+  {
+    "path": "scripts\\enable_gitmessage.ps1",
+    "name": "enable_gitmessage.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 44,
+    "modified": "2025-10-06T15:57:19.510Z"
+  },
+  {
+    "path": "scripts\\enable_mcp.ps1",
+    "name": "enable_mcp.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 473,
+    "modified": "2025-10-07T04:15:04.617Z"
+  },
+  {
+    "path": "scripts\\experience-logger.cjs",
+    "name": "experience-logger.cjs",
+    "ext": ".cjs",
+    "category": "code",
+    "size": 13668,
+    "modified": "2025-10-07T15:17:22.357Z"
+  },
+  {
+    "path": "scripts\\experience_build.cjs",
+    "name": "experience_build.cjs",
+    "ext": ".cjs",
+    "category": "code",
+    "size": 2488,
+    "modified": "2025-10-07T11:53:04.574Z"
+  },
+  {
+    "path": "scripts\\expiry_check.ps1",
+    "name": "expiry_check.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 1163,
+    "modified": "2025-10-06T21:43:46.753Z"
+  },
+  {
+    "path": "scripts\\export_coverage.ps1",
+    "name": "export_coverage.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 713,
+    "modified": "2025-10-07T08:15:10.830Z"
+  },
+  {
+    "path": "scripts\\generate_domain_smoke_tests.cjs",
+    "name": "generate_domain_smoke_tests.cjs",
+    "ext": ".cjs",
+    "category": "code",
+    "size": 1408,
+    "modified": "2025-10-07T03:46:19.356Z"
+  },
+  {
+    "path": "scripts\\generate_pr_body.ps1",
+    "name": "generate_pr_body.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 571,
+    "modified": "2025-10-06T17:55:38.679Z"
+  },
+  {
+    "path": "scripts\\hardcode_scan.ps1",
+    "name": "hardcode_scan.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 2792,
+    "modified": "2025-10-06T18:09:48.092Z"
+  },
+  {
+    "path": "scripts\\index-registry.cjs",
+    "name": "index-registry.cjs",
+    "ext": ".cjs",
+    "category": "code",
+    "size": 12860,
+    "modified": "2025-10-07T15:26:52.203Z"
+  },
+  {
+    "path": "scripts\\interface_diff.cjs",
+    "name": "interface_diff.cjs",
+    "ext": ".cjs",
+    "category": "code",
+    "size": 3488,
+    "modified": "2025-10-06T21:43:46.650Z"
+  },
+  {
+    "path": "scripts\\live_guard.cjs",
+    "name": "live_guard.cjs",
+    "ext": ".cjs",
+    "category": "code",
+    "size": 2834,
+    "modified": "2025-10-07T11:53:04.574Z"
+  },
+  {
+    "path": "scripts\\logger.cjs",
+    "name": "logger.cjs",
+    "ext": ".cjs",
+    "category": "code",
+    "size": 1460,
+    "modified": "2025-10-07T13:23:37.019Z"
+  },
+  {
+    "path": "scripts\\monitor-logger.cjs",
+    "name": "monitor-logger.cjs",
+    "ext": ".cjs",
+    "category": "code",
+    "size": 6282,
+    "modified": "2025-10-07T14:27:32.933Z"
+  },
+  {
+    "path": "scripts\\new_issue.ps1",
+    "name": "new_issue.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 288,
+    "modified": "2025-10-06T15:54:03.698Z"
+  },
+  {
+    "path": "scripts\\package_project.ps1",
+    "name": "package_project.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 181,
+    "modified": "2025-10-06T16:15:28.337Z"
+  },
+  {
+    "path": "scripts\\policy_report.ps1",
+    "name": "policy_report.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 1303,
+    "modified": "2025-10-06T21:43:46.607Z"
+  },
+  {
+    "path": "scripts\\preflight.ps1",
+    "name": "preflight.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 1154,
+    "modified": "2025-10-07T11:53:04.654Z"
+  },
+  {
+    "path": "scripts\\pre_dev_guard.cjs",
+    "name": "pre_dev_guard.cjs",
+    "ext": ".cjs",
+    "category": "code",
+    "size": 2842,
+    "modified": "2025-10-07T11:53:04.574Z"
+  },
+  {
+    "path": "scripts\\record_top_failed_domains.ps1",
+    "name": "record_top_failed_domains.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 863,
+    "modified": "2025-10-07T03:58:55.193Z"
+  },
+  {
+    "path": "scripts\\rule-engine-server.cjs",
+    "name": "rule-engine-server.cjs",
+    "ext": ".cjs",
+    "category": "code",
+    "size": 26627,
+    "modified": "2025-10-07T15:27:55.034Z"
+  },
+  {
+    "path": "scripts\\run_reports.ps1",
+    "name": "run_reports.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 5115,
+    "modified": "2025-10-07T08:15:05.257Z"
+  },
+  {
+    "path": "scripts\\run_tests_locally.ps1",
+    "name": "run_tests_locally.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 303,
+    "modified": "2025-10-06T15:03:29.419Z"
+  },
+  {
+    "path": "scripts\\setup.ps1",
+    "name": "setup.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 243,
+    "modified": "2025-10-06T13:43:31.179Z"
+  },
+  {
+    "path": "scripts\\set_exception.ps1",
+    "name": "set_exception.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 1021,
+    "modified": "2025-10-06T20:24:56.482Z"
+  },
+  {
+    "path": "scripts\\simulate-ci.ps1",
+    "name": "simulate-ci.ps1",
+    "ext": ".ps1",
+    "category": "scripts",
+    "size": 8031,
+    "modified": "2025-10-07T13:23:37.019Z"
+  },
+  {
+    "path": "scripts\\smoke_analyze.cjs",
+    "name": "smoke_analyze.cjs",
+    "ext": ".cjs",
+    "category": "code",
+    "size": 3039,
+    "modified": "2025-10-07T03:46:19.356Z"
+  },
+  {
+    "path": "scripts\\test-continuous-mode.cjs",
+    "name": "test-continuous-mode.cjs",
+    "ext": ".cjs",
+    "category": "code",
+    "size": 6315,
+    "modified": "2025-10-07T15:06:27.507Z"
+  },
+  {
+    "path": "scripts\\test-experience-logger.cjs",
+    "name": "test-experience-logger.cjs",
+    "ext": ".cjs",
+    "category": "code",
+    "size": 7550,
+    "modified": "2025-10-07T15:21:09.565Z"
+  },
+  {
+    "path": "scripts\\test-hardcode.js",
+    "name": "test-hardcode.js",
+    "ext": ".js",
+    "category": "code",
+    "size": 615,
+    "modified": "2025-10-07T12:43:21.204Z"
+  },
+  {
+    "path": "scripts\\test-index-registry.cjs",
+    "name": "test-index-registry.cjs",
+    "ext": ".cjs",
+    "category": "code",
+    "size": 8533,
+    "modified": "2025-10-07T15:28:34.775Z"
+  },
+  {
+    "path": "scripts\\test-rule-engine.cjs",
+    "name": "test-rule-engine.cjs",
+    "ext": ".cjs",
+    "category": "code",
+    "size": 9381,
+    "modified": "2025-10-07T12:43:21.205Z"
+  },
+  {
+    "path": "scripts\\validate-execution-rate.js",
+    "name": "validate-execution-rate.js",
+    "ext": ".js",
+    "category": "code",
+    "size": 10317,
+    "modified": "2025-10-07T12:49:42.409Z"
+  },
+  {
+    "path": "src\\utils\\export.ts",
+    "name": "export.ts",
+    "ext": ".ts",
+    "category": "code",
+    "size": 1105,
+    "modified": "2025-10-06T14:30:00.359Z"
+  },
+  {
+    "path": "src\\utils\\export_file.ts",
+    "name": "export_file.ts",
+    "ext": ".ts",
+    "category": "code",
+    "size": 632,
+    "modified": "2025-10-06T15:30:44.453Z"
+  },
+  {
+    "path": "src\\utils\\math.ts",
+    "name": "math.ts",
+    "ext": ".ts",
+    "category": "code",
+    "size": 500,
+    "modified": "2025-10-07T08:15:17.854Z"
+  },
+  {
+    "path": "tests\\export.test.ts",
+    "name": "export.test.ts",
+    "ext": ".ts",
+    "category": "code",
+    "size": 1241,
+    "modified": "2025-10-06T15:05:01.531Z"
+  },
+  {
+    "path": "tests\\export_file.test.ts",
+    "name": "export_file.test.ts",
+    "ext": ".ts",
+    "category": "code",
+    "size": 534,
+    "modified": "2025-10-06T15:35:47.263Z"
+  },
+  {
+    "path": "tests\\math.test.ts",
+    "name": "math.test.ts",
+    "ext": ".ts",
+    "category": "code",
+    "size": 546,
+    "modified": "2025-10-07T08:15:19.407Z"
+  },
+  {
+    "path": "tests\\smoke\\_templates.ts",
+    "name": "_templates.ts",
+    "ext": ".ts",
+    "category": "code",
+    "size": 286,
+    "modified": "2025-10-07T03:46:19.356Z"
+  },
+  {
+    "path": "tests\\vdcp_apply.test.ts",
+    "name": "vdcp_apply.test.ts",
+    "ext": ".ts",
+    "category": "code",
+    "size": 709,
+    "modified": "2025-10-06T18:41:50.716Z"
+  },
+  {
+    "path": "tests\\vdcp_insert_import.test.ts",
+    "name": "vdcp_insert_import.test.ts",
+    "ext": ".ts",
+    "category": "code",
+    "size": 4313,
+    "modified": "2025-10-06T21:43:46.202Z"
+  },
+  {
+    "path": "Three-Stage Upgrade Master Plan.md",
+    "name": "Three-Stage Upgrade Master Plan.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 1034,
+    "modified": "2025-10-06T21:26:18.884Z"
+  },
+  {
+    "path": "tsconfig.json",
+    "name": "tsconfig.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 281,
+    "modified": "2025-10-06T20:08:06.040Z"
+  },
+  {
+    "path": "vdcp\\apply_ast_patch.md",
+    "name": "apply_ast_patch.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 1559,
+    "modified": "2025-10-06T21:43:46.252Z"
+  },
+  {
+    "path": "vdcp\\ast_patch.schema.json",
+    "name": "ast_patch.schema.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 902,
+    "modified": "2025-10-06T14:30:00.163Z"
+  },
+  {
+    "path": "vdcp\\demos\\patch.add_guard_clause.json",
+    "name": "patch.add_guard_clause.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 213,
+    "modified": "2025-10-06T21:43:45.388Z"
+  },
+  {
+    "path": "vdcp\\demos\\patch.insert_import.json",
+    "name": "patch.insert_import.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 142,
+    "modified": "2025-10-06T20:08:06.039Z"
+  },
+  {
+    "path": "vdcp\\demos\\patch.insert_param.json",
+    "name": "patch.insert_param.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 189,
+    "modified": "2025-10-06T21:43:45.199Z"
+  },
+  {
+    "path": "vdcp\\demos\\patch.replace_string.json",
+    "name": "patch.replace_string.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 159,
+    "modified": "2025-10-06T18:41:50.717Z"
+  },
+  {
+    "path": "vdcp\\差异选测.md",
+    "name": "差异选测.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 610,
+    "modified": "2025-10-06T14:30:00.163Z"
+  },
+  {
+    "path": "vdcp\\核心域清单.md",
+    "name": "核心域清单.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 53,
+    "modified": "2025-10-06T13:30:24.596Z"
+  },
+  {
+    "path": "vitest.config.ts",
+    "name": "vitest.config.ts",
+    "ext": ".ts",
+    "category": "code",
+    "size": 191,
+    "modified": "2025-10-06T17:55:38.680Z"
+  },
+  {
+    "path": "vscode-extension\\package-lock.json",
+    "name": "package-lock.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 13359,
+    "modified": "2025-10-07T12:59:47.904Z"
+  },
+  {
+    "path": "vscode-extension\\package.json",
+    "name": "package.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 1912,
+    "modified": "2025-10-07T12:59:47.894Z"
+  },
+  {
+    "path": "vscode-extension\\README.md",
+    "name": "README.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 8362,
+    "modified": "2025-10-07T13:23:37.103Z"
+  },
+  {
+    "path": "vscode-extension\\src\\extension.ts",
+    "name": "extension.ts",
+    "ext": ".ts",
+    "category": "code",
+    "size": 12133,
+    "modified": "2025-10-07T13:23:37.019Z"
+  },
+  {
+    "path": "vscode-extension\\tsconfig.json",
+    "name": "tsconfig.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 405,
+    "modified": "2025-10-07T12:49:42.347Z"
+  },
+  {
+    "path": "三阶段升级总计划.md",
+    "name": "三阶段升级总计划.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 2837,
+    "modified": "2025-10-06T13:42:17.692Z"
+  },
+  {
+    "path": "下一步行动计划.md",
+    "name": "下一步行动计划.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 8890,
+    "modified": "2025-10-07T13:29:52.338Z"
+  },
+  {
+    "path": "下一阶段计划.md",
+    "name": "下一阶段计划.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 539,
+    "modified": "2025-10-06T19:31:02.725Z"
+  },
+  {
+    "path": "交付摘要.md",
+    "name": "交付摘要.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 1795,
+    "modified": "2025-10-07T03:36:41.765Z"
+  },
+  {
+    "path": "使用手册_需求-方案-示例.md",
+    "name": "使用手册_需求-方案-示例.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 3436,
+    "modified": "2025-10-07T07:34:04.687Z"
+  },
+  {
+    "path": "修复索引.md",
+    "name": "修复索引.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 5451,
+    "modified": "2025-10-07T13:04:28.156Z"
+  },
+  {
+    "path": "分支与PR指南.md",
+    "name": "分支与PR指南.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 946,
+    "modified": "2025-10-06T22:05:20.404Z"
+  },
+  {
+    "path": "功能测试报告.md",
+    "name": "功能测试报告.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 6586,
+    "modified": "2025-10-07T13:11:45.125Z"
+  },
+  {
+    "path": "回滚策略模板.md",
+    "name": "回滚策略模板.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 387,
+    "modified": "2025-10-06T15:16:49.376Z"
+  },
+  {
+    "path": "团队模式_四角色铁律与强制流程.md",
+    "name": "团队模式_四角色铁律与强制流程.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 1863,
+    "modified": "2025-10-07T11:53:04.696Z"
+  },
+  {
+    "path": "大白话方案.md",
+    "name": "大白话方案.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 2037,
+    "modified": "2025-10-07T11:53:04.654Z"
+  },
+  {
+    "path": "完成清单.md",
+    "name": "完成清单.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 1167,
+    "modified": "2025-10-06T19:18:39.502Z"
+  },
+  {
+    "path": "开发跟进记录.md",
+    "name": "开发跟进记录.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 7551,
+    "modified": "2025-10-07T04:29:52.682Z"
+  },
+  {
+    "path": "快速索引.md",
+    "name": "快速索引.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 6332,
+    "modified": "2025-10-07T12:06:08.636Z"
+  },
+  {
+    "path": "技术规范\\CI与Hooks使用指南.md",
+    "name": "CI与Hooks使用指南.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 2486,
+    "modified": "2025-10-07T03:46:19.356Z"
+  },
+  {
+    "path": "技术规范\\MCP工具规范.md",
+    "name": "MCP工具规范.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 2515,
+    "modified": "2025-10-06T21:56:41.354Z"
+  },
+  {
+    "path": "接口\\contract.schema.json",
+    "name": "contract.schema.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 328,
+    "modified": "2025-10-07T08:15:20.948Z"
+  },
+  {
+    "path": "接口\\工具契约.schemas.json",
+    "name": "工具契约.schemas.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 1395,
+    "modified": "2025-10-06T12:56:34.107Z"
+  },
+  {
+    "path": "接口\\接口登记表.md",
+    "name": "接口登记表.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 554,
+    "modified": "2025-10-06T12:44:36.576Z"
+  },
+  {
+    "path": "接口\\接口设计_OPENAPI.yaml",
+    "name": "接口设计_OPENAPI.yaml",
+    "ext": ".yaml",
+    "category": "config",
+    "size": 209,
+    "modified": "2025-10-06T12:56:34.107Z"
+  },
+  {
+    "path": "接口\\模块接口清单.md",
+    "name": "模块接口清单.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 1090,
+    "modified": "2025-10-07T08:15:22.803Z"
+  },
+  {
+    "path": "提交信息规范.md",
+    "name": "提交信息规范.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 413,
+    "modified": "2025-10-06T15:55:21.909Z"
+  },
+  {
+    "path": "新成员上手.md",
+    "name": "新成员上手.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 701,
+    "modified": "2025-10-06T16:22:46.999Z"
+  },
+  {
+    "path": "最终修复完成报告.md",
+    "name": "最终修复完成报告.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 12898,
+    "modified": "2025-10-07T13:23:37.103Z"
+  },
+  {
+    "path": "测试\\PR模拟检查报告.md",
+    "name": "PR模拟检查报告.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 687,
+    "modified": "2025-10-06T14:30:00.359Z"
+  },
+  {
+    "path": "测试\\VDCP演示报告_S3-4.md",
+    "name": "VDCP演示报告_S3-4.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 694,
+    "modified": "2025-10-06T14:30:00.359Z"
+  },
+  {
+    "path": "测试\\全链路自检报告.md",
+    "name": "全链路自检报告.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 817,
+    "modified": "2025-10-06T14:30:00.359Z"
+  },
+  {
+    "path": "测试\\全链路自检清单.md",
+    "name": "全链路自检清单.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 1033,
+    "modified": "2025-10-07T08:14:52.046Z"
+  },
+  {
+    "path": "测试\\导出文件_用例.md",
+    "name": "导出文件_用例.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 571,
+    "modified": "2025-10-06T15:30:44.453Z"
+  },
+  {
+    "path": "测试\\导出模块_测试报告.md",
+    "name": "导出模块_测试报告.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 1417,
+    "modified": "2025-10-06T14:30:00.359Z"
+  },
+  {
+    "path": "测试\\导出模块_用例.md",
+    "name": "导出模块_用例.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 1017,
+    "modified": "2025-10-06T14:30:00.359Z"
+  },
+  {
+    "path": "测试\\模块测试清单.md",
+    "name": "模块测试清单.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 1206,
+    "modified": "2025-10-07T03:46:19.356Z"
+  },
+  {
+    "path": "测试\\测试模板.md",
+    "name": "测试模板.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 299,
+    "modified": "2025-10-06T15:00:59.681Z"
+  },
+  {
+    "path": "测试\\覆盖率报告_示例.md",
+    "name": "覆盖率报告_示例.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 207,
+    "modified": "2025-10-06T14:30:00.163Z"
+  },
+  {
+    "path": "测试\\问题模拟_报告.md",
+    "name": "问题模拟_报告.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 557,
+    "modified": "2025-10-06T15:56:40.578Z"
+  },
+  {
+    "path": "测试\\预检报告_S1-2.md",
+    "name": "预检报告_S1-2.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 1593,
+    "modified": "2025-10-07T08:14:50.290Z"
+  },
+  {
+    "path": "测试完成总结.md",
+    "name": "测试完成总结.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 8305,
+    "modified": "2025-10-07T13:11:45.196Z"
+  },
+  {
+    "path": "测试验证报告_2025-10-07.md",
+    "name": "测试验证报告_2025-10-07.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 7369,
+    "modified": "2025-10-07T13:47:35.827Z"
+  },
+  {
+    "path": "环境准备清单.md",
+    "name": "环境准备清单.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 461,
+    "modified": "2025-10-06T15:00:59.680Z"
+  },
+  {
+    "path": "监管系统使用指南.md",
+    "name": "监管系统使用指南.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 12824,
+    "modified": "2025-10-07T14:54:41.088Z"
+  },
+  {
+    "path": "监管系统完成报告.md",
+    "name": "监管系统完成报告.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 12859,
+    "modified": "2025-10-07T14:29:40.671Z"
+  },
+  {
+    "path": "监管系统设计方案.md",
+    "name": "监管系统设计方案.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 18246,
+    "modified": "2025-10-07T14:27:32.933Z"
+  },
+  {
+    "path": "示例\\导出流程演示.md",
+    "name": "导出流程演示.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 679,
+    "modified": "2025-10-06T15:38:51.148Z"
+  },
+  {
+    "path": "窗口\\执行模板.txt",
+    "name": "执行模板.txt",
+    "ext": ".txt",
+    "category": "docs",
+    "size": 869,
+    "modified": "2025-10-06T12:44:36.514Z"
+  },
+  {
+    "path": "窗口\\窗口A_执行.txt",
+    "name": "窗口A_执行.txt",
+    "ext": ".txt",
+    "category": "docs",
+    "size": 510,
+    "modified": "2025-10-06T12:44:36.534Z"
+  },
+  {
+    "path": "系统评估报告_2025-10-07.md",
+    "name": "系统评估报告_2025-10-07.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 11097,
+    "modified": "2025-10-07T14:12:05.603Z"
+  },
+  {
+    "path": "老版本MCP源码分析报告.md",
+    "name": "老版本MCP源码分析报告.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 13981,
+    "modified": "2025-10-07T14:52:26.124Z"
+  },
+  {
+    "path": "自动经验记录完成报告.md",
+    "name": "自动经验记录完成报告.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 8605,
+    "modified": "2025-10-07T15:23:16.386Z"
+  },
+  {
+    "path": "贡献指南.md",
+    "name": "贡献指南.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 768,
+    "modified": "2025-10-06T16:22:46.999Z"
+  },
+  {
+    "path": "质量门禁阈值.json",
+    "name": "质量门禁阈值.json",
+    "ext": ".json",
+    "category": "config",
+    "size": 155,
+    "modified": "2025-10-06T14:30:00.113Z"
+  },
+  {
+    "path": "运行指南.md",
+    "name": "运行指南.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 2841,
+    "modified": "2025-10-07T08:14:54.574Z"
+  },
+  {
+    "path": "连续执行模式修正报告.md",
+    "name": "连续执行模式修正报告.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 10470,
+    "modified": "2025-10-07T15:15:38.997Z"
+  },
+  {
+    "path": "连续执行模式完成报告.md",
+    "name": "连续执行模式完成报告.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 8920,
+    "modified": "2025-10-07T15:03:36.786Z"
+  },
+  {
+    "path": "连续执行模式技术可行性分析.md",
+    "name": "连续执行模式技术可行性分析.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 12546,
+    "modified": "2025-10-07T15:07:01.997Z"
+  },
+  {
+    "path": "遗留问题修复计划.md",
+    "name": "遗留问题修复计划.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 10004,
+    "modified": "2025-10-07T13:04:28.156Z"
+  },
+  {
+    "path": "问题处理\\ISSUE-20251006-001.md",
+    "name": "ISSUE-20251006-001.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 854,
+    "modified": "2025-10-06T15:56:40.578Z"
+  },
+  {
+    "path": "问题处理\\升级记录.md",
+    "name": "升级记录.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 440,
+    "modified": "2025-10-06T15:56:40.608Z"
+  },
+  {
+    "path": "问题处理\\问题处理流程.md",
+    "name": "问题处理流程.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 626,
+    "modified": "2025-10-06T15:51:27.845Z"
+  },
+  {
+    "path": "问题处理\\问题记录模板.md",
+    "name": "问题记录模板.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 347,
+    "modified": "2025-10-06T15:51:27.883Z"
+  },
+  {
+    "path": "阶段修复完成报告.md",
+    "name": "阶段修复完成报告.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 8538,
+    "modified": "2025-10-07T13:04:28.217Z"
+  },
+  {
+    "path": "阶段登记表.md",
+    "name": "阶段登记表.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 3941,
+    "modified": "2025-10-07T04:03:26.300Z"
+  },
+  {
+    "path": "项目计划表.md",
+    "name": "项目计划表.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 1328,
+    "modified": "2025-10-06T12:44:36.472Z"
+  },
+  {
+    "path": "项目进度跟进表.md",
+    "name": "项目进度跟进表.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 3911,
+    "modified": "2025-10-07T13:23:37.103Z"
+  },
+  {
+    "path": "🎉完成交付清单.md",
+    "name": "🎉完成交付清单.md",
+    "ext": ".md",
+    "category": "docs",
+    "size": 9232,
+    "modified": "2025-10-07T13:28:14.701Z"
+  }
+]

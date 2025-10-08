@@ -1,3 +1,36 @@
+# 典型硬编码/敏感信息模式（IR-003）
+# 仅用于快速扫描，必要时再在 policy/exceptions.json 中登记豁免
+
+# 私钥/证书
+-----BEGIN (RSA|DSA|EC) PRIVATE KEY-----
+BEGIN PRIVATE KEY
+
+# 云密钥/令牌
+AKIA[0-9A-Z]{16}
+aws_secret_access_key
+aws_access_key_id
+Bearer\s+[A-Za-z0-9._\-]+
+api[_-]?key
+access[_-]?token
+secret(\b|_|-)
+
+# 口令/账号
+password\s*[:=]
+passwd\s*[:=]
+pwd\s*[:=]
+
+# 连接串/端点（非本地）
+mongodb(\+srv)?:\/\/
+postgres(ql)?:\/\/
+mysql:\/\/
+redis:\/\/
+amqp:\/\/
+s3\.amazonaws\.com
+http:\/\/(?!localhost|127\.0\.0\.1)
+
+# SSH
+ssh-rsa\s+[A-Za-z0-9+/=]{40,}
+
 # 硬编码检测模式（示例）
 # 说明：用于在 write_code 检查 IR-003 时参考。
 

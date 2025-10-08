@@ -2,18 +2,54 @@
   "name": "xiaoliu-project",
   "private": true,
   "type": "module",
-  "scripts": { "vdcp:apply": "node scripts/apply_ast_patch.cjs --patch vdcp/demos/patch.replace_string.json",
+  "scripts": {
+    "vdcp:apply": "node scripts/tools/apply_ast_patch.cjs --patch vdcp/demos/patch.replace_string.json",
     "test": "vitest run --reporter=dot --coverage",
     "lint": "echo lint placeholder",
-    "format:check": "echo format check placeholder"
+    "format:check": "echo format check placeholder",
+    "ci:preflight": "pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/ci/preflight.ps1",
+    "ci:diff": "node scripts/tools/diff_advanced.cjs",
+    "ci:diff:pattern": "node scripts/tests/diff_test.cjs",
+    "ci:domains": "node scripts/tools/affected_domains.cjs",
+    "ci:smoke:generate": "node scripts/ci/generate_domain_smoke_tests.cjs",
+    "ci:smoke:analyze": "node scripts/ci/smoke_analyze.cjs",
+    "ci:smoke:gate": "pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/tools/check_smoke.ps1",
+    "ci:interfaces": "node scripts/ci/interface_diff.cjs",
+    "ci:contract": "node scripts/ci/contract_check.cjs",
+    "ci:reports": "pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/ci/run_reports.ps1",
+    "guard:experience": "node scripts/tools/experience_build.cjs",
+    "guard:start": "node scripts/tools/live_guard.cjs",
+    "guard:pre": "node scripts/tools/pre_dev_guard.cjs --path=src/",
+    "rule-engine:start": "node scripts/core/rule-engine-server.cjs",
+    "rule-engine:test": "node scripts/tests/test-rule-engine.cjs",
+    "validate:execution-rate": "node scripts/tests/validate-execution-rate.js",
+    "monitor:report": "node scripts/core/analyze-monitor.cjs",
+    "monitor:dashboard": "node scripts/core/dashboard.cjs show",
+    "monitor:live": "node scripts/core/dashboard.cjs live",
+    "continuous:test": "node scripts/tests/test-continuous-mode.cjs",
+    "experience:test": "node scripts/tests/test-experience-logger.cjs",
+    "index:test": "node scripts/tests/test-index-registry.cjs",
+    "gui:test": "node scripts/tests/test-gui-runner.cjs",
+    "gui:test:web": "node scripts/tests/test-gui-web.cjs",
+    "gui:test:desktop": "node scripts/tests/test-gui-desktop.cjs",
+    "skills:search": "node scripts/core/skill-library.cjs search",
+    "skills:stats": "node scripts/core/skill-library.cjs stats",
+    "meeting:start": "node scripts/core/meeting-engine.cjs",
+    "ci:all": "npm run -s ci:preflight && npm run -s ci:diff && npm run -s ci:diff:pattern && npm run -s ci:domains && npm run -s ci:smoke:generate && npm run -s test && npm run -s ci:smoke:analyze && npm run -s ci:smoke:gate && npm run -s ci:interfaces && npm run -s ci:contract && npm run -s ci:reports && npm run -s guard:experience"
   },
   "devDependencies": {
-    "vitest": "^1.6.0",
+    "@types/node": "^20.14.10",
     "typescript": "^5.5.4",
-    "@types/node": "^20.14.10"
+    "vitest": "^1.6.0"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.56.0",
+    "express": "^5.1.0",
+    "js-yaml": "^4.1.0",
+    "node-fetch": "^2.7.0",
+    "playwright": "^1.56.0",
+    "puppeteer": "^24.23.0",
+    "sharp": "^0.33.5",
+    "sql.js": "^1.13.0"
   }
 }
-
-
-
-

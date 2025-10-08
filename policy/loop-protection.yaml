@@ -1,0 +1,36 @@
+# 循环防护规则
+# 防止无限循环导致程序挂死
+
+rules:
+  - id: LOOP-001
+    level: error
+    description: 无限循环必须有退出机制
+    category: safety
+    patterns:
+      - type: while_true_without_break
+        regex: 'while\s*\(\s*true\s*\)(?!.*break)'
+        message: while(true)必须包含break条件或超时机制
+      
+      - type: for_infinite_without_break
+        regex: 'for\s*\(\s*;\s*;\s*\)(?!.*break)'
+        message: 无限for循环必须包含break条件或超时机制
+    
+    enforcement: block
+    priority: 10
+    
+  - id: LOOP-002
+    level: warn
+    description: 建议添加超时保护
+    category: best_practice
+    message: 循环代码建议添加超时保护机制（双重保险）
+    enforcement: warn
+    priority: 5
+
+  - id: LOOP-003
+    level: error
+    description: 测试代码必须有退出机制
+    category: testing
+    message: 测试代码的循环必须满足2选1条件：break退出 OR 超时时间
+    enforcement: block
+    priority: 10
+

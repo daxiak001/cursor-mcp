@@ -1,0 +1,52 @@
+rules:
+  - id: IR-020
+    level: error
+    description: 三重验证测试标准（日志验证+截图验证+实际执行验证）
+    patterns:
+      type: gui_triple_verification
+      requiredVerifications:
+        - logs
+        - screenshot
+        - execution
+      message: 必须进行三重验证测试
+    
+  - id: IR-021
+    level: error
+    description: 5轮完整测试（同一功能必须通过5轮完整测试）
+    patterns:
+      type: gui_5rounds_test
+      minimumRounds: 5
+      passRate: 100
+      message: 必须进行5轮完整测试且全部通过
+    
+  - id: GUI-001
+    level: warn
+    description: Web应用GUI测试（所有Web应用必须进行GUI自动化测试）
+    patterns:
+      type: web_gui_test
+      requiredForTypes:
+        - web
+        - spa
+        - pwa
+      message: Web应用必须进行GUI自动化测试
+    
+  - id: GUI-002
+    level: warn
+    description: 截图存档要求（测试截图必须保存并归档）
+    patterns:
+      type: screenshot_archiving
+      minimumStorage: 30
+      unit: days
+      message: 测试截图必须保存至少30天
+    
+  - id: GUI-003
+    level: info
+    description: 日志监控要求（测试过程必须监控并记录控制台日志）
+    patterns:
+      type: log_monitoring
+      requiredLogTypes:
+        - console
+        - error
+        - network
+      message: 必须监控所有日志类型
+

@@ -1,0 +1,29 @@
+{"timestamp":"2025-10-07T14:25:11.000Z","type":"health_check","severity":"info","component":"rule-engine","status":"healthy","codeRules":0,"dialogueRules":0,"uptime":15.3101335,"duration":0}
+{"timestamp":"2025-10-07T14:25:11.026Z","type":"api_call","severity":"info","endpoint":"/api/check-code","method":"POST","duration":2,"statusCode":200,"success":true,"error":null}
+{"timestamp":"2025-10-07T14:25:11.030Z","type":"api_call","severity":"info","endpoint":"/api/check-code","method":"POST","duration":0,"statusCode":200,"success":true,"error":null}
+{"timestamp":"2025-10-07T14:25:11.032Z","type":"api_call","severity":"info","endpoint":"/api/check-code","method":"POST","duration":0,"statusCode":200,"success":true,"error":null}
+{"timestamp":"2025-10-07T14:25:11.036Z","type":"api_call","severity":"info","endpoint":"/api/check-dialogue","method":"POST","duration":1,"statusCode":200,"success":true,"error":null}
+{"timestamp":"2025-10-07T14:25:11.038Z","type":"api_call","severity":"info","endpoint":"/api/check-dialogue","method":"POST","duration":0,"statusCode":200,"success":true,"error":null}
+{"timestamp":"2025-10-07T14:25:11.040Z","type":"api_call","severity":"info","endpoint":"/api/check-dialogue","method":"POST","duration":0,"statusCode":200,"success":true,"error":null}
+{"timestamp":"2025-10-07T14:25:11.043Z","type":"api_call","severity":"info","endpoint":"/api/check-dialogue","method":"POST","duration":0,"statusCode":200,"success":true,"error":null}
+{"timestamp":"2025-10-07T14:25:11.045Z","type":"api_call","severity":"info","endpoint":"/api/check-dialogue","method":"POST","duration":0,"statusCode":200,"success":true,"error":null}
+{"timestamp":"2025-10-07T15:01:42.803Z","type":"continuous_mode","severity":"info","action":"enable","sessionId":"session-1759849302801","taskDescription":"开发用户管理系统"}
+{"timestamp":"2025-10-07T15:01:42.819Z","type":"violation","severity":"warning","ruleId":"CONTINUOUS-MODE-001","violationType":"question_in_continuous_mode","details":{"message":"我已经完成了用户模块，是否继续开发权限模块？","taskDescription":"开发用户管理系统"},"remediation":"连续模式下禁止询问，应直接执行"}
+{"timestamp":"2025-10-07T15:01:42.820Z","type":"api_call","severity":"info","endpoint":"/api/check-dialogue","method":"POST","duration":1,"statusCode":200,"success":true,"error":null}
+{"timestamp":"2025-10-07T15:01:42.823Z","type":"api_call","severity":"info","endpoint":"/api/check-dialogue","method":"POST","duration":0,"statusCode":200,"success":true,"error":null}
+{"timestamp":"2025-10-07T15:01:42.826Z","type":"continuous_mode","severity":"info","action":"disable","sessionId":"session-1759849302801","taskDescription":"开发用户管理系统","duration":0}
+{"timestamp":"2025-10-07T15:01:42.830Z","type":"api_call","severity":"info","endpoint":"/api/check-dialogue","method":"POST","duration":0,"statusCode":200,"success":true,"error":null}
+{"timestamp":"2025-10-07T15:10:18.200Z","type":"continuous_mode","severity":"info","action":"enable","sessionId":"session-1759849818191","taskDescription":"开发用户管理系统"}
+{"timestamp":"2025-10-07T15:10:28.297Z","type":"api_call","severity":"info","endpoint":"/api/check-dialogue","method":"POST","duration":1,"statusCode":200,"success":true,"error":null}
+{"timestamp":"2025-10-07T15:10:37.094Z","type":"continuous_mode","severity":"info","action":"enable","sessionId":"session-1759849837093","taskDescription":"开发用户管理系统"}
+{"timestamp":"2025-10-07T15:10:37.105Z","type":"violation","severity":"warning","ruleId":"CONTINUOUS-MODE-001","violationType":"question_in_continuous_mode","details":{"message":"我已经完成了用户模块，是否继续开发权限模块？","taskDescription":"开发用户管理系统"},"remediation":"连续模式下禁止询问，应直接执行"}
+{"timestamp":"2025-10-07T15:10:37.107Z","type":"api_call","severity":"info","endpoint":"/api/check-dialogue","method":"POST","duration":2,"statusCode":200,"success":true,"error":null}
+{"timestamp":"2025-10-07T15:10:37.109Z","type":"api_call","severity":"info","endpoint":"/api/check-dialogue","method":"POST","duration":0,"statusCode":200,"success":true,"error":null}
+{"timestamp":"2025-10-07T15:10:37.112Z","type":"continuous_mode","severity":"info","action":"disable","sessionId":"session-1759849837093","taskDescription":"开发用户管理系统","duration":0}
+{"timestamp":"2025-10-07T15:10:37.117Z","type":"api_call","severity":"info","endpoint":"/api/check-dialogue","method":"POST","duration":0,"statusCode":200,"success":true,"error":null}
+{"timestamp":"2025-10-07T15:21:39.302Z","type":"error","severity":"error","source":"rule-engine","error":{"message":"context is not defined","stack":"ReferenceError: context is not defined\n    at F:\\源码文档\\设置\\【项目】开发材料\\scripts\\rule-engine-server.cjs:559:48\n    at Layer.handleRequest (F:\\源码文档\\设置\\【项目】开发材料\\node_modules\\router\\lib\\layer.js:152:17)"},"context":{"endpoint":"/api/check-dialogue"}}
+{"timestamp":"2025-10-07T15:21:39.303Z","type":"api_call","severity":"error","endpoint":"/api/check-dialogue","method":"POST","duration":2,"statusCode":500,"success":false,"error":"context is not defined"}
+{"timestamp":"2025-10-07T15:21:40.307Z","type":"error","severity":"error","source":"rule-engine","error":{"message":"context is not defined","stack":"ReferenceError: context is not defined\n    at F:\\源码文档\\设置\\【项目】开发材料\\scripts\\rule-engine-server.cjs:559:48\n    at Layer.handleRequest (F:\\源码文档\\设置\\【项目】开发材料\\node_modules\\router\\lib\\layer.js:152:17)"},"context":{"endpoint":"/api/check-dialogue"}}
+{"timestamp":"2025-10-07T15:21:40.308Z","type":"api_call","severity":"error","endpoint":"/api/check-dialogue","method":"POST","duration":0,"statusCode":500,"success":false,"error":"context is not defined"}
+{"timestamp":"2025-10-07T15:29:05.154Z","type":"index_build","severity":"info","filesCount":252,"duration":20,"categories":{"other":9,"docs":139,"config":36,"scripts":30,"code":38}}
+{"timestamp":"2025-10-07T15:29:05.191Z","type":"decision_record","severity":"info","queries":["如何实现规则引擎","代码质量检查"],"action":"创建规则引擎服务","filesCount":2}

@@ -1,0 +1,10 @@
+{
+  "testId": "R017",
+  "filePath": "scripts/tools/bump-version.cjs",
+  "timestamp": "2025-10-07T20:29:53.929Z",
+  "duration": 0,
+  "exists": true,
+  "size": 10708,
+  "modified": "2025-10-07T19:58:28.961Z",
+  "success": true
+}

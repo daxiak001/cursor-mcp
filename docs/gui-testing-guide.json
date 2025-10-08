@@ -1,0 +1,389 @@
+{
+  "guide_name": "GUI自动化测试完整指南",
+  "version": "1.0",
+  "last_updated": "2025-10-08",
+  "适用对象": "AI助手、开发人员",
+  
+  "核心原则": {
+    "principle_1": {
+      "标题": "不相信日志，要相信截图",
+      "错误思维": "我写了代码，应该能工作",
+      "正确思维": "我必须用截图/监控工具亲眼验证结果",
+      "关键规则": [
+        "不截图 = 不验证 = 不可信",
+        "代码执行成功 ≠ 功能正确",
+        "日志显示'成功' ≠ 用户看到了结果"
+      ]
+    },
+    "principle_2": {
+      "标题": "分辨率先检测，坐标后计算",
+      "要求": "永远先检测屏幕分辨率，再基于分辨率计算坐标",
+      "禁止": "硬编码坐标（如1920x1080）"
+    },
+    "principle_3": {
+      "标题": "失败不可怕，不诊断才可怕",
+      "要求": "失败时必须系统化排查，不能直接放弃"
+    }
+  },
+  
+  "快速检查清单": {
+    "开始任何GUI测试前必须确认": [
+      {
+        "id": 1,
+        "question": "我是否先检测了屏幕分辨率？",
+        "required": true
+      },
+      {
+        "id": 2,
+        "question": "我是否计划在操作后立即截图验证？",
+        "required": true
+      },
+      {
+        "id": 3,
+        "question": "我是否准备了混合检测策略？",
+        "required": true
+      },
+      {
+        "id": 4,
+        "question": "我是否考虑了渐进式搜索？",
+        "required": true
+      },
+      {
+        "id": 5,
+        "question": "我是否会生成人类可读的验证报告？",
+        "required": true
+      },
+      {
+        "id": 6,
+        "question": "我是否会穷尽搜索所有可能的目标？",
+        "required": true
+      },
+      {
+        "id": 7,
+        "question": "我是否准备了失败诊断流程？",
+        "required": true
+      }
+    ],
+    "规则": "如果以上任何一项是'否'，停下来重新设计方案！"
+  },
+  
+  "标准工作流程": {
+    "步骤1_执行操作": {
+      "描述": "执行要测试的操作",
+      "示例代码": "window.type_keys('测试内容', with_spaces=True)"
+    },
+    "步骤2_立即截图": {
+      "描述": "操作后立即截图验证",
+      "必需": true,
+      "示例代码": [
+        "import pyautogui",
+        "import time",
+        "from datetime import datetime",
+        "",
+        "time.sleep(0.5)  # 等待UI更新",
+        "timestamp = datetime.now().strftime('%H%M%S')",
+        "screenshot = pyautogui.screenshot()",
+        "screenshot.save(f'verify_{timestamp}.png')"
+      ]
+    },
+    "步骤3_分析截图": {
+      "描述": "分析截图确认结果",
+      "方法": [
+        "像素分析",
+        "文字检测（OCR）",
+        "图像对比",
+        "人工检查"
+      ]
+    },
+    "步骤4_生成报告": {
+      "描述": "生成人类可读的验证报告",
+      "必需": true,
+      "输出": [
+        "HTML报告",
+        "截图文件",
+        "测试数据（JSON格式）"
+      ]
+    }
+  },
+  
+  "检测策略": {
+    "单一方法局限": {
+      "pywinauto": {
+        "优点": "精确、可获取属性",
+        "缺点": "对Image控件支持差",
+        "成功率": "60%"
+      },
+      "opencv": {
+        "优点": "通用、视觉直观",
+        "缺点": "可能误判、需调参",
+        "成功率": "70%"
+      }
+    },
+    "推荐策略": {
+      "名称": "混合检测策略",
+      "方法": "pywinauto + OpenCV",
+      "成功率": "95%",
+      "步骤": [
+        {
+          "step": 1,
+          "name": "pywinauto控件树扫描",
+          "action": "查找所有符合条件的控件"
+        },
+        {
+          "step": 2,
+          "name": "OpenCV图像识别",
+          "action": "使用边缘检测和轮廓分析"
+        },
+        {
+          "step": 3,
+          "name": "交叉验证",
+          "action": "两种方法都找到同一位置则加分"
+        }
+      ]
+    }
+  },
+  
+  "渐进式搜索": {
+    "level_1_严格搜索": {
+      "描述": "精确参数，小范围",
+      "参数": {
+        "size_range": [15, 60],
+        "aspect_ratio": [0.8, 1.2],
+        "min_area": 100
+      }
+    },
+    "level_2_放宽搜索": {
+      "描述": "扩大范围，降低要求",
+      "参数": {
+        "size_range": [10, 80],
+        "aspect_ratio": [0.5, 2.0],
+        "min_area": 50,
+        "search_area_expansion": "100px"
+      }
+    },
+    "level_3_超宽搜索": {
+      "描述": "超大范围，最低要求",
+      "参数": {
+        "size_range": [5, 100],
+        "aspect_ratio": [0.3, 3.0],
+        "min_area": 20,
+        "search_area_expansion": "300px"
+      },
+      "智能排序": "距离目标区域越近，得分越高"
+    },
+    "失败处理": [
+      "截图诊断",
+      "检查窗口状态",
+      "检查控件树",
+      "建议人工定位"
+    ]
+  },
+  
+  "常见错误及修正": {
+    "错误1_只依赖日志": {
+      "错误做法": "print('✅ 按钮点击成功')",
+      "正确做法": [
+        "print('✅ 按钮点击成功')",
+        "screenshot = pyautogui.screenshot()",
+        "screenshot.save('after_click.png')",
+        "print('   验证截图: after_click.png')"
+      ]
+    },
+    "错误2_硬编码坐标": {
+      "错误做法": "pyautogui.click(1920, 1080)",
+      "正确做法": [
+        "screen_w, screen_h = pyautogui.size()",
+        "pyautogui.click(screen_w - 100, screen_h - 100)"
+      ]
+    },
+    "错误3_假设单一目标": {
+      "错误做法": "input_box = window.child_window(control_type='Edit')",
+      "正确做法": [
+        "all_input_boxes = [ctrl for ctrl in window.descendants()",
+        "                   if ctrl.element_info.control_type == 'Edit']",
+        "print(f'找到 {len(all_input_boxes)} 个输入框')"
+      ]
+    },
+    "错误4_检测失败就放弃": {
+      "错误做法": [
+        "result = find_button(strict_params)",
+        "if not result:",
+        "    print('失败')",
+        "    return"
+      ],
+      "正确做法": [
+        "result = find_button(strict_params)",
+        "if not result:",
+        "    result = find_button(relaxed_params)",
+        "    if not result:",
+        "        result = find_button(super_relaxed_params)",
+        "        if not result:",
+        "            diagnose_and_suggest_manual()"
+      ]
+    }
+  },
+  
+  "必需Python库": {
+    "安装命令": "pip install pywinauto pyautogui opencv-python pillow numpy",
+    "导入模板": [
+      "import pyautogui          # 截图、鼠标控制",
+      "import cv2                # 图像处理",
+      "import numpy as np        # 数值计算",
+      "from pywinauto import Desktop  # UI自动化",
+      "from PIL import Image     # 图像操作",
+      "import time               # 延时",
+      "from datetime import datetime  # 时间戳"
+    ]
+  },
+  
+  "验证报告模板": {
+    "文件名": "verification_report.html",
+    "包含内容": [
+      "测试概况（时间、项目数、分辨率）",
+      "每个测试项（状态、步骤、截图）",
+      "验证检查清单"
+    ],
+    "特性": [
+      "彩色状态标记（成功/警告/错误）",
+      "嵌入截图",
+      "详细步骤说明",
+      "人工检查提示"
+    ]
+  },
+  
+  "成功标准": {
+    "必需组件": [
+      {
+        "id": 1,
+        "name": "代码执行",
+        "required": true
+      },
+      {
+        "id": 2,
+        "name": "立即截图",
+        "required": true
+      },
+      {
+        "id": 3,
+        "name": "图像分析",
+        "required": true,
+        "note": "可以是自动分析或人工检查"
+      },
+      {
+        "id": 4,
+        "name": "HTML报告",
+        "required": true
+      },
+      {
+        "id": 5,
+        "name": "清晰的验证指引",
+        "required": true,
+        "note": "告诉人类看什么"
+      }
+    ],
+    "输出示例": [
+      "✅ 屏幕分辨率: 2560 x 1440",
+      "✅ 找到 2 个Cursor窗口",
+      "✅ 检测到 3 个按钮",
+      "✅ 验证图已保存: button_verification.png",
+      "✅ HTML报告已生成: verification_report.html",
+      "",
+      "📋 请验证：",
+      "   1. 打开 button_verification.png",
+      "   2. 确认红色方框是否在正确位置",
+      "   3. 如有问题，查看 verification_report.html 详情"
+    ]
+  },
+  
+  "诊断流程": {
+    "检查1_窗口状态": [
+      "窗口是否存在",
+      "窗口标题",
+      "窗口位置和尺寸"
+    ],
+    "检查2_屏幕分辨率": [
+      "当前分辨率",
+      "窗口是否在屏幕外"
+    ],
+    "检查3_截图测试": [
+      "全屏截图",
+      "窗口截图",
+      "保存诊断图像"
+    ],
+    "检查4_控件树": [
+      "总控件数",
+      "控件类型分布",
+      "TOP10控件类型"
+    ],
+    "检查5_视觉检查": [
+      "查看诊断截图",
+      "确认目标元素是否可见",
+      "建议使用交互式工具"
+    ]
+  },
+  
+  "使用场景": {
+    "最终测试": {
+      "描述": "在项目完成后进行全面的GUI验证",
+      "推荐方法": [
+        "使用混合检测策略",
+        "运行渐进式搜索",
+        "生成完整HTML报告",
+        "进行5轮完整测试（IR-021）"
+      ]
+    },
+    "整体测试": {
+      "描述": "对整个系统进行端到端测试",
+      "推荐方法": [
+        "穷尽式目标搜索（不遗漏任何控件）",
+        "三重验证（日志+截图+实际执行）",
+        "系统化诊断失败",
+        "保存所有验证证据"
+      ]
+    },
+    "持续集成": {
+      "描述": "在CI/CD流程中自动执行GUI测试",
+      "推荐方法": [
+        "非交互式截图验证",
+        "自动生成HTML报告",
+        "保存失败截图作为artifact",
+        "设置成功率阈值"
+      ]
+    }
+  },
+  
+  "相关规则": [
+    "TEST-001: GUI测试验证标准",
+    "TEST-002: 屏幕分辨率检测",
+    "TEST-003: 混合检测策略",
+    "TEST-004: 渐进式搜索策略",
+    "TEST-005: 生成人类可读的验证报告",
+    "TEST-006: 穷尽式目标搜索",
+    "TEST-007: 失败时的系统化排查",
+    "TEST-008: 必需的Python库",
+    "TEST-009: AI工作前的检查清单",
+    "TEST-010: 成功标准",
+    "TEST-011: 常见错误及修正",
+    "IR-020: 三重验证测试标准",
+    "IR-021: 5轮完整测试"
+  ],
+  
+  "参考文档": [
+    {
+      "文件": "🤖AI技能文档-UI自动化测试与验证.md",
+      "位置": "GUI-AI测试经验/",
+      "描述": "完整的AI技能文档"
+    },
+    {
+      "文件": "📖快速参考-给AI的3分钟速查表.md",
+      "位置": "GUI-AI测试经验/",
+      "描述": "快速参考速查表"
+    },
+    {
+      "文件": "📊AI理解度分析报告.md",
+      "位置": "GUI-AI测试经验/",
+      "描述": "文档设计原理分析"
+    }
+  ]
+}
+

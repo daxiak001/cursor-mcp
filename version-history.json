@@ -1,0 +1,70 @@
+[
+  {
+    "version": "v6.1.0",
+    "release_date": "2025-10-08T16:00:00+08:00",
+    "update_summary": "新增GUI测试规则集、数据格式规范、版本管理系统",
+    "changelog": [
+      {
+        "type": "feature",
+        "category": "规则",
+        "description": "新增IR-040数据格式规范",
+        "rules": ["IR-040"],
+        "impact": "high"
+      },
+      {
+        "type": "feature",
+        "category": "规则",
+        "description": "新增GUI测试规则集（TEST-001~011）",
+        "rules": ["TEST-001", "TEST-002", "TEST-003", "TEST-004", "TEST-005", "TEST-006", "TEST-007", "TEST-008", "TEST-009", "TEST-010", "TEST-011"],
+        "impact": "high"
+      },
+      {
+        "type": "feature",
+        "category": "规则",
+        "description": "新增SYS-011系统升级安全规范",
+        "rules": ["SYS-011"],
+        "impact": "medium"
+      },
+      {
+        "type": "feature",
+        "category": "规则",
+        "description": "新增SYS-012版本管理规范",
+        "rules": ["SYS-012"],
+        "impact": "medium"
+      }
+    ],
+    "statistics": {
+      "total_rules": 148,
+      "new_rules": 15,
+      "total_tools": 30,
+      "new_tools": 4
+    }
+  },
+  {
+    "version": "v6.0.0",
+    "release_date": "2025-10-07T10:00:00+08:00",
+    "update_summary": "系统核心架构完成，规则引擎上线",
+    "changelog": [
+      {
+        "type": "feature",
+        "description": "规则引擎核心系统",
+        "impact": "high"
+      },
+      {
+        "type": "feature",
+        "description": "代码质量检查",
+        "impact": "high"
+      },
+      {
+        "type": "feature",
+        "description": "对话行为检查",
+        "impact": "high"
+      }
+    ],
+    "statistics": {
+      "total_rules": 133,
+      "new_rules": 133
+    }
+  }
+]
+

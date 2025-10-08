@@ -1,0 +1,482 @@
+{
+  "title": "真实系统测试报告",
+  "compliance": "IR-041: 所有测试必须真实执行",
+  "timestamp": "2025-10-07T20:29:53.935Z",
+  "version": "v6.1.1",
+  "summary": {
+    "total_tests": 21,
+    "passed": 19,
+    "failed": 2,
+    "pass_rate": "90.48%",
+    "total_duration_ms": 651,
+    "total_duration_readable": "0.65秒"
+  },
+  "evidence_directory": "F:\\源码文档\\设置\\【项目】开发材料\\test-evidence",
+  "evidence_count": 21,
+  "test_results": [
+    {
+      "id": "R001",
+      "name": "版本查询工具真实执行",
+      "result": {
+        "success": true,
+        "output": "v6.1.1 (2025/10/8)\n",
+        "duration": 146,
+        "evidencePath": "F:\\源码文档\\设置\\【项目】开发材料\\test-evidence\\R001_1759868993436.json"
+      },
+      "timestamp": "2025-10-07T20:29:53.438Z"
+    },
+    {
+      "id": "R002",
+      "name": "版本文件真实验证",
+      "result": {
+        "success": true,
+        "output": "\n📋 验证版本文件...\n\n✅ 版本文件验证通过\n\n  版本: v6.1.1\n  日期: 2025/10/8 17:00:00\n  摘要: 新增自我介绍功能、团队配置系统\n\n",
+        "duration": 144,
+        "evidencePath": "F:\\源码文档\\设置\\【项目】开发材料\\test-evidence\\R002_1759868993582.json"
+      },
+      "timestamp": "2025-10-07T20:29:53.584Z"
+    },
+    {
+      "id": "R003",
+      "name": "版本文件真实存在性检查",
+      "result": {
+        "success": true,
+        "exists": true,
+        "stats": {
+          "dev": 1581339452,
+          "mode": 33206,
+          "nlink": 1,
+          "uid": 0,
+          "gid": 0,
+          "rdev": 0,
+          "blksize": 4096,
+          "ino": 844424930779774,
+          "size": 5989,
+          "blocks": 16,
+          "atimeMs": 1759868993550.221,
+          "mtimeMs": 1759867789759.0198,
+          "ctimeMs": 1759867789759.0198,
+          "birthtimeMs": 1759866725748.2273
+        },
+        "duration": 0,
+        "evidencePath": "F:\\源码文档\\设置\\【项目】开发材料\\test-evidence\\R003_1759868993584.json"
+      },
+      "timestamp": "2025-10-07T20:29:53.605Z"
+    },
+    {
+      "id": "R004",
+      "name": "版本API真实调用",
+      "result": {
+        "success": true,
+        "statusCode": 200,
+        "data": "{\"version\":\"v6.1.1\",\"release_date\":\"2025-10-08T17:00:00+08:00\",\"update_summary\":\"新增自我介绍功能、团队配置系统\",\"previous_version\":\"v6.1.0\",\"is_latest\":true,\"uptime\":\"0h 29m\",\"statistics\":{\"total_rules\":148,\"new_rules\":15,\"total_tools\":30,\"new_tools\":4,\"total_docs\":12,\"new_docs\":2,\"code_lines_added\":2100}}",
+        "duration": 24,
+        "evidencePath": "F:\\源码文档\\设置\\【项目】开发材料\\test-evidence\\R004_1759868993629.json"
+      },
+      "timestamp": "2025-10-07T20:29:53.632Z"
+    },
+    {
+      "id": "R005",
+      "name": "完整介绍真实执行",
+      "result": {
+        "success": true,
+        "output": "\n╔════════════════════════════════════════════════════════════════╗\n║                                                                ║\n║               🤖 小柳智能开发助手                    ║\n║            XiaoLiu AI Development Assistant                ║\n║                                                                ║\n╚════════════════════════════════════════════════════════════════╝\n\n📦 系统版本：v6.1.1\n📅 发布日期：2025/10/8\n📝 最新更新：新增自我介绍功能、团队配置系统\n\n👥 团队模式 - 四角色协作：\n\n  🔹 用户经理（小户）\n     职责：需求收集、用户体验、产品反馈\n  🔹 产品经理（小品）\n     职责：需求分析、产品设计、优先级管理\n  🔹 技术开发（小柳）\n     职责：代码开发、技术实现、质量保障\n  🔹 监督管理（小观）\n     职责：质量监督、规则执行、风险控制\n\n💡 核心能力：\n  • 规则引擎：148条规则实时监控\n  • GUI测试：95%成功率的自动化测试\n  • 代码质量：A+级质量保障\n  • 持续执行：AI不间断工作模式\n  • 版本管理：完整的版本追溯能力\n\n🎯 目标执行率：95%+\n\n",
+        "duration": 141,
+        "evidencePath": "F:\\源码文档\\设置\\【项目】开发材料\\test-evidence\\R005_1759868993773.json"
+      },
+      "timestamp": "2025-10-07T20:29:53.774Z"
+    },
+    {
+      "id": "R006",
+      "name": "团队介绍真实执行",
+      "result": {
+        "success": true,
+        "output": "\n╔════════════════════════════════════════════════════════════════╗\n║                   👥 小柳团队 - 四角色协作                      ║\n╚════════════════════════════════════════════════════════════════╝\n\n🔹 用户经理：小户\n   需求收集 | 用户体验 | 产品反馈\n\n🔹 产品经理：小品\n   需求分析 | 产品设计 | 优先级管理\n\n🔹 技术开发：小柳\n   代码开发 | 技术实现 | 质量保障\n\n🔹 监督管理：小观\n   质量监督 | 规则执行 | 风险控制\n\n💼 协作流程：\n  1. 小户收集用户需求\n  2. 小品分析并设计方案\n  3. 小柳进行技术实现\n  4. 小观监督质量与规则执行\n\n",
+        "duration": 132,
+        "evidencePath": "F:\\源码文档\\设置\\【项目】开发材料\\test-evidence\\R006_1759868993906.json"
+      },
+      "timestamp": "2025-10-07T20:29:53.908Z"
+    },
+    {
+      "id": "R007",
+      "name": "团队配置文件真实检查",
+      "result": {
+        "success": true,
+        "exists": true,
+        "stats": {
+          "dev": 1581339452,
+          "mode": 33206,
+          "nlink": 1,
+          "uid": 0,
+          "gid": 0,
+          "rdev": 0,
+          "blksize": 4096,
+          "ino": 562949954069130,
+          "size": 5699,
+          "blocks": 16,
+          "atimeMs": 1759868697327.7588,
+          "mtimeMs": 1759867789712.095,
+          "ctimeMs": 1759867789712.095,
+          "birthtimeMs": 1759867523202.8767
+        },
+        "duration": 0,
+        "evidencePath": "F:\\源码文档\\设置\\【项目】开发材料\\test-evidence\\R007_1759868993908.json"
+      },
+      "timestamp": "2025-10-07T20:29:53.909Z"
+    },
+    {
+      "id": "R008",
+      "name": "自我介绍API真实调用",
+      "result": {
+        "success": false,
+        "statusCode": 404,
+        "data": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /api/intro</pre>\n</body>\n</html>\n",
+        "duration": 3,
+        "evidencePath": "F:\\源码文档\\设置\\【项目】开发材料\\test-evidence\\R008_1759868993912.json"
+      },
+      "timestamp": "2025-10-07T20:29:53.913Z"
+    },
+    {
+      "id": "R009",
+      "name": "团队配置API真实调用",
+      "result": {
+        "success": false,
+        "statusCode": 404,
+        "data": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /api/team/config</pre>\n</body>\n</html>\n",
+        "duration": 2,
+        "evidencePath": "F:\\源码文档\\设置\\【项目】开发材料\\test-evidence\\R009_1759868993916.json"
+      },
+      "timestamp": "2025-10-07T20:29:53.917Z"
+    },
+    {
+      "id": "R010",
+      "name": "规则文件: policy/core-l1.yaml",
+      "result": {
+        "success": true,
+        "exists": true,
+        "stats": {
+          "dev": 1581339452,
+          "mode": 33206,
+          "nlink": 1,
+          "uid": 0,
+          "gid": 0,
+          "rdev": 0,
+          "blksize": 4096,
+          "ino": 281474977322009,
+          "size": 1199,
+          "blocks": 8,
+          "atimeMs": 1759868993261.0632,
+          "mtimeMs": 1759859604149.3948,
+          "ctimeMs": 1759859604149.3948,
+          "birthtimeMs": 1759756929493.8423
+        },
+        "duration": 0,
+        "evidencePath": "F:\\源码文档\\设置\\【项目】开发材料\\test-evidence\\R010_1759868993918.json"
+      },
+      "timestamp": "2025-10-07T20:29:53.919Z"
+    },
+    {
+      "id": "R011",
+      "name": "规则文件: policy/dialogue-l1.yaml",
+      "result": {
+        "success": true,
+        "exists": true,
+        "stats": {
+          "dev": 1581339452,
+          "mode": 33206,
+          "nlink": 1,
+          "uid": 0,
+          "gid": 0,
+          "rdev": 0,
+          "blksize": 4096,
+          "ino": 281474977345261,
+          "size": 1346,
+          "blocks": 8,
+          "atimeMs": 1759868993261.0632,
+          "mtimeMs": 1759859604149.3948,
+          "ctimeMs": 1759859604149.3948,
+          "birthtimeMs": 1759840012323.1333
+        },
+        "duration": 0,
+        "evidencePath": "F:\\源码文档\\设置\\【项目】开发材料\\test-evidence\\R011_1759868993920.json"
+      },
+      "timestamp": "2025-10-07T20:29:53.922Z"
+    },
+    {
+      "id": "R012",
+      "name": "规则文件: policy/data-format-l1.yaml",
+      "result": {
+        "success": true,
+        "exists": true,
+        "stats": {
+          "dev": 1581339452,
+          "mode": 33206,
+          "nlink": 1,
+          "uid": 0,
+          "gid": 0,
+          "rdev": 0,
+          "blksize": 4096,
+          "ino": 562949954069089,
+          "size": 9178,
+          "blocks": 24,
+          "atimeMs": 1759868993261.0632,
+          "mtimeMs": 1759868906746.9744,
+          "ctimeMs": 1759868906746.9744,
+          "birthtimeMs": 1759865478396.1277
+        },
+        "duration": 0,
+        "evidencePath": "F:\\源码文档\\设置\\【项目】开发材料\\test-evidence\\R012_1759868993922.json"
+      },
+      "timestamp": "2025-10-07T20:29:53.923Z"
+    },
+    {
+      "id": "R013",
+      "name": "规则文件: policy/gui-testing-best-practices.yaml",
+      "result": {
+        "success": true,
+        "exists": true,
+        "stats": {
+          "dev": 1581339452,
+          "mode": 33206,
+          "nlink": 1,
+          "uid": 0,
+          "gid": 0,
+          "rdev": 0,
+          "blksize": 4096,
+          "ino": 562949954069094,
+          "size": 13154,
+          "blocks": 32,
+          "atimeMs": 1759868993262.061,
+          "mtimeMs": 1759865973290.8806,
+          "ctimeMs": 1759865973290.8806,
+          "birthtimeMs": 1759865609079.581
+        },
+        "duration": 0,
+        "evidencePath": "F:\\源码文档\\设置\\【项目】开发材料\\test-evidence\\R013_1759868993923.json"
+      },
+      "timestamp": "2025-10-07T20:29:53.924Z"
+    },
+    {
+      "id": "R014",
+      "name": "规则文件: policy/version-management-l1.yaml",
+      "result": {
+        "success": true,
+        "exists": true,
+        "stats": {
+          "dev": 1581339452,
+          "mode": 33206,
+          "nlink": 1,
+          "uid": 0,
+          "gid": 0,
+          "rdev": 0,
+          "blksize": 4096,
+          "ino": 1970324837622397,
+          "size": 7914,
+          "blocks": 16,
+          "atimeMs": 1759868697358.757,
+          "mtimeMs": 1759867108960.7493,
+          "ctimeMs": 1759867108960.7493,
+          "birthtimeMs": 1759866689697.0518
+        },
+        "duration": 1,
+        "evidencePath": "F:\\源码文档\\设置\\【项目】开发材料\\test-evidence\\R014_1759868993925.json"
+      },
+      "timestamp": "2025-10-07T20:29:53.926Z"
+    },
+    {
+      "id": "R015",
+      "name": "规则文件: policy/testing-standards-l1.yaml",
+      "result": {
+        "success": true,
+        "exists": true,
+        "stats": {
+          "dev": 1581339452,
+          "mode": 33206,
+          "nlink": 1,
+          "uid": 0,
+          "gid": 0,
+          "rdev": 0,
+          "blksize": 4096,
+          "ino": 562949954069170,
+          "size": 8277,
+          "blocks": 24,
+          "atimeMs": 1759868697358.757,
+          "mtimeMs": 1759868549607.069,
+          "ctimeMs": 1759868549607.069,
+          "birthtimeMs": 1759868313283.014
+        },
+        "duration": 0,
+        "evidencePath": "F:\\源码文档\\设置\\【项目】开发材料\\test-evidence\\R015_1759868993926.json"
+      },
+      "timestamp": "2025-10-07T20:29:53.927Z"
+    },
+    {
+      "id": "R016",
+      "name": "工具: scripts/tools/version.cjs",
+      "result": {
+        "success": true,
+        "exists": true,
+        "stats": {
+          "dev": 1581339452,
+          "mode": 33206,
+          "nlink": 1,
+          "uid": 0,
+          "gid": 0,
+          "rdev": 0,
+          "blksize": 4096,
+          "ino": 562949954069119,
+          "size": 7078,
+          "blocks": 16,
+          "atimeMs": 1759868993891.7786,
+          "mtimeMs": 1759867108960.7493,
+          "ctimeMs": 1759867108960.7493,
+          "birthtimeMs": 1759866761512.1028
+        },
+        "duration": 1,
+        "evidencePath": "F:\\源码文档\\设置\\【项目】开发材料\\test-evidence\\R016_1759868993928.json"
+      },
+      "timestamp": "2025-10-07T20:29:53.929Z"
+    },
+    {
+      "id": "R017",
+      "name": "工具: scripts/tools/bump-version.cjs",
+      "result": {
+        "success": true,
+        "exists": true,
+        "stats": {
+          "dev": 1581339452,
+          "mode": 33206,
+          "nlink": 1,
+          "uid": 0,
+          "gid": 0,
+          "rdev": 0,
+          "blksize": 4096,
+          "ino": 562949954069121,
+          "size": 10708,
+          "blocks": 24,
+          "atimeMs": 1759868993542.6025,
+          "mtimeMs": 1759867108960.7493,
+          "ctimeMs": 1759867108960.7493,
+          "birthtimeMs": 1759866813905.5542
+        },
+        "duration": 0,
+        "evidencePath": "F:\\源码文档\\设置\\【项目】开发材料\\test-evidence\\R017_1759868993929.json"
+      },
+      "timestamp": "2025-10-07T20:29:53.930Z"
+    },
+    {
+      "id": "R018",
+      "name": "工具: scripts/tools/self-intro.cjs",
+      "result": {
+        "success": true,
+        "exists": true,
+        "stats": {
+          "dev": 1581339452,
+          "mode": 33206,
+          "nlink": 1,
+          "uid": 0,
+          "gid": 0,
+          "rdev": 0,
+          "blksize": 4096,
+          "ino": 562949954069129,
+          "size": 6240,
+          "blocks": 16,
+          "atimeMs": 1759868993890.78,
+          "mtimeMs": 1759867789712.095,
+          "ctimeMs": 1759867789712.095,
+          "birthtimeMs": 1759867488884.3408
+        },
+        "duration": 0,
+        "evidencePath": "F:\\源码文档\\设置\\【项目】开发材料\\test-evidence\\R018_1759868993930.json"
+      },
+      "timestamp": "2025-10-07T20:29:53.931Z"
+    },
+    {
+      "id": "R019",
+      "name": "工具: scripts/tools/upgrade-checklist.cjs",
+      "result": {
+        "success": true,
+        "exists": true,
+        "stats": {
+          "dev": 1581339452,
+          "mode": 33206,
+          "nlink": 1,
+          "uid": 0,
+          "gid": 0,
+          "rdev": 0,
+          "blksize": 4096,
+          "ino": 562949954069068,
+          "size": 7828,
+          "blocks": 16,
+          "atimeMs": 1759868973351.1624,
+          "mtimeMs": 1759865094919.5176,
+          "ctimeMs": 1759865094919.5176,
+          "birthtimeMs": 1759864868504.1133
+        },
+        "duration": 0,
+        "evidencePath": "F:\\源码文档\\设置\\【项目】开发材料\\test-evidence\\R019_1759868993931.json"
+      },
+      "timestamp": "2025-10-07T20:29:53.932Z"
+    },
+    {
+      "id": "R020",
+      "name": "工具: scripts/tools/file-integrity-check.cjs",
+      "result": {
+        "success": true,
+        "exists": true,
+        "stats": {
+          "dev": 1581339452,
+          "mode": 33206,
+          "nlink": 1,
+          "uid": 0,
+          "gid": 0,
+          "rdev": 0,
+          "blksize": 4096,
+          "ino": 562949954069069,
+          "size": 6578,
+          "blocks": 16,
+          "atimeMs": 1759868973367.1367,
+          "mtimeMs": 1759865094919.5176,
+          "ctimeMs": 1759865094919.5176,
+          "birthtimeMs": 1759864904265.9712
+        },
+        "duration": 0,
+        "evidencePath": "F:\\源码文档\\设置\\【项目】开发材料\\test-evidence\\R020_1759868993932.json"
+      },
+      "timestamp": "2025-10-07T20:29:53.933Z"
+    },
+    {
+      "id": "R021",
+      "name": "工具: scripts/tools/md-to-json-converter.cjs",
+      "result": {
+        "success": true,
+        "exists": true,
+        "stats": {
+          "dev": 1581339452,
+          "mode": 33206,
+          "nlink": 1,
+          "uid": 0,
+          "gid": 0,
+          "rdev": 0,
+          "blksize": 4096,
+          "ino": 562949954069096,
+          "size": 9767,
+          "blocks": 24,
+          "atimeMs": 1759868973415.4463,
+          "mtimeMs": 1759865973290.8806,
+          "ctimeMs": 1759865973290.8806,
+          "birthtimeMs": 1759865660013.8845
+        },
+        "duration": 0,
+        "evidencePath": "F:\\源码文档\\设置\\【项目】开发材料\\test-evidence\\R021_1759868993933.json"
+      },
+      "timestamp": "2025-10-07T20:29:53.934Z"
+    }
+  ],
+  "ir041_compliance": {
+    "all_tests_real": true,
+    "no_mocking": true,
+    "evidence_saved": true,
+    "actual_execution": true
+  }
+}

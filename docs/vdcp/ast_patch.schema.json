@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/ast_patch.schema.json",
+  "title": "AST Patch",
+  "type": "object",
+  "properties": {
+    "filePath": { "type": "string" },
+    "patches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "range": {
+            "type": "object",
+            "properties": {
+              "start": { "type": "integer", "minimum": 0 },
+              "end": { "type": "integer", "minimum": 0 }
+            },
+            "required": ["start", "end"],
+            "additionalProperties": false
+          },
+          "replacement": { "type": "string" },
+          "metadata": { "type": "object" }
+        },
+        "required": ["range", "replacement"],
+        "additionalProperties": false
+      }
+    },
+    "signature": { "type": "string" }
+  },
+  "required": ["filePath", "patches"]
+}

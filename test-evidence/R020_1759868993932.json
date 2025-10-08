@@ -1,0 +1,10 @@
+{
+  "testId": "R020",
+  "filePath": "scripts/tools/file-integrity-check.cjs",
+  "timestamp": "2025-10-07T20:29:53.932Z",
+  "duration": 0,
+  "exists": true,
+  "size": 6578,
+  "modified": "2025-10-07T19:24:54.920Z",
+  "success": true
+}

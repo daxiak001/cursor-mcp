@@ -1,0 +1,12 @@
+{
+  "builtAt": "2025-10-07T15:29:05.150Z",
+  "count": 252,
+  "duration": 20,
+  "categories": {
+    "other": 9,
+    "docs": 139,
+    "config": 36,
+    "scripts": 30,
+    "code": 38
+  }
+}

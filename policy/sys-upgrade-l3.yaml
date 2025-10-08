@@ -1,0 +1,198 @@
+rules:
+  - id: SYS-011
+    level: error
+    description: 系统升级安全规范（升级前必须备份，使用增量修改，验证完整性）
+    category: 系统管理
+    
+    # 升级前检查清单
+    pre_upgrade_checklist:
+      - item: 完整备份当前系统
+        command: "git stash && git branch backup-$(date +%Y%m%d_%H%M%S)"
+        description: 创建备份分支，保存当前所有更改
+        required: true
+        
+      - item: 记录文件清单
+        command: "git ls-files > .upgrade/file-list-before.txt"
+        description: 记录升级前的所有文件
+        required: true
+        
+      - item: 记录依赖版本
+        command: "npm list --depth=0 > .upgrade/deps-before.txt"
+        description: 保存当前依赖版本
+        required: true
+        
+      - item: 验证系统健康状态
+        command: "npm run rule-engine:test"
+        description: 确保当前系统正常运行
+        required: true
+        
+      - item: 准备回滚方案
+        description: 确认回滚步骤和责任人
+        required: true
+    
+    # 升级方式规范
+    upgrade_methods:
+      # 推荐方式
+      recommended:
+        - type: incremental_modification
+          tool: search_replace
+          description: 在现有文件中精准插入代码
+          priority: 1
+          example: |
+            # 使用search_replace在特定位置插入
+            old_string: "// 步骤1: 原有代码"
+            new_string: "// 步骤1: 原有代码\n// 步骤1.5: 新增代码"
+          
+        - type: append_to_file
+          tool: search_replace
+          description: 在文件末尾添加新内容
+          priority: 2
+          example: |
+            # 在模块末尾添加新函数
+            old_string: "module.exports = {...}"
+            new_string: "module.exports = {...}\n\n// 新增功能"
+      
+      # 允许方式
+      allowed:
+        - type: create_new_file
+          description: 创建独立的新文件
+          when: 
+            - 全新功能模块
+            - 独立工具脚本
+            - 新规则定义
+          naming: 使用清晰的文件名，标注版本
+          
+        - type: directory_restructure
+          description: 重组目录结构
+          when: 优化文件组织
+          requirement: 必须更新所有引用路径
+      
+      # 禁止方式
+      forbidden:
+        - type: file_replacement
+          description: 禁止整体替换核心文件
+          risk: 可能丢失重要功能和配置
+          exception: 仅在备份验证后允许
+          
+        - type: mass_deletion
+          description: 禁止批量删除文件
+          risk: 可能删除依赖文件
+          
+        - type: direct_edit_without_backup
+          description: 禁止不备份直接编辑
+          risk: 无法回滚
+    
+    # 升级后验证步骤
+    post_upgrade_verification:
+      - step: 文件完整性检查
+        command: "node scripts/tools/file-integrity-check.cjs"
+        description: 验证所有文件存在，无丢失
+        critical: true
+        
+      - step: 依赖完整性检查
+        command: "npm list --depth=0"
+        description: 确保所有依赖正常
+        critical: true
+        
+      - step: 核心功能验证
+        command: "npm run rule-engine:test"
+        description: 验证规则引擎正常
+        critical: true
+        
+      - step: 集成测试
+        command: "npm run test"
+        description: 运行所有测试用例
+        critical: false
+        
+      - step: 生成对比报告
+        commands:
+          - "git diff --stat backup-branch > .upgrade/changes-summary.txt"
+          - "git diff backup-branch > .upgrade/full-diff.patch"
+          - "git ls-files > .upgrade/file-list-after.txt"
+        description: 生成详细的变更记录
+        critical: true
+        
+      - step: 生成升级报告
+        command: "node scripts/tools/generate-upgrade-report.cjs"
+        description: 创建升级完成报告
+        critical: true
+    
+    # 回滚机制
+    rollback:
+      # 触发条件
+      triggers:
+        - condition: 文件完整性检查失败
+          severity: critical
+          
+        - condition: 核心功能验证失败
+          severity: critical
+          
+        - condition: 规则引擎无法启动
+          severity: critical
+          
+        - condition: 依赖冲突无法解决
+          severity: high
+          
+        - condition: 测试失败率>30%
+          severity: high
+      
+      # 回滚步骤
+      procedure:
+        - step: 停止所有服务
+          command: "pm2 stop all"
+          
+        - step: 恢复到备份分支
+          command: "git reset --hard backup-branch"
+          
+        - step: 恢复依赖
+          command: "npm install"
+          
+        - step: 清理升级痕迹
+          command: "rm -rf .upgrade/"
+          
+        - step: 重启服务
+          command: "pm2 restart all"
+          
+        - step: 验证回滚成功
+          command: "npm run rule-engine:test"
+          
+        - step: 记录回滚原因
+          command: "echo '回滚原因: ...' >> .upgrade/rollback-log.txt"
+      
+      # 备份保留
+      retention:
+        backup_branch: 7天
+        upgrade_logs: 30天
+        rollback_logs: 永久保存
+    
+    # 升级最佳实践
+    best_practices:
+      - practice: 小步快跑
+        description: 每次升级只改动少量功能，降低风险
+        
+      - practice: 增量验证
+        description: 每完成一个模块立即验证
+        
+      - practice: 保留原有功能
+        description: 新功能以扩展方式添加，不删除旧功能
+        
+      - practice: 详细记录
+        description: 记录每一步操作和决策原因
+        
+      - practice: 团队协作
+        description: 升级前通知团队，升级后集体验证
+    
+    # 紧急情况处理
+    emergency:
+      - situation: 升级过程中系统崩溃
+        action: 立即执行回滚，记录错误日志
+        
+      - situation: 发现关键文件丢失
+        action: 停止升级，从备份恢复，分析原因
+        
+      - situation: 依赖冲突无法解决
+        action: 回滚到稳定版本，调研兼容方案
+        
+      - situation: 生产环境故障
+        action: 优先回滚，确保服务可用
+

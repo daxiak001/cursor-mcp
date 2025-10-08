@@ -1,0 +1,245 @@
+rules:
+  - id: SYS-012
+    level: error
+    description: 版本管理规范（每次升级必须递增版本号，提供版本查询）
+    category: 系统管理
+    priority: critical
+    
+    # 核心要求
+    core_requirements:
+      version_increment:
+        rule: 每次升级必须递增版本号
+        format: "v主版本.次版本.修订号"
+        example: "v6.0.0 → v6.1.0 → v6.1.1"
+        
+        increment_rules:
+          major_version:
+            when: 重大架构变更、不兼容的API改动
+            example: "v6.0.0 → v7.0.0"
+          
+          minor_version:
+            when: 新增功能、新增规则、向后兼容的改进
+            example: "v6.0.0 → v6.1.0"
+          
+          patch_version:
+            when: Bug修复、小优化、文档更新
+            example: "v6.1.0 → v6.1.1"
+      
+      version_query:
+        rule: 必须提供版本查询功能
+        display_info:
+          - 当前版本号
+          - 更新日期
+          - 更新内容摘要
+          - 上一版本号
+          - 是否为最新版本
+        
+        query_methods:
+          - CLI命令: "node version.cjs"
+          - API接口: "GET /api/version"
+          - 启动日志: 服务启动时自动显示版本
+    
+    # 版本文件规范
+    version_file:
+      location: "version.json"
+      format: JSON
+      required_fields:
+        - version: 版本号（字符串）
+        - release_date: 发布日期（ISO 8601格式）
+        - update_summary: 更新摘要（字符串）
+        - previous_version: 上一版本号（字符串）
+        - changelog: 变更日志数组
+      
+      example: |
+        {
+          "version": "v6.1.0",
+          "release_date": "2025-10-08T14:30:00+08:00",
+          "update_summary": "新增GUI测试规则和数据格式规范",
+          "previous_version": "v6.0.0",
+          "changelog": [
+            {
+              "type": "feature",
+              "description": "新增IR-040数据格式规范",
+              "rules": ["IR-040"]
+            },
+            {
+              "type": "feature",
+              "description": "新增GUI测试规则集",
+              "rules": ["TEST-001", "TEST-002", "TEST-003"]
+            },
+            {
+              "type": "tool",
+              "description": "新增MD转JSON转换工具",
+              "files": ["scripts/tools/md-to-json-converter.cjs"]
+            }
+          ],
+          "statistics": {
+            "total_rules": 145,
+            "new_rules": 13,
+            "total_tools": 28,
+            "new_tools": 1
+          }
+        }
+    
+    # 升级流程规范
+    upgrade_workflow:
+      step1_update_version:
+        description: 更新版本号
+        actions:
+          - 编辑version.json
+          - 递增版本号
+          - 更新release_date
+          - 填写update_summary
+          - 记录changelog
+      
+      step2_test_version_query:
+        description: 测试版本查询
+        actions:
+          - 运行 node scripts/tools/version.cjs
+          - 验证显示正确的版本信息
+          - 检查日期格式
+      
+      step3_update_documentation:
+        description: 更新文档
+        actions:
+          - 更新README.md中的版本号
+          - 更新CHANGELOG.md
+          - 生成升级报告
+      
+      step4_commit:
+        description: 提交版本更新
+        commit_message_format: "chore: bump version to v{version}"
+        example: "chore: bump version to v6.1.0"
+    
+    # 版本检查机制
+    version_check:
+      startup_check:
+        description: 服务启动时自动显示版本
+        implementation: |
+          console.log('==================================================')
+          console.log(`  系统版本: ${version}`)
+          console.log(`  发布日期: ${releaseDate}`)
+          console.log(`  更新内容: ${updateSummary}`)
+          console.log('==================================================')
+      
+      api_check:
+        endpoint: GET /api/version
+        response: |
+          {
+            "version": "v6.1.0",
+            "release_date": "2025-10-08T14:30:00+08:00",
+            "update_summary": "...",
+            "is_latest": true,
+            "uptime": "2h 15m"
+          }
+      
+      cli_check:
+        command: node scripts/tools/version.cjs
+        output: |
+          ========================================
+          系统版本信息
+          ========================================
+          当前版本: v6.1.0
+          发布日期: 2025-10-08 14:30:00
+          更新内容: 新增GUI测试规则和数据格式规范
+          上一版本: v6.0.0
+          
+          变更统计:
+            新增规则: 13条
+            新增工具: 1个
+            总规则数: 145条
+          
+          状态: ✅ 最新版本
+          ========================================
+    
+    # 版本历史管理
+    version_history:
+      location: "version-history.json"
+      format: JSON数组
+      content: 所有历史版本的完整记录
+      
+      example: |
+        [
+          {
+            "version": "v6.1.0",
+            "release_date": "2025-10-08T14:30:00+08:00",
+            "update_summary": "新增GUI测试规则和数据格式规范",
+            "changelog": [...]
+          },
+          {
+            "version": "v6.0.0",
+            "release_date": "2025-10-07T10:00:00+08:00",
+            "update_summary": "系统核心架构完成",
+            "changelog": [...]
+          }
+        ]
+    
+    # 强制执行
+    enforcement:
+      pre_upgrade_check:
+        - 检查version.json是否存在
+        - 验证版本号格式
+        - 确认版本号已递增
+        - 验证必需字段完整
+      
+      post_upgrade_check:
+        - 运行版本查询测试
+        - 验证API返回正确
+        - 检查启动日志显示版本
+      
+      blocking_conditions:
+        - 版本号未递增 → 阻止升级
+        - version.json格式错误 → 阻止升级
+        - 缺少必需字段 → 阻止升级
+    
+    # 自动化工具
+    automation_tools:
+      version_bump:
+        script: scripts/tools/bump-version.cjs
+        usage: |
+          node scripts/tools/bump-version.cjs major   # 主版本+1
+          node scripts/tools/bump-version.cjs minor   # 次版本+1
+          node scripts/tools/bump-version.cjs patch   # 修订号+1
+        
+        features:
+          - 自动递增版本号
+          - 自动更新发布日期
+          - 交互式填写更新摘要
+          - 自动追加到历史记录
+      
+      version_query:
+        script: scripts/tools/version.cjs
+        usage: node scripts/tools/version.cjs
+        features:
+          - 显示当前版本
+          - 显示更新日期
+          - 显示变更统计
+          - 显示是否为最新版
+      
+      version_compare:
+        script: scripts/tools/version-compare.cjs
+        usage: node scripts/tools/version-compare.cjs v6.0.0 v6.1.0
+        features:
+          - 比较两个版本
+          - 显示版本差异
+          - 列出新增功能
+    
+    # 最佳实践
+    best_practices:
+      - practice: 每次合并PR前更新版本
+        reason: 确保每次变更都有版本记录
+      
+      - practice: 在升级报告中包含版本信息
+        reason: 便于追溯和审计
+      
+      - practice: 定期查询版本确认使用最新版
+        reason: 避免使用过时版本
+      
+      - practice: 保留完整的版本历史
+        reason: 便于回溯和问题诊断
+    
+    # 相关规则
+    related_rules:
+      - SYS-011: 系统升级安全规范
+      - IR-040: 数据文件格式规范（version.json使用JSON）
+

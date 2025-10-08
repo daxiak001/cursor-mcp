@@ -1,0 +1,16 @@
+{
+  "timestamp": 1759853605106,
+  "timestampISO": "2025-10-07T16:13:25.106Z",
+  "queries": [
+    "自动化测试"
+  ],
+  "durationMs": 800,
+  "planned": {
+    "action": "执行测试脚本",
+    "files": [
+      "快速测试脚本.ps1"
+    ]
+  },
+  "candidates": [],
+  "reason": ""
+}

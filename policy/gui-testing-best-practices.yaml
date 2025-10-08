@@ -1,0 +1,418 @@
+rules:
+  - id: TEST-001
+    level: error
+    description: GUI测试验证标准（不相信日志，必须截图验证）
+    category: GUI测试
+    priority: critical
+    
+    core_principle:
+      错误思维: "我写了代码，应该能工作"
+      正确思维: "我必须用截图/监控工具亲眼验证结果"
+      
+      关键规则:
+        - 不截图 = 不验证 = 不可信
+        - 代码执行成功 ≠ 功能正确
+        - 日志显示"成功" ≠ 用户看到了结果
+    
+    # 测试步骤标准
+    standard_workflow:
+      step1_execute:
+        name: 执行操作
+        example: "window.type_keys('测试内容')"
+      
+      step2_screenshot:
+        name: 立即截图
+        required: true
+        code: |
+          import pyautogui
+          import time
+          from datetime import datetime
+          
+          time.sleep(0.5)  # 等待UI更新
+          timestamp = datetime.now().strftime("%H%M%S")
+          screenshot = pyautogui.screenshot()
+          screenshot.save(f"verify_{timestamp}.png")
+      
+      step3_analyze:
+        name: 分析截图
+        methods:
+          - 像素分析
+          - 文字检测（OCR）
+          - 图像对比
+          - 人工检查
+        
+        code: |
+          import cv2
+          import numpy as np
+          
+          img = cv2.imread("verify.png")
+          gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+          # 分析图像...
+      
+      step4_report:
+        name: 生成验证报告
+        required: true
+        output: HTML报告 + 截图
+  
+  - id: TEST-002
+    level: error
+    description: 屏幕分辨率检测（必须先检测，再操作）
+    category: GUI测试
+    
+    requirement:
+      永远先检测:
+        code: |
+          import pyautogui
+          
+          # 第一步：检测分辨率
+          screen_width, screen_height = pyautogui.size()
+          print(f"✅ 屏幕分辨率: {screen_width} x {screen_height}")
+          
+          # 第二步：基于分辨率计算坐标
+          region_x = screen_width // 2
+          region_y = screen_height // 2
+          
+          # 第三步：执行操作
+          screenshot = pyautogui.screenshot(region=(
+              region_x, region_y, 
+              screen_width // 2, screen_height // 2
+          ))
+      
+      禁止硬编码:
+        错误: "screenshot = pyautogui.screenshot(region=(0, 0, 1920, 1080))"
+        原因: 不同分辨率下会失效
+        正确: "基于动态检测的分辨率计算坐标"
+  
+  - id: TEST-003
+    level: error
+    description: 混合检测策略（pywinauto + OpenCV）
+    category: GUI测试
+    
+    strategy:
+      单一方法局限:
+        pywinauto:
+          优点: 精确、可获取属性
+          缺点: 对Image控件支持差
+          成功率: 60%
+        
+        opencv:
+          优点: 通用、视觉直观
+          缺点: 可能误判、需调参
+          成功率: 70%
+        
+        混合策略:
+          优点: 互补优势
+          成功率: 95%
+      
+      implementation:
+        method1_pywinauto:
+          description: 控件树扫描
+          code: |
+            all_controls = window.descendants()
+            for ctrl in all_controls:
+                if ctrl.element_info.control_type in ['Button', 'Image']:
+                    candidates.append(ctrl)
+        
+        method2_opencv:
+          description: 图像识别
+          code: |
+            screenshot = pyautogui.screenshot(region=search_area)
+            img = cv2.cvtColor(np.array(screenshot), cv2.COLOR_RGB2BGR)
+            edges = cv2.Canny(gray, 50, 150)
+            contours, _ = cv2.findContours(edges, cv2.RETR_EXTERNAL, 
+                                           cv2.CHAIN_APPROX_SIMPLE)
+        
+        method3_cross_validation:
+          description: 交叉验证（最高分）
+          logic: |
+            如果pywinauto和opencv都找到了相同位置，加分
+            位置接近（容差10px）→ 得分+50
+            返回得分最高的候选
+  
+  - id: TEST-004
+    level: error
+    description: 渐进式搜索策略（从严格到宽松）
+    category: GUI测试
+    
+    progressive_search:
+      level1_strict:
+        description: 精确搜索
+        params:
+          size_range: [15, 60]
+          aspect_ratio: [0.8, 1.2]
+          min_area: 100
+        
+      level2_relaxed:
+        description: 扩大范围
+        params:
+          size_range: [10, 80]
+          aspect_ratio: [0.5, 2.0]
+          min_area: 50
+          search_area: 扩大100px
+      
+      level3_super_relaxed:
+        description: 超大范围
+        params:
+          size_range: [5, 100]
+          aspect_ratio: [0.3, 3.0]
+          min_area: 20
+          search_area: 扩大300px
+          智能排序: 距离目标区域越近，得分越高
+      
+      failure_handling:
+        - 截图诊断
+        - 检查窗口状态
+        - 检查控件树
+        - 建议人工定位
+  
+  - id: TEST-005
+    level: error
+    description: 生成人类可读的验证报告（HTML + 截图）
+    category: GUI测试
+    
+    report_structure:
+      html_template:
+        sections:
+          - 测试概况（时间、项目数、分辨率）
+          - 每个测试项（状态、步骤、截图）
+          - 验证检查清单
+        
+        features:
+          - 彩色状态标记（成功/警告/错误）
+          - 嵌入截图
+          - 详细步骤说明
+          - 人工检查提示
+      
+      output_files:
+        - verification_report.html
+        - screenshots/*.png
+        - test_data.json
+      
+      example_code: |
+        def generate_verification_report(test_results):
+            html = f'''
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <meta charset="UTF-8">
+                <title>自动化测试验证报告</title>
+                <style>
+                    .success {{ border-color: #4CAF50; }}
+                    .error {{ border-color: #f44336; }}
+                </style>
+            </head>
+            <body>
+                <h1>🧪 自动化测试验证报告</h1>
+                {generate_test_items(test_results)}
+                <div class="checklist">
+                    <h2>📋 验证检查清单</h2>
+                    <ul>
+                        <li>✅ 所有截图是否清晰完整</li>
+                        <li>✅ 输入的文字是否正确显示</li>
+                        <li>✅ 按钮位置标记是否准确</li>
+                    </ul>
+                </div>
+            </body>
+            </html>
+            '''
+            with open("verification_report.html", "w", encoding="utf-8") as f:
+                f.write(html)
+  
+  - id: TEST-006
+    level: error
+    description: 穷尽式目标搜索（不假设，不遗漏）
+    category: GUI测试
+    
+    principles:
+      不要假设:
+        - "1个窗口 = 1个输入框" ❌
+        - "看得见的才需要检测" ❌
+        - "最小化的窗口可以忽略" ❌
+      
+      正确做法:
+        - 扫描所有窗口
+        - 查找所有控件（包括不可见的）
+        - 进一步筛选符合特征的
+        - 统计和报告所有结果
+      
+      example_code: |
+        def find_all_input_targets(windows):
+            all_targets = []
+            
+            for window_idx, window in enumerate(windows):
+                # 不要只找"可见"的，要找"所有"的
+                all_controls = window.descendants()
+                
+                for ctrl in all_controls:
+                    if ctrl.element_info.control_type in ['Edit', 'Document', 'Text']:
+                        # 不要过滤"不可见"的
+                        # 它可能只是被覆盖或在后台
+                        all_targets.append(ctrl)
+            
+            return all_targets
+  
+  - id: TEST-007
+    level: error
+    description: 失败时的系统化排查
+    category: GUI测试
+    
+    diagnostic_workflow:
+      check1_window_status:
+        - 窗口是否存在
+        - 窗口标题
+        - 窗口位置和尺寸
+      
+      check2_screen_resolution:
+        - 当前分辨率
+        - 窗口是否在屏幕外
+      
+      check3_screenshot_test:
+        - 全屏截图
+        - 窗口截图
+        - 保存诊断图像
+      
+      check4_control_tree:
+        - 总控件数
+        - 控件类型分布
+        - TOP10控件类型
+      
+      check5_visual_check:
+        - 查看诊断截图
+        - 确认目标元素是否可见
+        - 建议使用交互式工具
+      
+      diagnostic_report:
+        - 总结所有检查结果
+        - 提供下一步建议
+        - 记录诊断日志
+
+  - id: TEST-008
+    level: error
+    description: 必需的Python库和导入模板
+    category: GUI测试
+    
+    required_libraries:
+      installation: "pip install pywinauto pyautogui opencv-python pillow numpy"
+      
+      import_template: |
+        import pyautogui          # 截图、鼠标控制
+        import cv2                # 图像处理
+        import numpy as np        # 数值计算
+        from pywinauto import Desktop  # UI自动化
+        from PIL import Image     # 图像操作
+        import time               # 延时
+        from datetime import datetime  # 时间戳
+  
+  - id: TEST-009
+    level: error
+    description: AI工作前的检查清单
+    category: GUI测试
+    
+    pre_work_checklist:
+      questions:
+        - question: 我是否先检测了屏幕分辨率？
+          required: true
+        
+        - question: 我是否计划在操作后立即截图验证？
+          required: true
+        
+        - question: 我是否准备了混合检测策略？
+          required: true
+        
+        - question: 我是否考虑了渐进式搜索？
+          required: true
+        
+        - question: 我是否会生成人类可读的验证报告？
+          required: true
+        
+        - question: 我是否会穷尽搜索所有可能的目标？
+          required: true
+        
+        - question: 我是否准备了失败诊断流程？
+          required: true
+      
+      rule: 如果以上任何一项是"否"，停下来重新设计方案！
+  
+  - id: TEST-010
+    level: error
+    description: 成功标准（5个必需组件）
+    category: GUI测试
+    
+    success_criteria:
+      component1:
+        name: 代码执行
+        required: true
+      
+      component2:
+        name: 立即截图
+        required: true
+      
+      component3:
+        name: 图像分析
+        required: true
+        note: 可以是自动分析或人工检查
+      
+      component4:
+        name: HTML报告
+        required: true
+      
+      component5:
+        name: 清晰的验证指引
+        required: true
+        note: 告诉人类看什么
+      
+      example_output: |
+        ✅ 屏幕分辨率: 2560 x 1440
+        ✅ 找到 2 个Cursor窗口
+        ✅ 检测到 3 个按钮
+        ✅ 验证图已保存: button_verification.png
+        ✅ HTML报告已生成: verification_report.html
+        
+        📋 请验证：
+           1. 打开 button_verification.png
+           2. 确认红色方框是否在正确位置
+           3. 如有问题，查看 verification_report.html 详情
+
+  - id: TEST-011
+    level: error
+    description: 常见错误及修正
+    category: GUI测试
+    
+    common_mistakes:
+      mistake1_only_logs:
+        错误: "print('✅ 按钮点击成功')"
+        正确: |
+          print("✅ 按钮点击成功")
+          screenshot = pyautogui.screenshot()
+          screenshot.save("after_click.png")
+          print("   验证截图: after_click.png")
+      
+      mistake2_hardcoded_coordinates:
+        错误: "pyautogui.click(1920, 1080)"
+        正确: |
+          screen_w, screen_h = pyautogui.size()
+          pyautogui.click(screen_w - 100, screen_h - 100)
+      
+      mistake3_single_target_assumption:
+        错误: "input_box = window.child_window(control_type='Edit')"
+        正确: |
+          all_input_boxes = [ctrl for ctrl in window.descendants()
+                             if ctrl.element_info.control_type == "Edit"]
+          print(f"找到 {len(all_input_boxes)} 个输入框")
+      
+      mistake4_give_up_on_failure:
+        错误: |
+          result = find_button(strict_params)
+          if not result:
+              print("失败")
+              return
+        
+        正确: |
+          result = find_button(strict_params)
+          if not result:
+              result = find_button(relaxed_params)
+              if not result:
+                  result = find_button(super_relaxed_params)
+                  if not result:
+                      diagnose_and_suggest_manual()
+
